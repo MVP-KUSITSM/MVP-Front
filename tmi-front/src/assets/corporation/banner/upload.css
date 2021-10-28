@@ -1,0 +1,42 @@
+.Banner-Upload {
+    display: flex;
+    width: 1280px;
+    height: 720px;
+    background: #FFFFFF;
+}
+
+.title {
+    position: absolute;
+    left: 24.22%;
+    right: 64.92%;
+    top: 20.14%;
+    bottom: 75.97%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+}
+
+.banner-add {
+    position: absolute;
+    width: 249px;
+    height: 197px;
+
+    left: 24.22%;
+    right: 56.33%;
+    top: 29.44%;
+    bottom: 43.19%;
+    background: #C4C4C4;
+}
+
+.banner-add-text {
+    text-align: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
