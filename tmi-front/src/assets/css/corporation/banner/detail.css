@@ -1,4 +1,4 @@
-.Banner-Upload {
+.Banner-Detail {
     display: flex;
     width: 1280px;
     height: 720px;
@@ -32,6 +32,7 @@
 }
 
 .banner-add-text {
+    margin-top: 35%;
     text-align: center;
     font-family: Roboto;
     font-style: normal;
