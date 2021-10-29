@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+
+import GNB from "../GNB/GNB";
+import LNB from "../LNB/LNB";
 import { Button } from 'react-bootstrap';
+
 
 function Dashboard() {
   //대시보드 
@@ -15,6 +19,9 @@ function Dashboard() {
   //프로토타입 리뷰
   let 평균별점 = 0.0
   return (
+    <>
+    <GNB />
+    <LNB />
     <div>
         <div >
           <h4>대시보드</h4>
@@ -59,6 +66,7 @@ function Dashboard() {
           </div>
         </div>
     </div>
+    </>
   );
 }
 
