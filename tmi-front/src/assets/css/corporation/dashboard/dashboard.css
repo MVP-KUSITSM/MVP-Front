@@ -1,20 +1,14 @@
-div {
-    border-color: black;
-    border-width: 1px;
+.flex{
+    display : flex;
 }
 
-h4 {
-    font-weight: border;
-}
 
 .Main_part{
-    position: flex;
-    width : 1280px;
-    background-color:pink;
+    /* width : 1280px; */
 }
 /* Dashboard */
 .Dashboard{
-    position: absolute;
+    /* position: absolute; */
     left: 24.22%;
     right: 64.92%;
     top: 20.14%;
