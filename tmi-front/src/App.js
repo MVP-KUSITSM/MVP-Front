@@ -18,6 +18,9 @@ import CP_Main from "./component/corporation/Prototype/Main";
 import CP_Detail from "./component/corporation/Prototype/Detail";
 import CP_Upload from "./component/corporation/Prototype/Upload";
 
+//개인 컴포넌트
+import B_Funding from "./component/mvp/Banner/Funding";
+
 function App() {
   return (
     <BrowserRouter>
@@ -33,6 +36,7 @@ function App() {
         <Route exact path="/corporation/prototype/main" component={CP_Main} />
         <Route exact path="/corporation/prototype/detail" component={CP_Detail} />
         <Route exact path="/corporation/prototype/upload" component={CP_Upload} />
+        <Route exact path="/banner/funding" component={B_Funding} />
       </Switch>
     </BrowserRouter>
   );
