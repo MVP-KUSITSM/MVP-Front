@@ -7,9 +7,9 @@
 
 .title {
     position: absolute;
-    left: 24.22%;
+    left: 20%;
     right: 68.36%;
-    top: 9.71%;
+    top: 1%;
     bottom: 88.42%;
     font-family: Roboto;
     font-style: normal;
@@ -23,7 +23,7 @@
     position: absolute;
     left: 24.22%;
     right: 67.42%;
-    top: 14.93%;
+    top: 30%;
     bottom: 83.33%;
     font-family: Roboto;
     font-style: normal;
@@ -39,10 +39,10 @@
     height: 169px;
     left: 312px;
     top: 270px;
-    position: absolute;
+  
     left: 24.38%;
     right: 42.73%;
-    top: 18.07%;
+    top: 37%;
     bottom: 70.62%;
     background: #C4C4C4;
 }
@@ -55,7 +55,7 @@
     top: 471px;
     left: 24.53%;
     right: 4.38%;
-    top: 31.53%;
+    top: 66%;
     bottom: 64.59%;
     background: #C4C4C4;
 }
@@ -64,7 +64,7 @@
     position: absolute;
     left: 24.22%;
     right: 67.42%;
-    top: 40.96%;
+    top: 85%;
     bottom: 57.3%;
     font-family: Roboto;
     font-style: normal;
@@ -72,6 +72,11 @@
     font-size: 22px;
     line-height: 26px;
     color: #000000;
+}
+
+.basic-chart {
+    display: flex;
+    flex-direction: row;
 }
 
 .gender-chart {
@@ -82,7 +87,7 @@
     top: 661px;
     left: 24.38%;
     right: 49.92%;
-    top: 44.24%;
+    top: 97%;
     bottom: 42.44%;
     background: #C4C4C4;
 }
@@ -93,9 +98,9 @@
     height: 196.83px;
     left: 694px;
     top: 662.09px;
-    left: 54.22%;
+    left: 50%;
     right: 4.22%;
-    top: 44.32%;
+    top: 97%;
     bottom: 42.51%;
     background: #C4C4C4;
 }
@@ -108,7 +113,7 @@
     top: 896px;
     left: 24.38%;
     right: 4.38%;
-    top: 59.97%;
+    top: 130%;
     bottom: 23.49%;
     background: #C4C4C4;
 }
@@ -121,7 +126,7 @@
     top: 1186px;
     left: 24.38%;
     right: 4.38%;
-    top: 79.38%;
+    top: 170%;
     bottom: 4.08%;
     background: #C4C4C4;
 }
@@ -130,7 +135,7 @@
     position: absolute;
     left: 24.38%;
     right: 4.22%;
-    top: 12.99%;
+    top: 27%;
     bottom: 87.01%;
     border: 1px solid #C4C4C4;
 }
@@ -139,7 +144,7 @@
     position: absolute;
     left: 24.38%;
     right: 4.22%;
-    top: 38.15%;
+    top: 80%;
     bottom: 61.85%;
     border: 1px solid #C4C4C4;
 }
