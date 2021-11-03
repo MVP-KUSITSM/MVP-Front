@@ -1,686 +1,150 @@
-/* 배너 펀딩 결과 */
-
-position: relative;
-width: 1280px;
-height: 1494px;
-
-background: #FFFFFF;
-
-
-/* GNB */
-
-position: absolute;
-width: 1280px;
-height: 95px;
-left: 0px;
-top: 0px;
-
-
-
-/* Rectangle 3 */
-
-position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 93.64%;
-
-background: #FFFFFF;
-border: 1px solid #000000;
-
-
-/* Logo */
-
-position: absolute;
-left: 3.12%;
-right: 87.73%;
-top: 2.21%;
-bottom: 95.92%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 28px;
-
-color: #000000;
-
-
-
-/* 프로필 */
-
-position: absolute;
-left: 83.52%;
-right: 12.58%;
-top: 1.47%;
-bottom: 95.18%;
-
-
-
-/* user */
-
-position: absolute;
-left: 83.77%;
-right: 12.83%;
-top: 1.47%;
-bottom: 95.61%;
-
-
-
-/* Vector */
-
-position: absolute;
-left: 16.67%;
-right: 16.67%;
-top: 68.06%;
-bottom: 6.94%;
-
-border: 2px solid #000000;
-
-
-/* Vector */
-
-position: absolute;
-left: 33.33%;
-right: 33.33%;
-top: 18.06%;
-bottom: 48.61%;
-
-border: 2px solid #000000;
-
-
-/* Vector */
-
-position: absolute;
-left: 83.52%;
-right: 12.58%;
-top: 1.47%;
-bottom: 95.18%;
-
-border: 2px solid #000000;
-
-
-/* 프로필 */
-
-position: absolute;
-left: 89.14%;
-right: 5.62%;
-top: 2.21%;
-bottom: 95.92%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 28px;
-
-color: #000000;
-
-
-
-/* chevron-down */
-
-position: absolute;
-left: 95.16%;
-right: 2.97%;
-top: 2.34%;
-bottom: 96.05%;
-
-
-
-/* Vector */
-
-position: absolute;
-left: 25%;
-right: 25%;
-top: 37.5%;
-bottom: 37.5%;
-
-border: 2px solid #000000;
-
-
-/* LNB */
-
-position: absolute;
-width: 257px;
-height: 1398px;
-left: 0px;
-top: 96px;
-
-
-
-/* Rectangle 4 */
-
-position: absolute;
-left: 0%;
-right: 79.92%;
-top: 6.43%;
-bottom: 0%;
-
-background: #FFFFFF;
-border: 1px solid #000000;
-
-
-/* Menu1 */
-
-position: absolute;
-left: 2.89%;
-right: 90.16%;
-top: 9.71%;
-bottom: 88.42%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 28px;
-
-color: #000000;
-
-
-
-/* Menu2 */
-
-position: absolute;
-left: 3.12%;
-right: 89.45%;
-top: 13.65%;
-bottom: 84.47%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 28px;
-
-color: #000000;
-
-
-
-/* Menu3 */
-
-position: absolute;
-left: 2.89%;
-right: 84.53%;
-top: 17.6%;
-bottom: 80.52%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 28px;
-
-color: #000000;
-
-
-
-/* Menu4 */
-
-position: absolute;
-left: 2.89%;
-right: 84.06%;
-top: 21.55%;
-bottom: 76.57%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 28px;
-
-color: #000000;
-
-
-
-/* Menu5 */
-
-position: absolute;
-left: 2.89%;
-right: 86.25%;
-top: 25.5%;
-bottom: 72.62%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 28px;
-
-color: #000000;
-
-
-
-/* 배너 이미지 */
-
-position: absolute;
-width: 421px;
-height: 169px;
-left: 312px;
-top: 270px;
-
-
-
-/* Rectangle 1 */
-
-position: absolute;
-left: 24.38%;
-right: 42.73%;
-top: 18.07%;
-bottom: 70.62%;
-
-background: #C4C4C4;
-
-
-/* Vector 1 */
-
-position: absolute;
-left: 24.72%;
-right: 43.15%;
-top: 18.13%;
-bottom: 70.71%;
-
-border: 1px solid #000000;
-
-
-/* 배너 이미지 */
-
-position: absolute;
-left: 29.15%;
-right: 47.51%;
-top: 23.36%;
-bottom: 75.17%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 21px;
-text-align: center;
-
-color: #000000;
-
-
-
-/* 배너 이미지 */
-
-position: absolute;
-width: 421px;
-height: 169px;
-left: 803px;
-top: 270px;
-
-
-
-/* Rectangle 1 */
-
-position: absolute;
-left: 62.73%;
-right: 4.38%;
-top: 18.07%;
-bottom: 70.62%;
-
-background: #C4C4C4;
-
-
-/* Vector 1 */
-
-position: absolute;
-left: 63.08%;
-right: 4.79%;
-top: 18.13%;
-bottom: 70.71%;
-
-border: 1px solid #000000;
-
-
-/* 배너 이미지 */
-
-position: absolute;
-left: 67.51%;
-right: 9.15%;
-top: 23.36%;
-bottom: 75.17%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 21px;
-text-align: center;
-
-color: #000000;
-
-
-
-/* 비율 */
-
-position: absolute;
-width: 910px;
-height: 58px;
-left: 314px;
-top: 471px;
-
-
-
-/* Rectangle 1 */
-
-position: absolute;
-left: 24.53%;
-right: 4.38%;
-top: 31.53%;
-bottom: 64.59%;
-
-background: #C4C4C4;
-
-
-/* Vector 1 */
-
-position: absolute;
-left: 25.28%;
-right: 5.27%;
-top: 31.54%;
-bottom: 64.62%;
-
-border: 1px solid #000000;
-
-
-/* 선호도 비율 */
-
-position: absolute;
-left: 34.86%;
-right: 14.7%;
-top: 32.81%;
-bottom: 66.69%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 21px;
-text-align: center;
-
-color: #000000;
-
-
-
-/* 성별 차트 */
-
-position: absolute;
-width: 329px;
-height: 199px;
-left: 312px;
-top: 661px;
-
-
-
-/* Rectangle 1 */
-
-position: absolute;
-left: 24.38%;
-right: 49.92%;
-top: 44.24%;
-bottom: 42.44%;
-
-background: #C4C4C4;
-
-
-/* Vector 1 */
-
-position: absolute;
-left: 24.65%;
-right: 50.25%;
-top: 44.31%;
-bottom: 42.54%;
-
-border: 1px solid #000000;
-
-
-/* 성별 차트 */
-
-position: absolute;
-left: 28.11%;
-right: 53.66%;
-top: 50.47%;
-bottom: 47.8%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 21px;
-text-align: center;
-
-color: #000000;
-
-
-
-/* 연령별 차트 */
-
-position: absolute;
-width: 532px;
-height: 196.83px;
-left: 694px;
-top: 662.09px;
-
-
-
-/* Rectangle 1 */
-
-position: absolute;
-left: 54.22%;
-right: 4.22%;
-top: 44.32%;
-bottom: 42.51%;
-
-background: #C4C4C4;
-
-
-/* Vector 1 */
-
-position: absolute;
-left: 54.66%;
-right: 4.74%;
-top: 44.38%;
-bottom: 42.61%;
-
-border: 1px solid #000000;
-
-
-/* 연령별 차트 */
-
-position: absolute;
-left: 60.26%;
-right: 10.26%;
-top: 50.47%;
-bottom: 47.81%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 21px;
-text-align: center;
-
-color: #000000;
-
-
-
-/* 직업 차트 */
-
-position: absolute;
-width: 912px;
-height: 247px;
-left: 312px;
-top: 896px;
-
-
-
-/* Rectangle 1 */
-
-position: absolute;
-left: 24.38%;
-right: 4.38%;
-top: 59.97%;
-bottom: 23.49%;
-
-background: #C4C4C4;
-
-
-/* Vector 1 */
-
-position: absolute;
-left: 25.12%;
-right: 5.27%;
-top: 60.05%;
-bottom: 23.63%;
-
-border: 1px solid #000000;
-
-
-/* 직업 차트 */
-
-position: absolute;
-left: 34.73%;
-right: 14.73%;
-top: 67.7%;
-bottom: 30.15%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 21px;
-text-align: center;
-
-color: #000000;
-
-
-
-/* 관심분야 차트 */
-
-position: absolute;
-width: 912px;
-height: 247px;
-left: 312px;
-top: 1186px;
-
-
-
-/* Rectangle 1 */
-
-position: absolute;
-left: 24.38%;
-right: 4.38%;
-top: 79.38%;
-bottom: 4.08%;
-
-background: #C4C4C4;
-
-
-/* Vector 1 */
-
-position: absolute;
-left: 25.12%;
-right: 5.27%;
-top: 79.46%;
-bottom: 4.22%;
-
-border: 1px solid #000000;
-
-
-/* 관심분야 차트 */
-
-position: absolute;
-left: 34.73%;
-right: 14.73%;
-top: 87.11%;
-bottom: 10.74%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 21px;
-text-align: center;
-
-color: #000000;
-
-
-
-/* 펀딩 결과 */
-
-position: absolute;
-left: 24.22%;
-right: 68.36%;
-top: 9.71%;
-bottom: 88.42%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 28px;
-
-color: #000000;
-
-
-
-/* 배너 선호도 */
-
-position: absolute;
-left: 24.22%;
-right: 67.42%;
-top: 14.93%;
-bottom: 83.33%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 22px;
-line-height: 26px;
-/* identical to box height */
-
-color: #000000;
-
-
-
-/* 참여자 통계 */
-
-position: absolute;
-left: 24.22%;
-right: 67.42%;
-top: 40.96%;
-bottom: 57.3%;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 22px;
-line-height: 26px;
-/* identical to box height */
-
-color: #000000;
-
-
-
-/* Line 2 */
-
-position: absolute;
-left: 24.38%;
-right: 4.22%;
-top: 12.99%;
-bottom: 87.01%;
-
-border: 1px solid #C4C4C4;
-
-
-/* Line 3 */
-
-position: absolute;
-left: 24.38%;
-right: 4.22%;
-top: 38.15%;
-bottom: 61.85%;
-
-border: 1px solid #C4C4C4;
+.Banner-Result {
+    position: flex;
+    width: 1280px;
+    height: 1494px;
+    background: #FFFFFF;
+}
+
+.title {
+    position: absolute;
+    left: 20%;
+    right: 68.36%;
+    top: 1%;
+    bottom: 88.42%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+}
+
+.banner-favor-text {
+    position: absolute;
+    left: 24.22%;
+    right: 67.42%;
+    top: 30%;
+    bottom: 83.33%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 26px;
+    color: #000000;
+}
+
+.banner-img {
+    position: absolute;
+    width: 421px;
+    height: 169px;
+    left: 312px;
+    top: 270px;
+  
+    left: 24.38%;
+    right: 42.73%;
+    top: 37%;
+    bottom: 70.62%;
+    background: #C4C4C4;
+}
+
+.favor-scale {
+    position: absolute;
+    width: 910px;
+    height: 58px;
+    left: 314px;
+    top: 471px;
+    left: 24.53%;
+    right: 4.38%;
+    top: 66%;
+    bottom: 64.59%;
+    background: #C4C4C4;
+}
+
+.banner-statistic-text {
+    position: absolute;
+    left: 24.22%;
+    right: 67.42%;
+    top: 85%;
+    bottom: 57.3%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 26px;
+    color: #000000;
+}
+
+.basic-chart {
+    display: flex;
+    flex-direction: row;
+}
+
+.gender-chart {
+    position: absolute;
+    width: 329px;
+    height: 199px;
+    left: 312px;
+    top: 661px;
+    left: 24.38%;
+    right: 49.92%;
+    top: 97%;
+    bottom: 42.44%;
+    background: #C4C4C4;
+}
+
+.age-chart {
+    position: absolute;
+    width: 532px;
+    height: 196.83px;
+    left: 694px;
+    top: 662.09px;
+    left: 50%;
+    right: 4.22%;
+    top: 97%;
+    bottom: 42.51%;
+    background: #C4C4C4;
+}
+
+.job-chart {
+    position: absolute;
+    width: 912px;
+    height: 247px;
+    left: 312px;
+    top: 896px;
+    left: 24.38%;
+    right: 4.38%;
+    top: 130%;
+    bottom: 23.49%;
+    background: #C4C4C4;
+}
+
+.field-chart {
+    position: absolute;
+    width: 912px;
+    height: 247px;
+    left: 312px;
+    top: 1186px;
+    left: 24.38%;
+    right: 4.38%;
+    top: 170%;
+    bottom: 4.08%;
+    background: #C4C4C4;
+}
+
+.line2 {
+    position: absolute;
+    left: 24.38%;
+    right: 4.22%;
+    top: 27%;
+    bottom: 87.01%;
+    border: 1px solid #C4C4C4;
+}
+
+.line3 {
+    position: absolute;
+    left: 24.38%;
+    right: 4.22%;
+    top: 80%;
+    bottom: 61.85%;
+    border: 1px solid #C4C4C4;
+}
