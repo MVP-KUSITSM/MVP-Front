@@ -4,7 +4,6 @@ import GNB from "../GNB/GNB";
 import LNB from "../LNB/LNB";
 
 function Result() {
-
   return (
     <>
     <GNB />

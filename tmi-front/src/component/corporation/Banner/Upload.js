@@ -4,6 +4,12 @@ import GNB from "../GNB/GNB";
 import LNB from "../LNB/LNB";
 
 function Upload() {
+  const [selectFile, setSelectFile] = useState(null);
+
+  const handleSelectFile = (e) => {
+    setSelectFile(e.target.files[0]);
+  }
+
   return (
     <>
     <GNB />
@@ -15,7 +21,7 @@ function Upload() {
         <br/>
         파일은 최대 n개까지 업로드할 수 있어요.</p>
         <div class="file-select">
-          <button class="file-select-btn">파일 선택 버튼</button>
+          <input type="file" onChange={handleSelectFile} class="file-select-btn" />파일 선택 버튼
           <p class="file-select-description">또는 파일을 여기에 드래그 앤 드롭 하세요.</p>
         </div>
         <div class="line"></div>
