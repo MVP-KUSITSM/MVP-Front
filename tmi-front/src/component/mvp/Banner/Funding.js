@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { Button } from 'react-bootstrap';
-import "../../../assets/css/corporation/dashboard/dashboard.css";
 import "../../../assets/css/mvp/Banner/Funding.css";
 
 function Funding(){
@@ -53,5 +52,19 @@ function Funding(){
         </>
     );
 }
+
+// function Balance(){
+
+//     let mybalance = 0;
+//     return(
+//         <>
+//             <div>
+                
+//             </div>
+
+
+//         </>
+//     );
+// }
 
 export default Funding;
