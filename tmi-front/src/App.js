@@ -6,7 +6,8 @@ import Mainpage from "./component/Mainpage";
 
 //로그인, 회원가입 컴포넌트
 import Login from "./component/user/Login";
-import Register from "./component/user/Register";
+import RegisterC from "./component/user/RegisterC";
+import RegisterG from "./component/user/RegisterG";
 import Detail from "./component/user/Detail";
 
 //기업 컴포넌트
@@ -25,7 +26,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={Mainpage} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
+        <Route exact path="/registerc" component={RegisterC} />
+        <Route exact path="/registerg" component={RegisterG} />
         <Route exact path="/detail" component={Detail} />
         <Route exact path="/corporation/main" component={C_Main} />
         <Route exact path="/corporation/banner/main" component={CB_Main} />
