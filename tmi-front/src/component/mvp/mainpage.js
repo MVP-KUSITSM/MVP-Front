@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 
+import Topnav from "./topnav";
+import Bottomnav from "./bottomnav";
+
 import { Button } from 'react-bootstrap';
 import {Link, Route} from 'react-router-dom';
 import "../../assets/css/mvp/mainpage.css";
 function Mainpage(){
     return(
         <>
+        <Topnav />
             <div className="title">
                 M.V.P
             </div>
@@ -45,6 +49,7 @@ function Mainpage(){
 
 
             </div>
+            <Bottomnav/>
         </>
 
     );

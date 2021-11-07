@@ -20,10 +20,8 @@ import CP_Upload from "./component/corporation/Prototype/Upload";
 
 //개인 컴포넌트
 import B_Funding from "./component/mvp/Banner/Funding";
-<<<<<<< HEAD
 import Main from "./component/mvp/mainpage";
-=======
->>>>>>> 4271dbd03e5d93c920fa022e24150a993e135fb8
+import Mypage from "./component/mvp/Mypage/Mypage";
 
 function App() {
   return (
@@ -41,11 +39,8 @@ function App() {
         <Route exact path="/corporation/prototype/detail" component={CP_Detail} />
         <Route exact path="/corporation/prototype/upload" component={CP_Upload} />
         <Route exact path="/banner/funding" component={B_Funding} />
-<<<<<<< HEAD
         <Route exact path="/main" component={Main} />
-
-=======
->>>>>>> 4271dbd03e5d93c920fa022e24150a993e135fb8
+        <Route exact path ="/mypage" component={Mypage}/>
       </Switch>
     </BrowserRouter>
   );

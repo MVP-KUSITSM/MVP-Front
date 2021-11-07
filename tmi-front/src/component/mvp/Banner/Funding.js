@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 
+import Topnav from "../topnav";
+import Bottomnav from "../bottomnav";
+
 import { Button } from 'react-bootstrap';
-<<<<<<< HEAD
-=======
 import "../../../assets/css/corporation/dashboard/dashboard.css";
->>>>>>> 4271dbd03e5d93c920fa022e24150a993e135fb8
 import "../../../assets/css/mvp/Banner/Funding.css";
 
 function Funding(){
 
     return(
         <>
+        <Topnav></Topnav>
         <div className="Funding_main">
             <div className="Title">
                 <h2>배너 펀딩</h2>
@@ -53,25 +54,9 @@ function Funding(){
                 </div>
             </div>
         </div>
+        <Bottomnav />
         </>
     );
 }
 
-<<<<<<< HEAD
-// function Balance(){
-
-//     let mybalance = 0;
-//     return(
-//         <>
-//             <div>
-                
-//             </div>
-
-
-//         </>
-//     );
-// }
-
-=======
->>>>>>> 4271dbd03e5d93c920fa022e24150a993e135fb8
 export default Funding;
