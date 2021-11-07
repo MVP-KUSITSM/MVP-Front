@@ -4,6 +4,7 @@ import "../../../assets/css/corporation/lnb.css"
 function LNB() {
 
   return (
+    <>
     <div class="Left-Menu">
         <div class="content-menu">
             <div class="menu1">대시보드</div>
@@ -13,6 +14,7 @@ function LNB() {
             <div class="menu5">전문가 컨설팅</div>
         </div>
     </div>
+    </>
   );
 }
 

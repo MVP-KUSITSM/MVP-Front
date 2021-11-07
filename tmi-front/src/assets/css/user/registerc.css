@@ -1,0 +1,172 @@
+.Register-Corporation {
+    width: 1440px;
+    height: 1379px;
+    background: #FFFFFF;
+    float: left;
+}
+
+.title {
+    position: absolute;
+    width: 531px;
+    height: 86px;
+    left: 179px;
+    top: 107px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+.rec1 {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 310px;
+    top: 209px;
+}
+
+.p1 {
+    position: absolute;
+    width: 142px;
+    height: 25px;
+    left: 330px;
+    top: 204px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+.rec2 {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 310px;
+    top: 244px;
+}
+
+.p2 {
+    position: absolute;
+    width: 233px;
+    height: 25px;
+    left: 330px;
+    top: 239px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+.rec3 {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 310px;
+    top: 286px;
+}
+
+.p3 {
+    position: absolute;
+    width: 473px;
+    height: 47px;
+    left: 330px;
+    top: 281px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.id-text {
+    position: absolute;
+    width: 118px;
+    height: 49px;
+    left: 317px;
+    top: 347px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+.id-rec {
+    position: absolute;
+    width: 570px;
+    height: 34px;
+    left: 250px;
+    top: 391px;
+}
+
+.pw-text {
+    position: absolute;
+    width: 118px;
+    height: 49px;
+    left: 317px;
+    top: 431px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+.pw-rec {
+    position: absolute;
+    width: 570px;
+    height: 34px;
+    left: 250px;
+    top: 478px;
+}
+
+.name-text {
+    position: absolute;
+    width: 118px;
+    height: 49px;
+    left: 317px;
+    top: 515px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+.name-rec {
+    position: absolute;
+    width: 570px;
+    height: 34px;
+    left: 250px;
+    top: 565px;
+}

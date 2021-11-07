@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
-function Register() {
+
+function RegisterG() {
 
   return (
     <div>
-        Register
+        Register-개인
     </div>
   );
 }
 
-export default Register;
+export default RegisterG;
