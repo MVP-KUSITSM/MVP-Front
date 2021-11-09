@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, signOut } from 'firebase/auth';
-import { getDatabase, ref, set } from "firebase/database";
+import { get, getDatabase, ref, set } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDFMMpu-eTGrbpW3Ruu-G2ZMfwaioRCsYw",
@@ -73,6 +73,17 @@ const logout = () => {
   signOut(auth);
 };
 
+const bannerDetail = async () => {
+  try {
+    ref(db, 'Banner/').on('value', snapshot => {
+      console.log('User data: ', snapshot.val());
+    });
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
+
 export {
   auth,
   db,
@@ -81,4 +92,5 @@ export {
   registerWithEmailAndPassword,
   sendPasswordResetEmail,
   logout,
+  bannerDetail,
 };
