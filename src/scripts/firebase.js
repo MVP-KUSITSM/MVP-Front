@@ -28,6 +28,12 @@ const signInWithGoogle = async () => {
         authProvider: "google",
         email: user.email,
     })
+
+    set(ref(db, 'authority/' + user.uid), {
+      auth:"null",
+      email: user.email,
+  })
+
   } catch (err) {
     console.error(err);
     alert(err.message);
