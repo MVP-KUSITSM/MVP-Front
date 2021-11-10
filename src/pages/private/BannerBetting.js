@@ -26,28 +26,36 @@ export default function BannerBetting() {
             <div className="D_day">
                 D-3
             </div>
-            <div className="Funding_vote">
-                <div className="Funding_MyPick">
-                    <p>
-                        당신의 최애는?
-                    </p>
-                    <div className="test">A</div>
-                    <div className="test">B</div>
-                    <div className="test">C</div>
-                    <p>1000pt <Button>획득</Button></p>
-                    
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-md-6">
+                        <div className="banner_pick">
+                            A
+                        </div>
+                    </div>
+                    <div className="col-md-6">
+                        <div className="banner_pick">
+                            B
+                        </div>
+                    </div>
                 </div>
-                <div className="Funding_PeoplePick">
-                    <p>
-                        대중의 선택은?
-                    </p>
-                    <div className="test">A</div>
-                    <div className="test">B</div>
-                    <div className="test">C</div>
-                    
-                    <p>pt<input value="1000"></input><Button>펀드</Button></p>
-                    
+                <div className="row">
+                    <div className="col-md-6">
+                        <div className="banner_pick">
+                            C
+                        </div>
+                    </div>
+                    <div className="col-md-6">
+                        <div className="banner_pick">
+                            D
+                        </div>
+                    </div>
+                <div className="row">
+                    <div className="col-md-6"><p>1000pt <Button>획득</Button></p></div>
+                    <div className="col-md-6"><p>pt<input value="1000"></input><Button>펀드</Button></p></div>
                 </div>
+                </div>
+
             </div>
         </div>
         </div>
