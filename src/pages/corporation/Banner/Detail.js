@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "../../../assets/css/corporation/banner/detail.css";
 import GNB from "../GNB/GNB";
 import LNB from "../LNB/LNB";
-import { db, bannerDetail } from "../../../scripts/firebase";
-import firebase from '../../../scripts/firebase.js';
+import { bannerDetail } from "../../../scripts/firebase";
 
 function Detail() {
   function NoBanner() {
@@ -33,8 +32,7 @@ function Detail() {
   function YesBanner() {
 
     function CheckDB(e) {
-      // (ref(db, 'users/' + user.uid));
-      console.log();
+      console.log(bannerDetail());
     }
     
     return (
@@ -45,7 +43,7 @@ function Detail() {
           <div class="title">
               <p>업로드한 배너</p>
           </div>
-          <div class="banner-detail" onClick={ bannerDetail }>
+          <div class="banner-detail" onClick={ CheckDB }>
             <div class="banner-detail-text">
               <p>배너 대표 이미지</p>
             </div>
