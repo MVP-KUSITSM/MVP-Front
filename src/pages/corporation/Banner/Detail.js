@@ -43,7 +43,7 @@ function Detail() {
           <div class="title">
               <p>업로드한 배너</p>
           </div>
-          <div class="banner-detail" onClick={ CheckDB }>
+          <div class="banner-detail" onClick={ () => bannerDetail() }>
             <div class="banner-detail-text">
               <p>배너 대표 이미지</p>
             </div>

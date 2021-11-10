@@ -1,6 +1,8 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, signOut } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getStorage, listAll } from "firebase/storage";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDFMMpu-eTGrbpW3Ruu-G2ZMfwaioRCsYw",
@@ -14,6 +16,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getDatabase(app);
+
+const storage = getStorage(app);
+//const listRef = ref(storage, 'files/uid');
+
 
 const provider = new GoogleAuthProvider();
 
@@ -79,7 +85,7 @@ const bannerDetail = () => {
     const starCountRef = ref(db, 'Banner/Banner1');
     onValue(starCountRef, (snapshot) => {
     const data = snapshot.val();
-    console.log(data);
+    console.log(data.url);
   });
   // ref(db, 'users/').once("value")
   // .then(function(snapshot) {
