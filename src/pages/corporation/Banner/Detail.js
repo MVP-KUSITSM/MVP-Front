@@ -39,6 +39,7 @@ function Detail() {
     
     const CheckDB = () => {
       const listRef = refs(storage, 'gs://image-betting.appspot.com/');
+      
 
       listAll(listRef)
       .then((res) => {
@@ -48,15 +49,19 @@ function Detail() {
       res.items.forEach((itemRef) => {
         getDownloadURL(refs(storage, 'gs://image-betting.appspot.com/' + itemRef.name))
         .then((url) => {
-          const xhr = new XMLHttpRequest();
-          xhr.responseType = 'blob';
-          xhr.onload = (event) => {
-            const blob = xhr.response;
-          };
-          xhr.open('GET', url);
-          xhr.send();
-          const img = document.querySelector('img');
-          img.setAttribute('src', url);
+          // const xhr = new XMLHttpRequest();
+          // xhr.responseType = 'blob';
+          // xhr.onload = (event) => {
+          //   const blob = xhr.response;
+          // };
+          // xhr.open('GET', url);
+          // xhr.send();
+          setBannerName(prev => [...prev, url])
+          console.log(bannerName)
+          console.log(url)
+          // const img = document.querySelector('img');
+          // const imgs = bannerName.map((name) => (img.setAttribute('src', name)));
+          // img.setAttribute('src', bannerName[0]);
         })
         .catch((error) => {
           console.log(error)
@@ -66,7 +71,11 @@ function Detail() {
     }).catch((error) => {
       console.log(error)
     });
+    
+
   }
+  const banners = bannerName
+  const bannerList = banners.map((banner) => (<li><img src={banner} /></li>));
     
     return (
       <>
@@ -78,7 +87,9 @@ function Detail() {
           </div>
           <div class="banner-detail" onClick={ CheckDB }>
             <div class="banner-detail-text">
-              <img ></img>
+              <ul>
+              {bannerList}
+              </ul>
             </div>
           </div>
       </div>
