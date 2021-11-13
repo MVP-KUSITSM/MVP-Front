@@ -6,6 +6,8 @@ import { auth, db, storage } from "../../scripts/firebase";
 import { ref, get, set, update, onValue, child } from "firebase/database";
 import * as fbStorage from "firebase/storage";
 
+import Popup from 'reactjs-popup';
+
 import "../../assets/css/private/BannerBetting.css";
 
 import NavMenu from '../NavMenu';
@@ -17,6 +19,9 @@ export default function BannerBetting() {
     const [select, setSelect] = useState(null);
     const [betPoint, setBetPoint] = useState(0);
     const [imageMap, setImageMap] = useState(null);
+    
+    const [open, setOpen] = useState(false);
+    const closeModal = () => setOpen(false);
 
     const navigate = useNavigate();
 
@@ -26,15 +31,20 @@ export default function BannerBetting() {
             var snapshot = await get(userRef);
             var data = snapshot.val();
 
-            if(data.tm_info != null){
-                setPoint(data.tm_info.point);
+            if(data != null){
+                if(data.tm_info != null){
+                    setPoint(data.tm_info.point);
+                }
+                else{
+                    set(child(userRef, "tm_info"), {
+                        point: 0
+                    });
+                }
+                setName(data.name);
             }
-            else{
-                set(child(userRef, "tm_info"), {
-                    point: 0
-                });
+            else {
+                fetchUserInfo();
             }
-            setName(data.name);
         } catch (err) {
             console.error(err);
             alert("An error occured while fetching user data");
@@ -47,14 +57,16 @@ export default function BannerBetting() {
         fetchUserInfo();
     }, [user, loading]);
 
+    const imageBettingPath = "SceneryImages";
+    const imageNumber = 32;
     useEffect(() => {
-        setImages("ImageBetting1");
+        setImages(imageBettingPath);
     }, [])
 
     const setImages = async (path) => {
         try{
             fbStorage.listAll(fbStorage.ref(storage, path)).then(res => {
-                const imageIndex = selectIndex(16, 4);
+                const imageIndex = selectIndex(imageNumber, 4);
 
                 fbStorage.getDownloadURL(fbStorage.ref(storage, res.items[imageIndex[0]].fullPath))
                     .then(url => {
@@ -164,6 +176,8 @@ export default function BannerBetting() {
     }
 
     const onBetButtonClicked = async e => {
+        const betMultiplier = 3;
+        const betAdder = 0.2;
         if(select == null){
             alert("대중의 선호도가 높을 것으로 예상되는 이미지를 선택해주세요.");
             return;
@@ -207,21 +221,22 @@ export default function BannerBetting() {
                 }
 
                 const portion = count[select.id]/total;
+                var probability = portion + betAdder;
 
-                var jackpot = portion > Math.random();
-                var addPoint = jackpot ? betPoint : betPoint * -1
+                var jackpot = probability > Math.random();
+                var addPoint = jackpot ? betPoint * (betMultiplier - 1) : betPoint * -1
                 var nPoint = Number(data.tm_info.point) + Number(addPoint);
 
                 var alertText = 
                     "선택하신 이미지에 대한 대중의 선호도는 " + parseInt(portion * 100) + "% 입니다.\n"
-                    + "베팅 성공률: " + parseInt(portion * 100) + "%\n"
-                    + "배당 포인트: 2배\n"
+                    + "베팅 성공률: " + parseInt(probability * 100) + "%\n"
+                    + "배당 포인트: " + betMultiplier + "배\n"
                     + "\n====\n\n"
 
                 if(jackpot)
                     alertText = 
                     alertText + "축하합니다. 베팅에 성공하셨습니다.\n"
-                    + "획득 포인트: " + (betPoint * 2);
+                    + "획득 포인트: " + (betPoint * betMultiplier);
                 else
                     alertText = alertText + "베팅에 실패하셨습니다."
 
@@ -242,6 +257,7 @@ export default function BannerBetting() {
                     e.target.disabled = false;
                     setPoint(nPoint);
                     setBetPoint(0);
+                    setImages(imageMap.path);
                 })
             }
         } catch (err){
@@ -251,6 +267,8 @@ export default function BannerBetting() {
 
     const showRank = async () => {
         try {
+            //setOpen(o => !o);
+
             const userRef = ref(db, 'users/');
             var snapshot = await get(userRef);
             var data = snapshot.val();
@@ -269,15 +287,21 @@ export default function BannerBetting() {
             })
 
             pointMap.sort((a, b) => { return b[1] - a[1] });
+            const rankListNumber = 50;
+            var myRank = -1;
+            var rankText = "";
             pointMap.map((v, i) => {
+                if(i>=rankListNumber && myRank>-1) return;
+                else if(i < rankListNumber){
+                    rankText = rankText + (i+1) + "위: " + data[v[0]].name + " | " + v[1] + " pt\n"
+                }
                 if(v[0] === user.uid){
-                    alert(
-                        "준비중입니다.\n\n"
-                        + name + "님은 현재 " + (i + 1) + "위 입니다."
-                    );
-                    return;
+                    myRank = i + 1;
+                    rankText = name + "님은 현재 " + myRank + "위 입니다.\n\n" + rankText
                 }
             });
+
+            alert(rankText);
         } catch (err) {
             console.error(err);
             alert("An error occured while fetching user data");
@@ -286,19 +310,59 @@ export default function BannerBetting() {
 
     return (
         <div>
-            <NavMenu name={name}/>
+            <NavMenu name={name} onChangeName={name => {setName(name)}}/>
             <div className="Funding_main">
             <div className="Title">
                 <h2>이미지 배팅</h2>
                 <h5>Pick Your Best</h5>
             </div>
             <div className="Category container-fluid">
-                <button className="mr" onClick={() => { setImages("ImageBetting1"); }}>
+                <button className="mr" onClick={() => { setImages(imageBettingPath); }}>
                     새로고침
                 </button>
                 <button className="ml" onClick={() => { showRank(); }}>
                     순위표
                 </button>
+                <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+                    {close => (
+                    <div className="o_modal">
+                        <div className="header"> Modal Title </div>
+                        <div className="content">
+                        {' '}
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, a nostrum.
+                        Dolorem, repellat quidem ut, minima sint vel eveniet quibusdam voluptates
+                        delectus doloremque, explicabo tempore dicta adipisci fugit amet dignissimos?
+                        <br />
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur sit
+                        commodi beatae optio voluptatum sed eius cumque, delectus saepe repudiandae
+                        explicabo nemo nam libero ad, doloribus, voluptas rem alias. Vitae?
+                        </div>
+                        <div className="actions">
+                        <Popup
+                            trigger={<button className="button"> Trigger </button>}
+                            position="top center"
+                            nested
+                        >
+                            <span>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
+                            magni omnis delectus nemo, maxime molestiae dolorem numquam
+                            mollitia, voluptate ea, accusamus excepturi deleniti ratione
+                            sapiente! Laudantium, aperiam doloribus. Odit, aut.
+                            </span>
+                        </Popup>
+                        <button
+                            className="button"
+                            onClick={() => {
+                            console.log('modal closed ');
+                            close();
+                            }}
+                        >
+                            close modal
+                        </button>
+                        </div>
+                    </div>
+                    )}
+                </Popup>
                 <hr></hr>
             </div>
             
@@ -331,10 +395,12 @@ export default function BannerBetting() {
                     <div className="row pt-2">
                         <div className="col-md-6"><p>1000pt <Button onClick={onGetButtonClicked}>획득</Button></p></div>
                         <div className="col-md-6">
-                            <p>
-                                <input className="tr" type="number" value={betPoint} onChange={e => setBetPoint(e.target.value)} /> 
-                                 pt <Button onClick={onBetButtonClicked}>배팅</Button>
-                            </p>
+                            <div className="row">
+                                <p>
+                                    <input className="tr" type="number" value={betPoint} onChange={e => setBetPoint(e.target.value)} />
+                                    pt <Button onClick={onBetButtonClicked}>배팅</Button>
+                                </p>                                 
+                            </div>
                         </div>
                     </div>
                     <div className="row tr">

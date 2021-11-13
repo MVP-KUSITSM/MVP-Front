@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, 
-  createUserWithEmailAndPassword, sendPasswordResetEmail, signOut } from 'firebase/auth';
+  createUserWithEmailAndPassword, sendPasswordResetEmail, signOut, signInAnonymously } from 'firebase/auth';
 import { getDatabase, ref, set, get, update } from "firebase/database";
 import { getStorage } from "firebase/storage";
 
@@ -36,9 +36,25 @@ const signInWithGoogle = async () => {
         tm_info: { point: 0}
       });
     }
-    else {
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
+
+const signInAnony = async () => {
+  try {
+    const res = await signInAnonymously(auth);
+    const user = res.user;
+    const userRef = ref(db, 'users/' + user.uid);
+
+    var user_snapshot = await get(userRef);
+    const user_data = user_snapshot.val();
+    if(user_data == null){
       update((userRef), {
-        name: user.displayName
+        uid: user.uid,
+        name: "Guest_" + user.uid.substring(0,5),
+        tm_info: { point: 0 }
       });
     }
   } catch (err) {
@@ -84,6 +100,17 @@ const registerWithEmailAndPassword = async (name, email, password) => {
 //   }
 // };
 
+const changeName = async name => {
+  const user = auth.currentUser;
+  update(ref(db, 'users/' + user.uid), {
+    name: name
+  }).then(res => {
+    alert("이름이 변경되었습니다.");
+  }).catch(err => {
+    console.error(err);
+  })
+}
+
 const logout = () => {
   signOut(auth);
 };
@@ -93,8 +120,10 @@ export {
   db,
   storage,
   signInWithGoogle,
+  signInAnony,
   signInWithEmailAndPassword,
   registerWithEmailAndPassword,
   sendPasswordResetEmail,
+  changeName,
   logout,
 };

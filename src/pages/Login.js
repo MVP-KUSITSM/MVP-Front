@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../scripts/firebase";
+import { auth, signInWithEmailAndPassword, signInWithGoogle, signInAnony } from "../scripts/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
 
@@ -21,35 +21,15 @@ function Login() {
   return (
     <div className="login">
       <div className="login__container">
-        <input
-          type="text"
-          className="login__textBox"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
-        />
-        <input
-          type="password"
-          className="login__textBox"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button
-          className="login__btn"
-          onClick={() => signInWithEmailAndPassword(auth, email, password)}
-        >
-          Login
+        <h3>배너 베팅에 참여하세요.</h3>
+        <p>*구글 로그인은 크롬에서만 가능합니다.</p>
+        <button className="login__btn login__google" onClick={signInAnony}>
+          Login Anonymously
         </button>
+
         <button className="login__btn login__google" onClick={signInWithGoogle}>
           Login with Google
         </button>
-        <div>
-          <Link to="/reset">Forgot Password</Link>
-        </div>
-        <div>
-          Don't have an account? <Link to="/register">Register</Link> now.
-        </div>
       </div>
     </div>
   );
