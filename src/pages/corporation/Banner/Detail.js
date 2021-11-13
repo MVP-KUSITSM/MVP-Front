@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "../../../assets/css/corporation/banner/detail.css";
 import GNB from "../GNB/GNB";
 import LNB from "../LNB/LNB";
-import { bannerDetail, storage } from "../../../scripts/firebase";
+import { bannerDetail, storage, db, auth } from "../../../scripts/firebase";
+import { ref, onValue, get } from "firebase/database";
 import { listAll, uploadBytes, ref as refs, getDownloadURL } from "firebase/storage";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function Detail() {
   function NoBanner() {
@@ -36,11 +38,23 @@ function Detail() {
   
   function YesBanner() {
     const [bannerName, setBannerName] = useState([]);
+    const [user, loading, error] = useAuthState(auth);
     
     const CheckDB = () => {
-      const listRef = refs(storage, 'gs://image-betting.appspot.com/');
+      var refff = (ref(db, 'users/' + user.uid));
+      onValue(refff, (snapshot) => {
+        var data = snapshot.val();
+        console.log(data.uid);
+      })
       
 
+      const starCountRef = ref(db, 'Banner/Banner1');
+      onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+      console.log(data);
+      });
+
+      const listRef = refs(storage, 'gs://image-betting.appspot.com/');
       listAll(listRef)
       .then((res) => {
       res.prefixes.forEach((folderRef) => {
