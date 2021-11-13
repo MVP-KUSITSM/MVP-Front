@@ -18,12 +18,12 @@ function Register() {
 
   const register = () => {
     if (!name) alert("Please enter name");
-    registerWithEmailAndPassword(auth, name, email, password);
+    registerWithEmailAndPassword( name, email, password );
   };
 
   useEffect(() => {
     if (loading) return;
-    if (user) navigate('/home', {replace:true});
+    if (user) navigate('/', {replace:true});
   }, [user, loading]);
 
   return (

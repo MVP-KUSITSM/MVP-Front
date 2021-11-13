@@ -41,40 +41,11 @@ const signInWithGoogle = async () => {
         name: user.displayName
       });
     }
-    
   } catch (err) {
     console.error(err);
     alert(err.message);
   }
 };
-
-const Kakao = window.Kakao;
-const signInWithKakao = async () => {
-  Kakao.Auth.createLoginButton({
-    container: '#kakao-login-btn',
-    success: function(authObj) {
-      Kakao.API.request({
-        url: '/v2/user/me',
-        success: function(kakao_res) {
-          const name = kakao_res.kakao_account.profile.nickname;
-
-          auth.createCustomToken(kakao_res.id).then(token => {
-            console.log(token);
-          });
-        },
-        fail: function(error) {
-          alert(
-            'login success, but failed to request user information: ' +
-              JSON.stringify(error)
-          )
-        },
-      })
-    },
-    fail: function(err) {
-      alert('failed to login: ' + JSON.stringify(err))
-    },
-  })
-}
 
 // const signInWithEmailAndPassword = async (email, password) => {
 //   try {
@@ -87,13 +58,15 @@ const signInWithKakao = async () => {
 
 const registerWithEmailAndPassword = async (name, email, password) => {
   try {
+    console.log(email);
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
-    set(ref(db, 'users/' + user.uid), {
+    update(ref(db, 'users/' + user.uid), {
         uid: user.uid,
-        name: user.displayName,
+        name: name,
         authProvider: "local",
         email: user.email,
+        tm_info: { point: 0}
     })
   } catch (err) {
     console.error(err);
@@ -120,7 +93,6 @@ export {
   db,
   storage,
   signInWithGoogle,
-  signInWithKakao,
   signInWithEmailAndPassword,
   registerWithEmailAndPassword,
   sendPasswordResetEmail,

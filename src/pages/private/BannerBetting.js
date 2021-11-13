@@ -273,7 +273,7 @@ export default function BannerBetting() {
                 if(v[0] === user.uid){
                     alert(
                         "준비중입니다.\n\n"
-                        + name + "님은 현재 " + (i + 1) + "순위 입니다."
+                        + name + "님은 현재 " + (i + 1) + "위 입니다."
                     );
                     return;
                 }

@@ -13,7 +13,7 @@ function Reset() {
 
   useEffect(() => {
     if (loading) return;
-    if (user) navigate('/home',{replace:true});
+    if (user) navigate('/',{replace:true});
   }, [user, loading]);
 
   return (
