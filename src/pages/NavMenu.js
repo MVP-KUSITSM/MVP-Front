@@ -12,7 +12,7 @@ export default function NavMenu({name, onChangeName}) {
   return (
     <Navbar bg="light" expand="lg">
         <Container>
-            <Navbar.Brand>M.V.P</Navbar.Brand>
+            <Navbar.Brand>Image Betting</Navbar.Brand>
             <div className="row" style={{width:"500px"}}>
               <div className="col-6"><input className="float-end" type="text" value={nickname} onChange={e => setNickname(e.target.value)} style={{textAlign: "right"}}/></div>
               <div className="col-3"><Button onClick={() => {

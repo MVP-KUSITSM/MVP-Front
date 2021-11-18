@@ -19,6 +19,8 @@ export default function BannerBetting() {
     const [select, setSelect] = useState(null);
     const [betPoint, setBetPoint] = useState(0);
     const [imageMap, setImageMap] = useState(null);
+
+    const [actingCount, setActingCount] = useState(0);
     
     const [open, setOpen] = useState(false);
     const closeModal = () => setOpen(false);
@@ -57,11 +59,34 @@ export default function BannerBetting() {
         fetchUserInfo();
     }, [user, loading]);
 
-    const imageBettingPath = "SceneryImages";
-    const imageNumber = 32;
+    const imageBettingPath = "Pets";
+    const imageNumber = 34;
     useEffect(() => {
         setImages(imageBettingPath);
-    }, [])
+    }, []);
+
+    useEffect(()=>{
+        console.log('acting Count', actingCount);
+        if(actingCount < 5) return;
+
+        const tmRef = ref(db, 'users/' + user.uid + '/tm_info');
+        get(tmRef).then(snapshot => {
+            const data = snapshot.val();
+            console.log('tm_info', data);
+            if(data != null){
+                console.log(data);
+                if(data.getLogs != null && data.betLogs != null)
+                if(Object.keys(data.getLogs).length + Object.keys(data.betLogs).length >= 13){
+                    if(data.takeSurvey == null){
+                        update(tmRef,{takeSurvey: true});
+                        if(window.confirm("즐겁게 참여해주셔서 감사합니다. 설문조사에 참여해주시면 더 없이 감사하겠습니다. 설문조사에 참여해주시겠습니까?")){
+                            window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSffYe6CetPgVidkaIYOnmixTSTF1qPx0Q-4OuKq8K8aoqdj0g/viewform";
+                        }
+                    }
+                }
+            }
+        })
+    }, [actingCount]);
 
     const setImages = async (path) => {
         try{
@@ -159,7 +184,8 @@ export default function BannerBetting() {
                     getdata['/getLogs/g_'+Date.now()] = {
                         select: select.id,
                         name: imageMap.path + "/" + img,
-                    } 
+                    }
+
                     update(child(userRef, "tm_info"), getdata).then(res => {
                         select.style.outline = '0px';
                         setSelect(null);
@@ -167,6 +193,7 @@ export default function BannerBetting() {
                         setPoint(nPoint);
                         setBetPoint(Number(betPoint) + 1000);
                         setImages(imageMap.path);
+                        setActingCount(actingCount + 1);
                     })
                 })
             }
@@ -258,6 +285,7 @@ export default function BannerBetting() {
                     setPoint(nPoint);
                     setBetPoint(0);
                     setImages(imageMap.path);
+                    setActingCount(actingCount + 1);
                 })
             }
         } catch (err){
@@ -287,7 +315,7 @@ export default function BannerBetting() {
             })
 
             pointMap.sort((a, b) => { return b[1] - a[1] });
-            const rankListNumber = 50;
+            const rankListNumber = 20;
             var myRank = -1;
             var rankText = "";
             pointMap.map((v, i) => {
@@ -313,15 +341,33 @@ export default function BannerBetting() {
             <NavMenu name={name} onChangeName={name => {setName(name)}}/>
             <div className="Funding_main">
             <div className="Title">
-                <h2>이미지 배팅</h2>
-                <h5>Pick Your Best</h5>
+                <p>1. 선호하는 이미지를 선택해서 포인트를 획득하세요.</p>
+                <p>2. 대중의 선호도가 높을 것으로 예측되는 이미지에 배팅해서 포인트를 얻으세요.</p>
             </div>
+            {/* <div className="row" style={{width: "50%", margin: "auto"}}>
+                <div className="col Title">
+                    <h2>이미지 배팅</h2>
+                    <h5>Pick Your Best</h5>
+                </div>
+                <div className="col">
+                    <ul>
+                        <li>선호하는 이미지를 선택해서 포인트를 획득하세요.</li>
+                        <li>대중에 선호도가 높을 것으로 예측되는 이미지에 베팅해서 포인트를 얻으세요.</li>
+                    </ul>
+                </div>
+            </div> */}
+            
             <div className="Category container-fluid">
-                <button className="mr" onClick={() => { setImages(imageBettingPath); }}>
+                <button className="" onClick={() => { setImages(imageBettingPath); }}>
                     새로고침
                 </button>
                 <button className="ml" onClick={() => { showRank(); }}>
                     순위표
+                </button>
+                <button className="ml" onClick={() => { 
+                    window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSffYe6CetPgVidkaIYOnmixTSTF1qPx0Q-4OuKq8K8aoqdj0g/viewform";
+                 }}>
+                    설문조사
                 </button>
                 <Popup open={open} closeOnDocumentClick onClose={closeModal}>
                     {close => (
