@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, signOut } from 'firebase/auth';
 import { getDatabase, ref, set } from "firebase/database";
-
+import { getStorage, listAll } from '@firebase/storage';
 const firebaseConfig = {
   apiKey: "AIzaSyDFMMpu-eTGrbpW3Ruu-G2ZMfwaioRCsYw",
   authDomain: "image-betting.firebaseapp.com",
