@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router";
 import { auth, db, storage } from "../../../scripts/firebase";
-import { ref, get, set, update, onValue, child } from "firebase/database";
+import { ref, get,refFromURL} from "firebase/database";
 import * as fbStorage from "firebase/storage";
 
 import "../../../assets/css/corporation/Dashboard.css";
@@ -19,7 +19,7 @@ function Dashboard() {
 
   const navigate = useNavigate();
   const storage = fbStorage.getStorage();
-  // const storage = firebase.storage();
+
   const fetchUserInfo = async () => {
     try {
       const userRef = ref(db, 'users/'+ user.uid);
@@ -30,16 +30,7 @@ function Dashboard() {
           setCorpname(data.ROLE_CORP.info.name);
           setBannercount(data.ROLE_CORP.count);
           bannerImg = data.banner[0];
-          const takeref = fbStorage.ref(storage,'ImageBetting1/avenue-815297__340.webp');
-          
-          fbStorage.getDownloadURL(takeref)
-            .then(url =>{
-              var img = document.getElementById('take');
-              img.setAttribute('src',url);
-            }).catch((e) =>{
-              console.error(e);
-            });
-
+          FetchBanner();
         }else{
           alert("잘못된 접근입니다.");
           setCorpname("테서터");
@@ -55,6 +46,17 @@ function Dashboard() {
 
 
 
+  function FetchBanner(){
+    fbStorage.getDownloadURL(fbStorage.ref(storage,bannerImg))
+    .then((url) =>{
+      var img = document.getElementById('take');
+      img.setAttribute('src',url);
+      // alert(url);
+    })
+    .catch((err)=>{
+      console.log(err);
+    });
+  };
 
 
 

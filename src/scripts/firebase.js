@@ -14,6 +14,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getDatabase(app);
+const storage = getStorage(app);
 
 const provider = new GoogleAuthProvider();
 
@@ -76,6 +77,7 @@ const logout = () => {
 export {
   auth,
   db,
+  storage,
   signInWithGoogle,
   signInWithEmailAndPassword,
   registerWithEmailAndPassword,
