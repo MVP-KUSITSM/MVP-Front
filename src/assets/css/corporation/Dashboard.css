@@ -1,53 +1,116 @@
 .flex{
     display : flex;
+    width : 100%;
 }
-
-
 .Main_part{
-    /* width : 1280px; */
-}
-/* Dashboard */
-.Dashboard{
-    /* position: absolute; */
-    left: 24.22%;
-    right: 64.92%;
-    top: 20.14%;
-    bottom: 75.97%;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    color: #000000;    
+    width: 100%;
 }
 
-.Dashboard_corpname{
-    position: flex;
-    border: 1px solid black;
-}
-
-.Dashboard_banner{
-    position : flex;
-    border:1px solid black;
-}
-
-.Dashboard_prototype{
-    position: flex;
-    border: 1px solid black;
-}
 .row {
     margin-top: 5%;
     padding : 50px;
-    /* padding-top:5%;
-    border: 1px solid black; */
+    display: flex;
+    
 }
-.col-md-4{
-    border : 1px solid black;
+
+.title_style {
+    font-size: 20px;
+    font-weight: bolder;
 }
+
+.title_detail {
+    float : right;
+    cursor: pointer;
+}
+
+.Dashboard_GNB{
+    width : 100%;
+    display: flex;
+    padding-top : 20px;
+    padding-left: 10px;
+}
+
+.left_float{
+    display:flex;
+    margin-left:auto;
+}
+
+.left_float span {
+    margin-left : 10px;
+    margin-right : 10px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+.logout {
+    margin-left : 10px;
+    margin-right : 20px;
+    cursor: pointer;
+    background: #0A347F;
+    border-radius: 15.3505px;
+    padding-top:9px;
+    padding-left: 10px;   
+    padding-right: 10px;
+    color : white;   
+    font-size: 15px;
+}
+
+
+/* Dashboard */
+.Dashboard{
+    display: flex;
+    word-break: break-all;
+    height: auto;
+    width : 100%;  
+
+}
+
+.Dashboard > div {
+    background-color: rgba(10, 52, 127, 0.04);
+    
+    padding : 10px;
+    /* margin:auto; */
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    border-radius: 15.3505px;
+    text-align: center;
+    padding-right: 20px;
+    padding-left: 25px;
+    padding-top : 30px;
+}
+.Dashboard_corpname{
+    width : 50%;
+    margin-right: 5%;
+    
+}
+.Dashboard_corpname h3{
+    text-align: left;
+}
+#category{
+    text-align: left;
+}
+.Dashboard_banner{
+    width : 30%;
+    margin-right: 5%;
+}
+
+.Dashboard_prototype{
+    width : 30%;
+    /* margin-right: 5%; */
+}
+
 
 .button {
     float : right;
     margin : 5px;
+    background:#0A347F ;
+    border-radius: 15.2505px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 
@@ -60,7 +123,10 @@
 
 .Banner_detail{
     position :relative;
-    border: 1px solid black;
+    background: #FFFFFF;
+    box-shadow: 0px 3.0701px 3.0701px rgba(0, 0, 0, 0.25);
+    border-radius: 15.3505px;
+    padding : 10px;
 }
 .Banner_img {
     padding : 10px;
@@ -77,40 +143,53 @@
 
 /* Prototype */
 .Prototype{
-    position : relative;
+    /* position : relative; */
     padding: 50px;
 }
 
 .Prototype_detail{
-    position: relative;
-    border: 1px solid black;
+    background: #FFFFFF;
+    box-shadow: 0px 3.0701px 3.0701px rgba(0, 0, 0, 0.25);
+    border-radius: 15.3505px;
+    padding : 10px;
+    display: flex;
 }
 
 .Prototype_img{
-    position : relative;
-    display: inline-block;
+    display: block;
     padding : 10px;
+    width : 384px;
+    height: 326px;
+    margin : 40px;
+    /* margin-bottom: 0%; */
     
 }
-
-.Prototype_average{
-    position: absolute;
-    left : 50%;
-    top :10%;
-    background-color: yellow;
-
-}
-
 .Prototype_review{
     position: relative;
-    /* left : 50%; */
-    top : 100px;
-    display: inline-block;
+    width:100%;
+    margin : 40px;
+}
+.Prototype_average {
+    position: relative;
+    text-align: center;
+}
+
+.Prototype_average h3{
+    font-size: 40px;
 }
 
 .border {
-    width : 480px;
-    height: 101px;
-    margin : 50px;
-    border : 1px solid black;
+    display: block;
+    height: auto;
+    border: 1.4613px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 58.4521px;
+    width: 100%;
+    padding: 20px;
+    padding-left:45px;
+    margin-top: 14px;
+}
+
+.border div {
+    font-size:12px;
 }
