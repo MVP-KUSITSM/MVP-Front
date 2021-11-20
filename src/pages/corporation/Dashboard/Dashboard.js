@@ -15,6 +15,7 @@ function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
   const [corpname, setCorpname] = useState("");
   const [bannercount,setBannercount] = useState(0);
+  let [분야,분야변경] = useState('분야');
   var bannerImg;
 
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ function Dashboard() {
           setCorpname(data.ROLE_CORP.info.name);
           setBannercount(data.ROLE_CORP.count);
           bannerImg = data.banner[0];
+          분야변경(data.ROLE_CORP.info.category);
           FetchBanner();
         }else{
           alert("잘못된 접근입니다.");
@@ -67,7 +69,6 @@ function Dashboard() {
 
   //대시보드 
   let [기업명,기업명변경] = useState('기업명');
-  let [분야,분야변경] = useState('분야');
   let [등록배너수,등록배너수변경] = useState(0);
   let [등록프로토수,등록프로토수변경] = useState(1);
   
@@ -97,7 +98,7 @@ function Dashboard() {
             <div className="Dashboard">
                 <div className="Dashboard_corpname">
                   <h3>{ corpname } </h3>
-                  <p id="category"> { corpname }</p>
+                  <p id="category"> { 분야 }</p>
                   <div  className="button">구독 중인 플랜</div>
                 </div>
                 <div className="Dashboard_banner">
