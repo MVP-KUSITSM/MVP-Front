@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, signOut } from 'firebase/auth';
-import { getDatabase, ref, set } from "firebase/database";
+import { get, getDatabase, ref, set, update } from "firebase/database";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDFMMpu-eTGrbpW3Ruu-G2ZMfwaioRCsYw",
@@ -14,6 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getDatabase(app);
+const storage = getStorage(app);
 
 const provider = new GoogleAuthProvider();
 
@@ -21,18 +23,30 @@ const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, provider);
     const user = res.user;
+    const userRef=ref(db, 'users/' + user.uid);
 
-    set(ref(db, 'users/' + user.uid), {
+
+    var user_snapshot=await get(userRef);
+    const user_data=user_snapshot.val();
+    if(user_data == null){
+    set((userRef), {
         uid: user.uid,
         name: user.displayName,
         authProvider: "google",
         email: user.email,
-    })
-
-    set(ref(db, 'authority/' + user.uid), {
+        auth:"null",
+        tm_info: { point: 0}
+    });
+    }
+    /*else{
+      update((userRef),{
+        name:user.displayName
+      });
+    }
+    /*set(ref(db, 'authority/' + user.uid), {
       auth:"null",
       email: user.email,
-  })
+  })*/
 
   } catch (err) {
     console.error(err);
@@ -58,6 +72,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
         name: user.displayName,
         authProvider: "local",
         email: user.email,
+        auth:"null"
     })
   } catch (err) {
     console.error(err);
@@ -82,6 +97,7 @@ const logout = () => {
 export {
   auth,
   db,
+  storage,
   signInWithGoogle,
   signInWithEmailAndPassword,
   registerWithEmailAndPassword,

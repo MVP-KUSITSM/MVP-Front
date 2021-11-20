@@ -32,6 +32,8 @@ export default function Role() {
         fetchUserName();
     }, [user, loading]);
 
+    
+
     return (
         <div>
             <NavMenu name={name}/>
@@ -42,6 +44,8 @@ export default function Role() {
         <Link to ="/corpInform">
         <button>기업 사용자</button>
         </Link>
+        
+
         </div>
     )
 }
