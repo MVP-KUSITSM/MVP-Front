@@ -62,28 +62,36 @@ export default function BannerBetting() {
             <div className="D_day">
                 D-3
             </div>
-            <div className="Funding_vote">
-                <div className="Funding_MyPick">
-                    <p>
-                        당신의 최애는?
-                    </p>
-                    <div className="test">A</div>
-                    <div className="test">B</div>
-                    <div className="test">C</div>
-                    <p>1000pt <Button>획득</Button></p>
-                    
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-md-6">
+                        <div className="banner_pick">
+                            A
+                        </div>
+                    </div>
+                    <div className="col-md-6">
+                        <div className="banner_pick">
+                            B
+                        </div>
+                    </div>
                 </div>
-                <div className="Funding_PeoplePick">
-                    <p>
-                        대중의 선택은?
-                    </p>
-                    <div className="test">A</div>
-                    <div className="test">B</div>
-                    <div className="test">C</div>
-                    
-                    <p>pt<input value="1000"></input><Button>펀드</Button></p>
-                    
+                <div className="row">
+                    <div className="col-md-6">
+                        <div className="banner_pick">
+                            C
+                        </div>
+                    </div>
+                    <div className="col-md-6">
+                        <div className="banner_pick">
+                            D
+                        </div>
+                    </div>
+                <div className="row">
+                    <div className="col-md-6"><p>1000pt <Button>획득</Button></p></div>
+                    <div className="col-md-6"><p>pt<input value="1000"></input><Button>펀드</Button></p></div>
                 </div>
+                </div>
+
             </div>
         </div>
         </div>
@@ -112,6 +120,12 @@ export default function BannerBetting() {
     const [betPoint, setBetPoint] = useState(0);
     const [imageMap, setImageMap] = useState(null);
     
+
+    const [sex, setSex]=useState(''); 
+    const [job, setJob]=useState(''); 
+    const [category, setCategory]=useState('');
+    const [image,setImage]=useState('');
+
     const [open, setOpen] = useState(false);
     const closeModal = () => setOpen(false);
 
@@ -122,8 +136,12 @@ export default function BannerBetting() {
             const userRef = ref(db, 'users/' + user.uid);
             var snapshot = await get(userRef);
             var data = snapshot.val();
-
+            
             if(data != null){
+                setSex(data.ROLE_USER.sex);
+                setCategory(data.ROLE_USER.field);
+                setJob(data.ROLE_USER.job);
+                //console.log(job+sex+category);
                 if(data.tm_info != null){
                     setPoint(data.tm_info.point);
                 }
@@ -243,8 +261,15 @@ export default function BannerBetting() {
                 const imgs = vote_data[imageMap.path] == null ? {} : vote_data[imageMap.path];
 
                 var updateData = {};
-                const img = imageMap[select.id];
+                const img = imageMap[select.id]; 
                 updateData[img] = imgs[img] == null ? 1 : imgs[img] + 1;
+
+                //update할때, image.path에 한표가 추가될 때
+                //bannercount 테이블 update
+                //image.path/category/+"category(변수임)"  여기에 +1하기
+               
+                setImage(imageMap.path+"/"+img);  //--> SceneryImages/mountains-6540497__340webp
+
                 update(child(voteRef, imageMap.path), updateData).then(res => {
                     var getdata = {};
                     getdata['/point'] = nPoint
@@ -252,6 +277,94 @@ export default function BannerBetting() {
                         select: select.id,
                         name: imageMap.path + "/" + img,
                     } 
+
+
+                    get(ref(db, `BannerCount/${imageMap.path}/${img}/sex/${sex}`)).then((snapshot)=>{
+                        if(snapshot.exists()){
+                            var auth=snapshot.val()
+                            console.log(auth);
+                
+                            const updates={};
+                            updates['BannerCount/'+imageMap.path+"/"+img+'/sex/'+sex]=auth+1; 
+                            update(ref(db),updates);
+                           
+        
+                        }
+                        else{
+                            const updates={};
+                              updates['BannerCount/'+imageMap.path+"/"+img+'/sex/'+sex]=1;
+                              update(ref(db),updates);
+                        }
+                    })
+
+                    get(ref(db, `BannerCount/${imageMap.path}/${img}/category/${category}`)).then((snapshot)=>{
+                        if(snapshot.exists()){
+                            var auth=snapshot.val()
+                            console.log(auth);
+            
+                            const updates={};
+                            updates['BannerCount/'+imageMap.path+"/"+img+'/category/'+category]=auth+1;
+                            update(ref(db),updates);
+                           
+        
+                        }
+                        else{
+                             const updates={};
+                              updates['BannerCount/'+imageMap.path+"/"+img+'/category/'+category]=1;
+                              update(ref(db),updates);
+                        }
+                    })
+
+                    get(ref(db, `BannerCount/${imageMap.path}/${img}/job/${job}`)).then((snapshot)=>{
+                        if(snapshot.exists()){
+                            var auth=snapshot.val()
+                            console.log(auth);
+                
+                            const updates={};
+                            updates['BannerCount/'+imageMap.path+"/"+img+'/job/'+job]=auth.job.student+1;
+                            update(ref(db),updates);
+                           
+        
+                        }
+                        else{
+                              const updates={};
+                              updates['BannerCount/'+imageMap.path+"/"+img+'/job/'+job]=1;
+                              update(ref(db),updates);
+                        }
+                    })
+
+
+
+
+                   /* get(ref(db, `BannerCount/${imageMap.path}/${img}/sex/${sex}`)).then((snapshot)=>{
+                        if(snapshot.exists()){
+                            var auth=snapshot.val()
+                            console.log(auth);
+                            
+                            const updates={};
+                            updates['BannerCount/'+imageMap.path+"/"+img+'/sex/'+sex]=auth+1;
+                            update(ref(db),updates);
+                            /*
+                            update(ref(db,'BannerCount/'+imageMap.path+"/"+img+'/category/'+field),{
+                                IT:auth+1
+                            })
+        
+                        }
+                        else{
+                            //update(ref(db,'BannerCount/'+imageMap.path+"/"+img+'/sex'),{
+                              //  sex:1})
+                            
+                              const updates={};
+                              updates['BannerCount/'+imageMap.path+"/"+img+'/sex/'+sex]=1;
+                              update(ref(db),updates);
+                        }
+
+                        }
+                        
+                        )*/
+
+
+                    
                     update(child(userRef, "tm_info"), getdata).then(res => {
                         select.style.outline = '0px';
                         setSelect(null);
@@ -407,6 +520,7 @@ export default function BannerBetting() {
             <div className="Title">
                 <h2>이미지 배팅</h2>
                 <h5>Pick Your Best</h5>
+                <h5>{image}</h5>
             </div>
             <div className="Category container-fluid">
                 <button className="mr" onClick={() => { setImages(imageBettingPath); }}>
