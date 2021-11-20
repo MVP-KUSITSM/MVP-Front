@@ -6,7 +6,6 @@ import LNB from "../LNB/LNB";
 function Result() {
   return (
     <>
-    <GNB />
     <div class="Banner-Result">
     <LNB />
         <p class="title">펀딩결과</p>
