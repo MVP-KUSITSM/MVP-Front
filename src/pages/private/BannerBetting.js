@@ -124,7 +124,7 @@ export default function BannerBetting() {
     const [sex, setSex]=useState(''); 
     const [job, setJob]=useState(''); 
     const [category, setCategory]=useState('');
-    const [image,setImage]=useState('');
+
 
     const [open, setOpen] = useState(false);
     const closeModal = () => setOpen(false);
@@ -332,38 +332,6 @@ export default function BannerBetting() {
                               update(ref(db),updates);
                         }
                     })
-
-
-
-
-                   /* get(ref(db, `BannerCount/${imageMap.path}/${img}/sex/${sex}`)).then((snapshot)=>{
-                        if(snapshot.exists()){
-                            var auth=snapshot.val()
-                            console.log(auth);
-                            
-                            const updates={};
-                            updates['BannerCount/'+imageMap.path+"/"+img+'/sex/'+sex]=auth+1;
-                            update(ref(db),updates);
-                            /*
-                            update(ref(db,'BannerCount/'+imageMap.path+"/"+img+'/category/'+field),{
-                                IT:auth+1
-                            })
-        
-                        }
-                        else{
-                            //update(ref(db,'BannerCount/'+imageMap.path+"/"+img+'/sex'),{
-                              //  sex:1})
-                            
-                              const updates={};
-                              updates['BannerCount/'+imageMap.path+"/"+img+'/sex/'+sex]=1;
-                              update(ref(db),updates);
-                        }
-
-                        }
-                        
-                        )*/
-
-
                     
                     update(child(userRef, "tm_info"), getdata).then(res => {
                         select.style.outline = '0px';
@@ -520,7 +488,6 @@ export default function BannerBetting() {
             <div className="Title">
                 <h2>이미지 배팅</h2>
                 <h5>Pick Your Best</h5>
-                <h5>{image}</h5>
             </div>
             <div className="Category container-fluid">
                 <button className="mr" onClick={() => { setImages(imageBettingPath); }}>
