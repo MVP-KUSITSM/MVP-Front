@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword,
   createUserWithEmailAndPassword, sendPasswordResetEmail, signOut, signInAnonymously } from 'firebase/auth';
 import { getDatabase, ref, set, get, update } from "firebase/database";
-import { getStorage } from "firebase/storage";
+import { getStorage, listAll } from '@firebase/storage';
 import firebase from "firebase/compat";
 
 const firebaseConfig = {
