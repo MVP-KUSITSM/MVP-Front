@@ -43,17 +43,19 @@ export default function CorpInform() {
       update(ref(db, 'users/' + user.uid), {
           auth:"ROLE_CORP",
           ROLE_CORP:{
-            boss:boss,
-            boss_contact:boss_contact,
-            capital_size:capital_size,
-            contact:contact,
-            field:field,
-            name:nickname,
-            scale:scale,
-            name:nickname,
-          }
-      })
-      navigate('/home', {replace:true})
+            Info:{
+                boss:boss,
+                boss_contact:boss_contact,
+                capital_size:capital_size,
+                contact:contact,
+                field:field,
+                name:nickname,
+                scale:scale,
+                name:nickname},
+            count:0
+          }}
+      )
+      navigate('/corporation/main', {replace:true})
       }
 
     return (

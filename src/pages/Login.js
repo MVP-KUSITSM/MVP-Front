@@ -37,6 +37,7 @@ function Login() {
             else if(auth=="ROLE_CORP")
             {navigate('/corporation/main', {replace:true});
             console.log("기업유저로.")}
+           
             
         }
     })

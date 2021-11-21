@@ -112,7 +112,8 @@ function Dashboard() {
             </div>
           </div>
           <div className="Banner">
-          <div><span className="title_style">펀딩 진행 중인 배너</span><span className="title_detail">상세 보기 &gt;</span></div>
+          <div><span className="title_style">펀딩 진행 중인 배너</span>
+          <Link to="/corporation/banner/detail"><span className="title_detail">상세 보기 &gt;</span></Link></div>
             <div className="Banner_detail">
               <img src="" className="Banner_img" id="take"/>
               <div className="Banner_text">

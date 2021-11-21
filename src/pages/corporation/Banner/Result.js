@@ -1,4 +1,4 @@
-import { FirebaseStorage } from "@firebase/storage-types";
+
 import React, { useState,useEffect } from "react";
 import {auth, db, storage} from "../../../scripts/firebase";
 import { Navigate } from "react-router";
@@ -7,7 +7,7 @@ import { ref, onValue } from "firebase/database";
 import * as fbStorage from "firebase/storage";
 import "../../../assets/css/corporation/banner/result.css";
 import LNB from "../LNB/LNB";
-
+//import { FirebaseStorage } from "@firebase/storage-types";
 
 function Result() {
 
@@ -26,6 +26,7 @@ function Result() {
     }, []); 
 
 
+/*
 import { jsxMemberExpression } from "@babel/types";
 
 function Result(props) {
@@ -120,5 +121,7 @@ function Result(props) {
     </>
   );
 }
+*/
+}
 
-export default Result;
+export default Result;  

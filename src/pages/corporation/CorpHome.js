@@ -82,7 +82,7 @@ export default function CorpHome(){
                         Statisticssss
                     </div>
                     <div>
-                        <Link to="/corporation/main">
+                        <Link to="/corporation/dashboard">
                             <Button variant="secondary">대시보드</Button>
                         </Link>
                     </div>
