@@ -35,8 +35,14 @@ function Login() {
               {navigate('/bb', {replace:true});
               console.log("개인유저로.")}
             else if(auth=="ROLE_CORP")
+<<<<<<< HEAD
+            {navigate('/corporation/main', {replace:true});
+            console.log("기업유저로.")}
+           
+=======
               {navigate('/corporation/main', {replace:true});
               console.log("기업유저로.")}
+>>>>>>> b4796cc3927c33b0b1f9339dbe081e8b80f32314
             
         }
     })

@@ -1,17 +1,55 @@
-import React, { useState } from "react";
-import { storage, storageRef, db } from "../../../scripts/firebase";
+import React, { useEffect, useState  } from "react";
+import { storage, storageRef, db,auth } from "../../../scripts/firebase";
 import "../../../assets/css/corporation/banner/upload.css";
+import { getDatabase,ref, get,set,update,push } from "firebase/database";
 import GNB from "../GNB/GNB";
 import LNB from "../LNB/LNB";
 import firebase from "firebase/compat";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router";
+
+
+
+
 
 function Upload() {
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
+  const [bannerlist,setbannerlist]=useState([]);
+  
+    const [user, loading, error] = useAuthState(auth);
+    const [name, setName] = useState("");
+
+    const navigate = useNavigate();
+
+  const fetchUserName = async () => {
+    try {
+    var snapshot = await get(ref(db, 'users/' + user.uid));
+    var data = snapshot.val();
+    setName(data.name);
+    } catch (err) {
+    console.error(err);
+    alert("An error occured while fetching user data");
+    }
+};
+
+useEffect(() => {
+    if (loading) return;
+    if (!user) return navigate('/', {replace: true});
+    fetchUserName();
+}, [user, loading]);
+
   const upload = () => {
       if (image == null)
           return;
+            var uploadimageurl=category+'/'+image.name;
+          push(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
+            banner:[uploadimageurl]
+            }
+          )
       storageRef.child(`/${category.valueOf()}/${image.name}`).put(image).on("state_changed", alert("success"), alert);
+
+      
   }
 
   return (
