@@ -4,13 +4,16 @@ import { auth, signInWithEmailAndPassword, signInWithGoogle,db } from "../script
 import { ref, get,set ,getDatabase,  child} from "firebase/database";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
+import "./private/Role"
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
-
+  const [isModalOpen, setisModalOpen]=useState(false);
   const navigate = useNavigate();
+
+  
   useEffect(() => {
     if (loading) {
       // maybe trigger a loading screen
@@ -40,6 +43,16 @@ function Login() {
 
       }
   }, [user, loading]);
+
+  const openModal =async()=>{
+      setisModalOpen(true)
+    
+    }
+
+    const closeModal =async()=>{
+      setisModalOpen(false)
+    
+    }
 
   return (
     
@@ -79,6 +92,10 @@ function Login() {
         <button className="login__btn login__google" onClick={signInWithGoogle}>
           Login with Google
         </button>
+       {/* <Role isOpen={isModalOpen} close={()=>closeModal()}></Role>
+        <button className="login__btn login__google" onClick={()=>openModal()}>
+          모달 확인
+  </button>*/}
         <div >
           <Link to="/reset">비밀번호 찾기</Link> <text>|  </text>
           

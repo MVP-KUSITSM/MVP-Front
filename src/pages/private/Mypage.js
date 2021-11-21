@@ -1,12 +1,56 @@
-import React, { useState } from "react";
+
 import { Table } from 'react-bootstrap';
 import NavMenu from "../NavMenu";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router";
+import { auth, db, logout } from "../../scripts/firebase";
+import { getDatabase,ref, get,set,update } from "firebase/database";
+import "../Login.css";
+
 
 function Mypage(){
+    const [user, loading, error] = useAuthState(auth);
+    const [name, setName] = useState("");
+    const navigate = useNavigate();
+    const [point,setPoint]=useState(0);
+    const [betlog,setBetlog]=useState([]);
+    const [getlog,setGetlog]=useState([]);
 
+
+    const fetchUserName = async () => {
+        try {
+        var snapshot = await get(ref(db, 'users/' + user.uid));
+        var data = snapshot.val();
+        setName(data.name);
+        } catch (err) {
+        console.error(err);
+        alert("An error occured while fetching user data");
+        }
+    };
+
+    useEffect(() => {
+        if (loading) return;
+        if (!user) return navigate('/', {replace: true});
+        fetchUserName();
+    
+
+            get(ref(db, `users/${user.uid}/tm_info`)).then((snapshot)=>{
+                if(snapshot.exists()){
+                    var auth=snapshot.val()
+                    console.log(auth.point)
+                
+                    
+                }
+            }) 
+        
+
+    }, [user, loading]);
+
+   
     return(
         <>
-            <NavMenu name="hi"/>
+            <NavMenu name={name}/>
             <div classNam="point">
                 <span>My 포인트 내역</span>
                 <div className="row">

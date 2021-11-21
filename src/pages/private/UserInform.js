@@ -28,7 +28,7 @@ const provider = new GoogleAuthProvider();
 export default function UserInform() {
     const [birth, setBirth] = useState("");
     const [contact, setContact] = useState("");
-    const [field, setField] = useState("");
+    const [category, setCategory] = useState("");
     const [job, setJob] = useState("");
     const [point, setPoint] = useState(0);
     const [sex, setSex] = useState("");
@@ -62,7 +62,7 @@ export default function UserInform() {
         ROLE_USER:{
           birth:birth,
           contact:contact,
-          field:field,
+          category:category,
           job:job,
           sex:sex,
           name:nickname}
@@ -125,8 +125,8 @@ export default function UserInform() {
                   <text className="login__Text">연락처</text>
                   <optgroup label='성별을 선택하세요'>
                   <option value=' '></option>
-                  <option value='여성'>여성</option>
-                  <option value='남성'>남성</option>
+                  <option value='women'>여성</option>
+                  <option value='men'>남성</option>
                   </optgroup>
                 </select>
             </div>
@@ -137,10 +137,10 @@ export default function UserInform() {
                       value={job}  onChange={(e) => setJob(e.target.value)}>
                       <optgroup label='직업을 선택하세요'>
                       <option value=' '></option>
-                      <option value='초중고생'>초중고생</option>
-                      <option value='대학/대학원생'>대학/대학원생</option>
-                      <option value='회사원(직장인)'>회사원(직장인)</option>
-                      <option value='연구원'>연구원</option>
+                      <option value='teenager'>초중고생</option>
+                      <option value='student'>대학/대학원생</option>
+                      <option value='worker'>회사원(직장인)</option>
+                      <option value='doctor'>연구원</option>
                       </optgroup>
                     </select>
             </div>
@@ -148,23 +148,23 @@ export default function UserInform() {
             <div className="login__Box">
               <text className="login__Text">관심분야</text>
               <select className="login__Box" placeholder="관심분야 선택" name="fieldoption" 
-                    value={field}  onChange={(e) => setField(e.target.value)}>
+                    value={category}  onChange={(e) => setCategory(e.target.value)}>
                       <text className="login__Text">연락처</text>
                     <optgroup label='분야를 선택하세요'>
                     <option value=' '></option>
-                    <option value='IT/컴퓨터'>IT/컴퓨터</option>
-                    <option value='마케팅'>마케팅</option>
-                    <option value='금융'>금융</option>
-                    <option value='게임'>게임</option>
-                    <option value='문화/예술'>문화/예술</option>
-                    <option value='뷰티'>뷰티</option>
-                    <option value='스포츠/레저'>스포츠/레저</option>
-                    <option value='식품'>식품</option>
-                    <option value='여행'>여향</option>
-                    <option value='의료'>의료</option>
-                    <option value='패션의류'>패션의류</option>
-                    <option value='환경'>환경</option>
-                    <option value='기타'>기타</option>
+                    <option value='it'>IT/컴퓨터</option>
+                    <option value='marketing'>마케팅</option>
+                    <option value='finance'>금융</option>
+                    <option value='game'>게임</option>
+                    <option value='culture'>문화/예술</option>
+                    <option value='beauty'>뷰티</option>
+                    <option value='sports'>스포츠/레저</option>
+                    <option value='foods'>식품</option>
+                    <option value='trip'>여행</option>
+                    <option value='medical'>의료</option>
+                    <option value='fashion'>패션의류</option>
+                    <option value='environment'>환경</option>
+                    <option value='etc'>기타</option>
                     </optgroup>
               </select>
             </div>

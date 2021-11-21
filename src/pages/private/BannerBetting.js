@@ -124,7 +124,7 @@ export default function BannerBetting() {
     const [sex, setSex]=useState(''); 
     const [job, setJob]=useState(''); 
     const [category, setCategory]=useState('');
-
+    const [joboption,setjoboption]=useState('');
 
     const [open, setOpen] = useState(false);
     const closeModal = () => setOpen(false);
@@ -139,7 +139,7 @@ export default function BannerBetting() {
             
             if(data != null){
                 setSex(data.ROLE_USER.sex);
-                setCategory(data.ROLE_USER.field);
+                setCategory(data.ROLE_USER.category);
                 setJob(data.ROLE_USER.job);
                 //console.log(job+sex+category);
                 if(data.tm_info != null){
@@ -167,13 +167,19 @@ export default function BannerBetting() {
         fetchUserInfo();
     }, [user, loading]);
 
-    const imageBettingPath = "SceneryImages";
+    const [imageBettingPath,setimageBettingPath] = useState("Pets");
+    
+    
     const imageNumber = 32;
+
     useEffect(() => {
         setImages(imageBettingPath);
-    }, [])
+    }, [imageBettingPath])
 
+
+    
     const setImages = async (path) => {
+        console.log(path)
         try{
             fbStorage.listAll(fbStorage.ref(storage, path)).then(res => {
                 const imageIndex = selectIndex(imageNumber, 4);
@@ -268,7 +274,7 @@ export default function BannerBetting() {
                 //bannercount 테이블 update
                 //image.path/category/+"category(변수임)"  여기에 +1하기
                
-                setImage(imageMap.path+"/"+img);  //--> SceneryImages/mountains-6540497__340webp
+                //setImage(imageMap.path+"/"+img);  //--> SceneryImages/mountains-6540497__340webp
 
                 update(child(voteRef, imageMap.path), updateData).then(res => {
                     var getdata = {};
@@ -321,7 +327,7 @@ export default function BannerBetting() {
                             console.log(auth);
                 
                             const updates={};
-                            updates['BannerCount/'+imageMap.path+"/"+img+'/job/'+job]=auth.job.student+1;
+                            updates['BannerCount/'+imageMap.path+"/"+img+'/job/'+job]=auth+1;
                             update(ref(db),updates);
                            
         
@@ -490,12 +496,26 @@ export default function BannerBetting() {
                 <h5>Pick Your Best</h5>
             </div>
             <div className="Category container-fluid">
-                <button className="mr" onClick={() => { setImages(imageBettingPath); }}>
+                <button className="mr" onClick={() => { 
+                    setImages(imageBettingPath); 
+                    //imageoptioncheck();
+                }}>
                     새로고침
                 </button>
                 <button className="ml" onClick={() => { showRank(); }}>
                     순위표
                 </button>
+                <select placeholder="직업 선택" name="joboption" 
+                      value={joboption}  onChange={(e) => {setimageBettingPath(e.target.value); setjoboption(e.target.value)}}>
+                      <optgroup label='직업을 선택하세요'>
+                      <option value=' '></option>
+                      <option value='Haneul'>1</option>
+                      <option value='ImageBetting1'>2</option>
+                      <option value='Pets'>3</option>
+                      <option value='ImageBetting2'>4</option>
+                      </optgroup>
+                    </select>
+
                 <Popup open={open} closeOnDocumentClick onClose={closeModal}>
                     {close => (
                     <div className="o_modal">
