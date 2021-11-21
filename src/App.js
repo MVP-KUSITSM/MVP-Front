@@ -28,6 +28,7 @@ import CB_Result from "./pages/corporation/Banner/Result";
 import CP_Main from "./pages/corporation/Prototype/Main";
 import CP_Detail from "./pages/corporation/Prototype/Detail";
 import CP_Upload from "./pages/corporation/Prototype/Upload";
+import CP_Home from "./pages/corporation/CorpHome";
 
 export default function App() {
     return (
@@ -46,6 +47,7 @@ export default function App() {
                     <Route path="/corpinform" element={<CorpInform/>} />
                     <Route path="/mypage" element={<Mypage/>} />
                     <Route exact path="/corporation/main" element={<C_Main/>} />
+                    <Route exact path="/corporation/home" element={<CP_Home/>} />
                     <Route exact path="/corporation/banner/main" element={<CB_Main/>} />
                     <Route exact path="/corporation/banner/detail" element={<CB_Detail/>} />
                     <Route exact path="/corporation/banner/upload" element={<CB_Upload/>} />

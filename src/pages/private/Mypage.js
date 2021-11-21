@@ -50,6 +50,7 @@ function Mypage(){
    
     return(
         <>
+
             <NavMenu name={name}/>
             <div classNam="point">
                 <span>My 포인트 내역</span>
@@ -115,6 +116,7 @@ function Mypage(){
                     </tbody>
                     </Table>
             </div>
+
         </>
     )
 }
