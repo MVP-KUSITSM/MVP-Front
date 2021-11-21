@@ -7,10 +7,11 @@ import firebase from "firebase/compat";
 
 function Upload() {
   const [image, setImage] = useState('');
+  const [category, setCategory] = useState('');
   const upload = () => {
       if (image == null)
           return;
-      storageRef.child(`/images/${image.name}`).put(image).on("state_changed", alert("success"), alert);
+      storageRef.child(`/${category.valueOf()}/${image.name}`).put(image).on("state_changed", alert("success"), alert);
   }
 
   return (
@@ -23,21 +24,26 @@ function Upload() {
           배너 펀딩에 참여하여 사용자들의 선호도를 알아볼 배너 이미지 파일을 업로드 하세요.
         <br/>
         파일은 최대 n개까지 업로드할 수 있어요.</p>
-        {/*<div class="file-select">*/}
-        {/*    <form onSubmit={onsubmit}>*/}
-        {/*        <input onChange={onchange} type="text" placeholder="게시글을 써주세요." maxLength={120}/>*/}
-        {/*        <input type="file" accept="image/*" onChange={onFileChange} value={file}/>*/}
-        {/*        <input type="submit" value="제출하기" />*/}
-        {/*        {attachment && (*/}
-        {/*            <div>*/}
-        {/*                <img src={attachment} width="50px" height="50px" alt="attachment"/>*/}
-        {/*                <button onClick={onClearAttachment}>Clear</button>*/}
-        {/*            </div>*/}
-        {/*        )}*/}
-        {/*    </form>*/}
-        {/*</div>*/}
         <div className="file-select">
             <center>
+                <text className="file-category-text">배너 분야</text>
+                <select className="file-category" placeholder="배너 분야 선택" name="fieldoption" value={category} onChange={(e) => setCategory(e.target.value)}>
+                    <optgroup label='분야를 선택하세요'>
+                        <option value='it'>IT/컴퓨터</option>
+                        <option value='marketing'>마케팅</option>
+                        <option value='finance'>금융</option>
+                        <option value='game'>게임</option>
+                        <option value='art'>문화/예술</option>
+                        <option value='beauty'>뷰티</option>
+                        <option value='sports'>스포츠/레저</option>
+                        <option value='food'>식품</option>
+                        <option value='travel'>여향</option>
+                        <option value='medical'>의료</option>
+                        <option value='cloth'>패션의류</option>
+                        <option value='environment'>환경</option>
+                        <option value='etc'>기타</option>
+                    </optgroup>
+                </select>
                 <input type="file" onChange={(e) => {setImage(e.target.files[0])}}/>
                 <button onClick={upload}>Upload</button>
             </center>
