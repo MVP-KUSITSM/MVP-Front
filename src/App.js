@@ -13,6 +13,7 @@ import Home from "./pages/private/Home";
 import BannerBetting from "./pages/private/BannerBetting";
 import PrototypeTest from "./pages/private/PrototypeTest";
 import Survey from "./pages/private/Survey";
+import Mypage from "./pages/private/Mypage";
 
 //기업페이지
 import C_Main from "./pages/corporation/Dashboard/Dashboard";
@@ -23,6 +24,7 @@ import CB_Result from "./pages/corporation/Banner/Result";
 import CP_Main from "./pages/corporation/Prototype/Main";
 import CP_Detail from "./pages/corporation/Prototype/Detail";
 import CP_Upload from "./pages/corporation/Prototype/Upload";
+import CP_Home from "./pages/corporation/CorpHome";
 
 export default function App() {
     return (
@@ -36,8 +38,11 @@ export default function App() {
                     <Route path="/bb" element={<BannerBetting/>} />
                     <Route path="/pt" element={<PrototypeTest/>} />
                     <Route path="/survey" element={<Survey/>} />
+                    <Route path="/mypage" element={<Mypage/>} />
+
     
                     <Route exact path="/corporation/main" element={<C_Main/>} />
+                    <Route exact path="/corporation/home" element={<CP_Home/>} />
                     <Route exact path="/corporation/banner/main" element={<CB_Main/>} />
                     <Route exact path="/corporation/banner/detail" element={<CB_Detail/>} />
                     <Route exact path="/corporation/banner/upload" element={<CB_Upload/>} />
