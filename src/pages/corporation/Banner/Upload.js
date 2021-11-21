@@ -8,10 +8,6 @@ import firebase from "firebase/compat";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router";
 
-
-
-
-
 function Upload() {
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
