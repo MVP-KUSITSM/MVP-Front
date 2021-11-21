@@ -1,8 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, signOut } from 'firebase/auth';
-import { getDatabase, ref, set, onValue } from "firebase/database";
-import { getStorage, listAll, uploadBytes, ref as refs } from "firebase/storage";
-
+import { getDatabase, ref, set } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDFMMpu-eTGrbpW3Ruu-G2ZMfwaioRCsYw",
@@ -17,12 +15,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getDatabase(app);
 
-const storage = getStorage(app);
-//const listRef = ref(storage, 'files/uid');
-
-
-
-
 const provider = new GoogleAuthProvider();
 
 const signInWithGoogle = async () => {
@@ -36,8 +28,6 @@ const signInWithGoogle = async () => {
         authProvider: "google",
         email: user.email,
     })
-
-   
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -83,47 +73,6 @@ const logout = () => {
   signOut(auth);
 };
 
-const bannerDetail = () => {
-    const starCountRef = ref(db, 'Banner/Banner1');
-    onValue(starCountRef, (snapshot) => {
-    const data = snapshot.val();
-    //console.log(data.url);
-
-    const listRef = refs(storage, 'gs://image-betting.appspot.com/');
-
-// Find all the prefixes and items.
-    listAll(listRef)
-    .then((res) => {
-      //console.log(res)
-      res.prefixes.forEach((folderRef) => {
-        console.log(folderRef)
-        // All the prefixes under listRef.
-        // You may call listAll() recursively on them.
-      });
-      res.items.forEach((itemRef) => {
-        console.log(itemRef)
-        // All the items under listRef.
-      });
-    }).catch((error) => {
-      console.log(error)
-      // Uh-oh, an error occurred!
-    });
-  });
-  // ref(db, 'users/').once("value")
-  // .then(function(snapshot) {
-  //   var key = snapshot.key; // "ada"
-  //   // var childKey = snapshot.child("name/last").key; // "last"
-  //   return key;
-  // });
-
-  // var ref = firebase.database().ref("users/");
-  // ref.once("value")
-  // .then(function(snapshot) {
-  //   var key = snapshot.key; // "ada"
-  //   var childKey = snapshot.child("name").key; // "last"
-  // });
-};
-
 export {
   auth,
   db,
@@ -132,6 +81,4 @@ export {
   registerWithEmailAndPassword,
   sendPasswordResetEmail,
   logout,
-  bannerDetail,
-  storage,
 };
