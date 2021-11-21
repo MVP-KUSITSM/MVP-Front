@@ -1,5 +1,4 @@
 import { initializeApp } from 'firebase/app';
-
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword,createUserWithEmailAndPassword, sendPasswordResetEmail, signOut, signInAnonymously } from 'firebase/auth';
 import { getDatabase, ref, set, get, update } from "firebase/database";
 import { getStorage, listAll } from '@firebase/storage';
@@ -28,21 +27,17 @@ const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, provider);
     const user = res.user;
-
     const userRef = ref(db, 'users/' + user.uid);
 
     var user_snapshot = await get(userRef);
     const user_data = user_snapshot.val();
     if(user_data == null){
       set((userRef), {
-
         uid: user.uid,
         name: user.displayName,
         authProvider: "google",
         email: user.email,
-
         auth:"null",
-
         tm_info: { point: 0}
       });
     }
