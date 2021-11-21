@@ -95,7 +95,7 @@ function Result(props) {
     // if(!user) return Navigate('/',{replace: true});
     Bannerstatic();
     fetchBannerInfo();
-  })
+  })*/
   return (
     <>
     <div class="Banner-Result">
@@ -121,7 +121,6 @@ function Result(props) {
     </>
   );
 }
-*/
-}
+
 
 export default Result;  
