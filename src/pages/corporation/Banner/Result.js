@@ -2,10 +2,30 @@ import { FirebaseStorage } from "@firebase/storage-types";
 import React, { useState,useEffect } from "react";
 import {auth, db, storage} from "../../../scripts/firebase";
 import { Navigate } from "react-router";
+import { ref, onValue } from "firebase/database";
 
 import * as fbStorage from "firebase/storage";
 import "../../../assets/css/corporation/banner/result.css";
 import LNB from "../LNB/LNB";
+
+
+function Result() {
+
+  useEffect(() => {
+    var url = window.location.href;
+    var bid = url.split('/')[6];
+    let bannerId = bid.replace('%2F', '/');
+    console.log(bannerId)
+    
+    var userIdRef = ref(db, `BannerCount/${bannerId}`);
+    
+    onValue(userIdRef, (snapshot) => {
+      var data = snapshot.val();
+      console.log(data);
+    })
+    }, []); 
+
+
 import { jsxMemberExpression } from "@babel/types";
 
 function Result(props) {
