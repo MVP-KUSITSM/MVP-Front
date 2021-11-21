@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+tmi-front
+
 # testing
 /coverage
 
