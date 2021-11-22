@@ -42,11 +42,11 @@ useEffect(() => {
   const upload = () => {
       if (image == null)
           return;
-            var uploadimageurl=category+'/'+image.name;
-          push(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
-            banner:[uploadimageurl]
-            }
-          )
+      var uploadimageurl=category+'/'+image.name;
+      push(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
+        banner:[uploadimageurl]
+        }
+      )
       storageRef.child(`/${category.valueOf()}/${image.name}`).put(image).on("state_changed", alert("success"), alert);
 
       

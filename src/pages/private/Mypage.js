@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 import { auth, db, logout } from "../../scripts/firebase";
 import { getDatabase,ref, get,set,update } from "firebase/database";
 import "../Login.css";
-
+import {map} from "react-bootstrap/ElementChildren";
 
 function Mypage(){
     const [user, loading, error] = useAuthState(auth);
@@ -20,12 +20,12 @@ function Mypage(){
 
     const fetchUserName = async () => {
         try {
-        var snapshot = await get(ref(db, 'users/' + user.uid));
-        var data = snapshot.val();
-        setName(data.name);
+            var snapshot = await get(ref(db, 'users/' + user.uid));
+            var data = snapshot.val();
+            setName(data.name);
         } catch (err) {
-        console.error(err);
-        alert("An error occured while fetching user data");
+            console.error(err);
+            alert("An error occured while fetching user data");
         }
     };
 
@@ -33,14 +33,23 @@ function Mypage(){
         if (loading) return;
         if (!user) return navigate('/', {replace: true});
         fetchUserName();
-    
-
-            get(ref(db, `users/${user.uid}/tm_info`)).then((snapshot)=>{
+            get(ref(db, `users/${user.uid}/tm_info/betLogs`)).then((snapshot)=>{
                 if(snapshot.exists()){
-                    var auth=snapshot.val()
-                    console.log(auth.point)
-                
-                    
+                    var auth = Object.keys(snapshot.val());
+                    let today = new Date();
+                    for (var i = 0; i < auth.length; i++) {
+                        get(ref(db, `users/${user.uid}/tm_info/betLogs/${auth[i]}`)).then((ss) => {
+                            if (ss.exists()) {
+                                var authRef = Object.keys(ss.val());
+                                var authDetail = Object.values(ss.val());
+                                var addPoint = authDetail[0];
+                                var betPoint = authDetail[1];
+                                var list = [addPoint, betPoint, today.toLocaleString()];
+                                console.log(addPoint, betPoint, today.toLocaleString())
+                            }
+                        })
+                    }
+
                 }
             }) 
         
@@ -74,7 +83,7 @@ function Mypage(){
                     카테코리 필터 2021.07.12.2021
                 </div>
                 <Table striped bordered hover size="sm">
-                    <thead>
+                    <thead className="tablest">
                         <tr>
                         <th>조사 번호</th>
                         <th>조사 기간</th>
@@ -86,9 +95,12 @@ function Mypage(){
                         </tr>
                     </thead>
                     <tbody>
+                    {
+
+                    }
                         <tr>
                         <td>1</td>
-                        <td>Mark</td>
+                        <td>auth</td>
                         <td>Otto</td>
                         <td>@mdo</td>
                         <td>@mdo</td>
