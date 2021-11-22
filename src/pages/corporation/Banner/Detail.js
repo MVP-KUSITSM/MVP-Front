@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../../assets/css/corporation/banner/detail.css";
-// import GNB from "../GNB/GNB";
+import GNB from "../GNB/GNB";
 import LNB from "../LNB/LNB";
 import { db, auth } from "../../../scripts/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -83,20 +83,22 @@ function Detail() {
     return (
         <>
         <div className="Banner-Detail">
-            <NavMenu name={name}/>
             <LNB />
-            <div className="Banner-Add">
-            <div className="banner-add-text">배너 업로드</div>
-            <div className="banner-add" onClick={ MoveToBannerUpload }>
-              <div className="banner-add-icon">
-              <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50.5 21.0417V79.9584" stroke="#C4C4C4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M21.0416 50.5H79.9583" stroke="#C4C4C4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              </div>
+            <div clasName="Main_part">
+                <GNB />
+                <div className="Banner-Add">
+                    <div className="banner-add-text">배너 업로드</div>
+                        <div className="banner-add" onClick={ MoveToBannerUpload }>
+                            <div className="banner-add-icon">
+                            <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M50.5 21.0417V79.9584" stroke="#C4C4C4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21.0416 50.5H79.9583" stroke="#C4C4C4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <YesBanner isBanner={isBanner} />
             </div>
-            </div>
-            <YesBanner isBanner={isBanner} />
         </div>
         </>
       );

@@ -1,9 +1,48 @@
+
+.Home_title{
+	font-family: 'YES24';
+	position: relative;
+	text-align: center;
+	top : 14px;
+
+	background: #FFFFFF;
+	border: 3px solid #0A347F;
+	box-sizing: border-box;
+	box-shadow: 4px 4px 15px 2px rgba(0, 0, 0, 0.25);
+	border-radius: 20px;
+}
+
+.Home_title h5{
+		font-size: 50px;
+}
+
+.Home_title img {
+	position : absolute;
+	right : 0;
+	top : 15px;
+}
+
+.Home_title h5 {
+	padding: 70px;
+	position: relative;
+}
+
+.Home_box{
+	height: 1000px;
+	padding : 40px;
+	margin-left : 10px;
+	margin-right : 10px;
+	border-right: 3px solid #0A347F;
+	border-left: 3px solid #0A347F;
+}
+
 .menu_all {
     display: flex;
     word-break: break-all;
     height: 300px;
     width : 100%;  
-	}
+
+}
 .menu_all > div {
 	background-color: rgba(10, 52, 127, 0.04);
     
@@ -36,5 +75,26 @@
 .menu_button {
 	/* background-color : blue; */
 	position : relative;
-	top : 30%;
+	/* top : 30%; */
+	padding-top : 30%;
+	cursor: pointer;
+	height: 70%;
+}
+
+.button_etc{
+	float :right;
+	background: #0A347F;
+	border-radius: 40px;
+	padding : 10px;
+	margin : 50px;
+	font-family: YES24;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 27px;
+	/* display: flex; */
+	align-items: center;
+	text-align: center;
+
+	color: #FFFFFF;
 }

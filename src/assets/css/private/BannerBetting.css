@@ -1,3 +1,6 @@
+#blue{
+    color : blue;
+}
 
 .Funding_main{
     position : relative;
@@ -6,7 +9,169 @@
 
 .Title{
     text-align: center;
+    display: flex;
+    padding-left: 20%;
+    padding-top : 60px;
+    padding-bottom : 20px;
+
 }
+
+.Title_name{
+    /* margin-right: 40px; */
+    /* background-color: chocolate; */
+    margin-left : 5%;
+}
+
+.Title_name h2 {
+    font-family: YES24;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 55px;
+    line-height: 73px;
+    text-align: center;
+
+color: #0A347F;
+
+}
+
+.Title_name h5{
+    font-family: YES24;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 46px;
+    text-align: center;
+
+color: #000000;
+
+}
+
+.Title_explain{
+    width : 70%;
+    /* background-color: cadetblue; */
+    /* padding-left: 20%;  */
+}
+
+.Title_explain p{
+    font-family: YES24;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 33px;
+    align-items: center;
+    text-align: center;
+
+  
+color: #0A347F;
+
+}
+
+.Title_ranking{
+    background: #0A347F;
+    border-radius: 40px;
+    width: 203px;
+    height: 51px;
+
+    font-family: YES24;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.Category_menu{
+    display: flex;
+}
+
+.Refresh{
+    display: flex;
+    position: relative;
+    left : 100px;
+    cursor: pointer;
+    margin-left : 100px;
+    width : 100px;
+    margin-right: 500px;
+
+}
+
+.Category_select{
+    width : 50%;
+    padding-left : 30%;
+}
+
+.Button_choice{
+    display: flex;
+    text-align: right;
+    
+}
+
+.Button_get{
+    position: relative;
+    /* left : 100px; */
+    width : 50%;
+    right: 15px;
+    /* margin-left : 30%; */
+    
+}
+
+.Button_bet{
+    position: relative;
+    /* left : 10px; */
+    right: 40px;
+    width : 50%;
+    /* margin-left : 30%; */
+    font-size: 36.0111px;
+}
+
+.point{
+    float: right;
+    position:relative;
+    right : 40px;
+    font-size: 22.7439px;
+}
+
+#getpoint{
+    border: 2.85237px solid #0A347F;
+    box-sizing: border-box;
+    border-radius: 57.0474px;
+    padding-left: 200px;
+    padding-right: 16px;
+    /* width : 346px; */
+    font-size: 36.0111px;
+}
+
+#betpoint{
+    border: 2.85237px solid #0A347F;
+    box-sizing: border-box;
+    border-radius: 57.0474px;
+    padding-right: 6px;
+    font-size: 36.0111px;
+    width : 340px;
+}
+
+.Button_pick{
+    background: #0A347F;
+    border-radius: 75.8129px;
+    width : 100px;
+    padding : 10px;
+    padding-right: 35px;
+    padding-left: 35px;
+
+    font-family: YES24;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 33px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+
 
 .Category{
     position: static;
@@ -74,26 +239,15 @@
     pointer-events: none;
 }
 
-.col-md-6 p{
-    text-align: right;
-}
-
 .o_contents{
     margin: auto;
-    width: 60%;
+    width: 80%;
 }
 
 .tr {
     text-align: right;
 }
 
-.mr {
-    margin-right: 10px;
-}
-
-.ml {
-    margin-left: 10px;
-}
 
 .o_modal {
     font-size: 12px;

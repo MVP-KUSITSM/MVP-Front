@@ -8,7 +8,11 @@ import { ref, get,refFromURL} from "firebase/database";
 import { Link } from "react-router-dom";
 import * as fbStorage from "firebase/storage";
 
+import Search from "../../../assets/css/search.svg";
+import Bell from "../../../assets/css/bell.svg";
+
 import "../../../assets/css/corporation/Dashboard.css";
+import "../../../assets/css/basic.css"
 function Dashboard() {
   //DB 가져오기
   const [user, loading, error] = useAuthState(auth);
@@ -17,6 +21,7 @@ function Dashboard() {
   
   let [분야,분야변경] = useState('분야');
   let [참여인원,참여인원변경] = useState('N');
+
   var bannerImg;
 
   const navigate = useNavigate();
@@ -39,6 +44,7 @@ function Dashboard() {
           }
           
           분야변경(data.ROLE_CORP.Info.category);
+
           FetchBanner();
         }else{
           //기본 정보
@@ -89,6 +95,7 @@ function Dashboard() {
   let [등록프로토수,등록프로토수변경] = useState(1);
 
 
+
   //프로토타입 리뷰
   let 평균별점 = 0.0
   return (
@@ -99,10 +106,10 @@ function Dashboard() {
           <div className="Dashboard_GNB">
             <h3>Dash Board</h3>
             <div className="left_float">
-              <span><img width ="30"src="https://cdn-icons.flaticon.com/png/512/3031/premium/3031293.png?token=exp=1637337442~hmac=fad5b59f481e4d82bfacf1b84f75109d"></img></span>
-              <span><img width="30"src="https://cdn-icons.flaticon.com/png/512/2529/premium/2529521.png?token=exp=1637337721~hmac=bb733b4c344fb0d18530064cc77f062d"></img></span>
-              <div className="logout" onClick={logout}>로그아웃</div>
-            </div>
+              <span><img width ="30"src={Search}></img></span>
+              <span><img width="30"src={Bell}></img></span>
+            <div className="logout" onClick={logout}>로그아웃</div>
+          </div>
 
           </div>
           <hr></hr>

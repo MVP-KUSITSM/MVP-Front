@@ -1,10 +1,16 @@
 import React from "react";
 import { logout } from "../scripts/firebase";
 import {Navbar, Container, Nav, Button} from "react-bootstrap";
+import Search from "../assets/css/search.svg";
+import Bell from "../assets/css/bell.svg";
+import "../assets/css/private/NavMenu.css";
+import "../assets/css/basic.css";
+import Logo from "../assets/css/logo.png";
 
-export default function NavMenu({name}) {
+export default function NavMenu({name, title}) {
   return (
-    <Navbar bg="light" expand="lg">
+    <div className="width_option">
+    {/* <Navbar bg="light" expand="lg">
         <Container>
             <Navbar.Brand href="/home">M.V.P</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -19,6 +25,28 @@ export default function NavMenu({name}) {
                 </Nav>
             </Navbar.Collapse>
         </Container>
-    </Navbar>
+    </Navbar> */}
+    <div className="Nav_all">
+      <img src={Logo} className="Nav_Logo"/>
+      <div className="Nav_title">
+        {title}
+      </div>
+      <div className="Nav_right">
+        <div className="Nav_user">
+          <span id="yellow">다이어 등급</span> {name} 님 환영합니다.
+        </div>
+        <img src={Search} width="30px"/>
+        <img src ={Bell} width="30px" />
+        <div className="nav_button">
+          관리
+        </div>
+        <div className="nav_button" onClick={logout}>
+          로그아웃
+        </div>
+      </div>    
+      {/* <hr></hr> */}
+    </div>
+
+    </div>
   );
 }
