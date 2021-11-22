@@ -39,8 +39,6 @@ function Login() {
             {navigate('/corporation/main', {replace:true});
             console.log("기업유저로.")}
            
-
-            
         }
     })
 

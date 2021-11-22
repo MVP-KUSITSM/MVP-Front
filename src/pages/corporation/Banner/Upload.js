@@ -43,7 +43,7 @@ useEffect(() => {
       if (image == null)
           return;
             var uploadimageurl=category+'/'+image.name;
-          push(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
+          update(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
             banner:[uploadimageurl]
             }
           )
