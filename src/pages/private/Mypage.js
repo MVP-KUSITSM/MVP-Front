@@ -16,6 +16,7 @@ function Mypage(){
     const [point,setPoint]=useState(0);
     const [betlog,setBetlog]=useState([]);
     const [getlog,setGetlog]=useState([]);
+    var list_all = new Array();
 
 
     const fetchUserName = async () => {
@@ -45,7 +46,14 @@ function Mypage(){
                                 var addPoint = authDetail[0];
                                 var betPoint = authDetail[1];
                                 var list = [addPoint, betPoint, today.toLocaleString()];
-                                console.log(addPoint, betPoint, today.toLocaleString())
+                                var data = {
+                                    num: i,
+                                    date: today.toLocaleString(),
+                                    addPoint: addPoint,
+                                    betPoint: betPoint
+                                }
+                                list_all.push(data);
+                                console.log(list_all)
                             }
                         })
                     }
@@ -83,50 +91,44 @@ function Mypage(){
                     카테코리 필터 2021.07.12.2021
                 </div>
                 <Table striped bordered hover size="sm">
-                    <thead className="tablest">
-                        <tr>
-                        <th>조사 번호</th>
-                        <th>조사 기간</th>
-                        <th>조사 날짜</th>
-                        <th>분류</th>
-                        <th>펀당 원금</th>
-                        <th>수익금</th>
-                        <th>수익률</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {
+                    {/*<thead className="tablest">*/}
+                    {/*    <tr>*/}
+                    {/*    <th>조사 번호</th>*/}
+                    {/*    <th>조사 기간</th>*/}
+                    {/*    <th>조사 날짜</th>*/}
+                    {/*    <th>분류</th>*/}
+                    {/*    <th>펀당 원금</th>*/}
+                    {/*    <th>수익금</th>*/}
+                    {/*    <th>수익률</th>*/}
+                    {/*    </tr>*/}
+                    {/*</thead>*/}
+                    {/*<tbody>*/}
+                    {/*    <tr>*/}
 
-                    }
-                        <tr>
-                        <td>1</td>
-                        <td>auth</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        </tr>
-                        <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                        </tr>
-                        <tr>
-                        <td>3</td>
-                        <td>Larry the Bird</td>
-                        <td>Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                    </Table>
+                    {/*    </tr>*/}
+                    {/*    <tr>*/}
+                    {/*    <td>2</td>*/}
+                    {/*    <td>Jacob</td>*/}
+                    {/*    <td>Thornton</td>*/}
+                    {/*    <td>@fat</td>*/}
+                    {/*    <td>@fat</td>*/}
+                    {/*    <td>@fat</td>*/}
+                    {/*    <td>@fat</td>*/}
+                    {/*    </tr>*/}
+                    {/*    <tr>*/}
+                    {/*    <td>3</td>*/}
+                    {/*    <td>Larry the Bird</td>*/}
+                    {/*    <td>Larry the Bird</td>*/}
+                    {/*    <td>@twitter</td>*/}
+                    {/*    <td>@twitter</td>*/}
+                    {/*    <td>@twitter</td>*/}
+                    {/*    <td>@twitter</td>*/}
+                    {/*    </tr>*/}
+                    {/*</tbody>*/}
+                    <li>
+
+                    </li>
+                </Table>
             </div>
 
         </>
