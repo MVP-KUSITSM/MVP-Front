@@ -1,0 +1,18 @@
+.Banner-Upload {
+    display: flex;
+    width: 1440px;
+    height: 1024px;
+}
+
+.title {
+    left: 18.61%;
+    right: 70.53%;
+    top: 10.25%;
+    bottom: 85.86%;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+}

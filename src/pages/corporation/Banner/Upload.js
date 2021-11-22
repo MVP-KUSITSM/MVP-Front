@@ -1,23 +1,17 @@
 import React, { useEffect, useState  } from "react";
-import { storage, storageRef, db,auth } from "../../../scripts/firebase";
+import { storageRef, db,auth } from "../../../scripts/firebase";
 import "../../../assets/css/corporation/banner/upload.css";
-import { getDatabase,ref, get,set,update,push } from "firebase/database";
+import { ref, get, update } from "firebase/database";
 import GNB from "../GNB/GNB";
 import LNB from "../LNB/LNB";
-import firebase from "firebase/compat";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router";
-import { onValue } from "firebase/database";
 
 function Upload() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
-  const [bannerList,setBannerList]=useState([]);
-  const [uid,setUid]=useState("");
-  const [count, setCount]=useState(0);
-  
 
   const navigate = useNavigate();
 
@@ -26,7 +20,6 @@ function Upload() {
     var snapshot = await get(ref(db, 'users/' + user.uid));
     var data = snapshot.val();
     setName(data.name);
-    setUid(data.uid);
     } catch (err) {
     console.error(err);
     alert("An error occured while fetching user data");
@@ -39,21 +32,6 @@ function Upload() {
       fetchUserName();
   }, [user, loading]);
 
-
-  useEffect(() => {
-    console.log(bannerList);
-    update(ref(db, 'users/' + uid+'/ROLE_CORP'), {
-      banner: bannerList
-      }
-    ); //banner db에 저장
-  }, [count]);
-
-
-
-
-
-
-
   const upload = () => {
     if (image == null)
         return;
@@ -62,64 +40,37 @@ function Upload() {
 
     var imgUrl = `${category}/${image.name}`;
       
-    get(ref(db, 'users/'+user.uid+'/ROLE_CORP/count'))
+    get(ref(db, 'users/'+user.uid+'/ROLE_CORP'))
     .then((snapshot)=>{
-      if(snapshot.val() != 0){
-
-        var bannerRef = ref(db, 'users/' + uid + '/ROLE_CORP');
-        onValue(bannerRef, (snapshot) => {
-          var data = snapshot.val();
-          console.log(data.banner);
-          var url = data.banner;
-          url.push(imgUrl);
-          // console.log("asdf");
-          setBannerList(url);
-        });
-        
-        // console.log(bannerList);
-
-        // set(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
-        //   banner: bannerList
-        //   }
-        // ) //banner db에 저장
-
-        const updates={};
-        updates['users/' + user.uid+'/ROLE_CORP/count'] = snapshot.val()+1; 
-        update(ref(db),updates); 
-        //banner count +1
-        setCount(snapshot.val()+1);
+      if(snapshot.val().count != 0){
+        console.log(snapshot.val().banner);
+        var url = snapshot.val().banner;
+        url.push(imgUrl);
+        console.log(url);
+        update(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
+                banner: url
+                }
+              ) //banner db에 저장
+          const updates={};
+          updates['users/' + user.uid+'/ROLE_CORP/count'] = snapshot.val().count+1; 
+          update(ref(db),updates); 
       }
       else{
 
           var url = [];
           url.push(imgUrl);
-          setBannerList(url);
-          // var userIdRef = ref(db, 'users/' + user.uid);
-          // onValue(userIdRef, (snapshot) => {
-            
-          // });
-          
-          // set(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
-          //   banner: bannerList
-          //   }
-          // ) //banner db에 저장
-
+          update(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
+            banner: url
+            }
+          ) //banner db에 저장
           const updates={};
           updates['users/' + user.uid+'/ROLE_CORP/count']=1;
           update(ref(db),updates);
-          setCount(1);
           //banner count 1
       }
   })
   
 }
-
-
-
-
-
-
-
 
   return (
     <>
