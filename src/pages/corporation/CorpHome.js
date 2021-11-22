@@ -7,7 +7,7 @@ import { ref, get } from "firebase/database";
 import { Link } from "react-router-dom";
 
 import "../../assets/css/corporation/corphome.css";
-
+import GNB from "./GNB/GNB";
 export default function CorpHome(){
 		const [user, loading, error] = useAuthState(auth);
 		const [corpname,setCorpname] = useState("");
@@ -37,85 +37,54 @@ export default function CorpHome(){
 
 	return(
 		<>
+        <GNB></GNB>
             <Container fluid>
                 <Row>
                     <h1>기업 회원 MVP</h1>
                 </Row>
-                <Row className="test">
-                    <Col className="menu_name">Dash Board</Col>
-                    <Col className="menu_name">Banner Setting</Col>
-                    <Col className="menu_name">Prototype Setting</Col>
-                    <Col className="menu_name">Statistics</Col>
-                </Row>
-                <Row className="test">
-                    <Col className="test" >
-                        <div>
-                        <Link to="/corporation/main">
-                            <Button variant="secondary">대시보드</Button>
-                        </Link>
-                        </div>
-                    </Col>
-                    <Col>
-                    <div>
-                        <Link to="/corporation/banner/upload">
-                            <Button variant="secondary">배너 관리</Button>
-                        </Link>
-                        </div>
-                    </Col>
-                    <Col>
-                    <div className="menu_button">
-                        <Link to="/corporation/prototype/main">
-                            <Button variant="secondary">프로토타입 관리</Button>
-                        </Link>
-                        </div>
-                    </Col>
-                    <Col>
-                    <div className="menu_button">
-                        <Button variant="secondary">타제품 통계 자료</Button>
-                    </div>
-                    </Col>
-                </Row>
             </Container>
-            <div className="menu_name">
-                <div className="menu_button">
-                    <div>
+            <div className="menu_all">
+                <div className="menu_one">
+                    <div className="menu_title">
                         Statisticssss
                     </div>
-                    <div>
+                    <div className="menu_button">
                         <Link to="/corporation/dashboard">
-                            <Button variant="secondary">대시보드</Button>
+                            <span>대시보드</span>
                         </Link>
                     </div>
                 </div>
-                <div className="menu_button">
-                    <div>
+                <div className="menu_one">
+                    <div className="menu_title">
                         Banner Setting
                     </div>
-                    <div>
+                    <div className="menu_button">
                         <Link to="/corporation/banner/main">
-                            <Button variant="secondary">배너 관리</Button>
+                            <span>배너 관리</span>
                         </Link>
                     </div>
                 </div>
-                <div className="menu_button">
-                    <div>
+                <div className="menu_one">
+                    <div className="menu_title">
                         Prototype Setting
                     </div>
-                    <div>
+                    <div className="menu_button">
                         <Link to="/corporation/prototype/main">
-                            <Button variant="secondary">프로토타입 관리</Button>
+                            <span>프로토타입 <br/>관리</span>
                         </Link>
                     </div>
                 </div>
-                <div className="menu_button">
-                    <div>
+                <div className="menu_one">
+                    <div className="menu_title">
                         Statistics
                     </div>
-                    <div>
-                        <Button variant="secondary">타제품 통계자료</Button>
+                    <div className="menu_button">
+                        <span>타제품 <br/>통계자료</span>
                     </div>
                 </div>
+
             </div>
+            <Button>전문가 컨설팅 바로가기</Button>
     	</>
 	);
 }

@@ -64,6 +64,48 @@ export default function Home() {
                     </Col>
                 </Row>
             </Container>
+            <div className="menu_all">
+                <div className="menu_one">
+                    <div className="menu_title">
+                    Pick Your Best!
+                    </div>
+                    <div className="menu_button">
+                        <Link to="/bb">
+                            <span>배너 펀딩</span>
+                        </Link>
+                    </div>
+                </div>
+                <div className="menu_one">
+                    <div className="menu_title">
+                    Be The First!
+                    </div>
+                    <div className="menu_button">
+                        <Link to="/pt">
+                            <span>프로토타입 테스트</span>
+                        </Link>
+                    </div>
+                </div>
+                <div className="menu_one">
+                    <div className="menu_title">
+                    Express Yourself!
+                    </div>
+                    <div className="menu_button">
+                        <Link to="/survey">
+                            <span>설문조사 참여</span>
+                        </Link>
+                    </div>
+                </div>
+                <div className="menu_one">
+                    <div className="menu_title">
+                    Hunt It!
+                    </div>
+                    <div className="menu_button">
+                        <span>경품 추첨</span>
+                    </div>
+                </div>
+
+            </div>
+ 
         </div>
     );
 }
