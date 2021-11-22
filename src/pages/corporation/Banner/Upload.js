@@ -54,9 +54,12 @@ useEffect(() => {
 
   return (
     <>
-    <GNB />
+    <div className="flex">
+
+    
     <LNB />
     <div class="Banner-Upload">
+      <GNB />
         <p class="title">배너 업로드</p>
         <p class="description">
           배너 펀딩에 참여하여 사용자들의 선호도를 알아볼 배너 이미지 파일을 업로드 하세요.
@@ -92,6 +95,7 @@ useEffect(() => {
         <div class="line"></div>
         <p class="banner-description-text">배너 설명</p>
         <input class="banner-description" placeholder="배너에 대한 간단한 설명을 입력하세요."></input>
+    </div>
     </div>
     </>
   );

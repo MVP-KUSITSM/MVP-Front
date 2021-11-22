@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import LNB from "../LNB/LNB";
+import GNB from "../GNB/GNB";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router";
 import { auth, db, storage,logout } from "../../../scripts/firebase";
@@ -109,8 +110,8 @@ function Dashboard() {
               <span><img width ="30"src={Search}></img></span>
               <span><img width="30"src={Bell}></img></span>
             <div className="logout" onClick={logout}>로그아웃</div>
-          </div>
-
+          </div> 
+          
           </div>
           <hr></hr>
           <div className="row">

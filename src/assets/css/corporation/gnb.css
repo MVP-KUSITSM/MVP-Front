@@ -99,26 +99,25 @@
     bottom: 37.5%;
 } */
 
-
-.Dashboard_GNB{
+.Main_part_GNB {
+    background-color: royalblue;
     width : 100%;
-    display: flex;
-    padding-top : 20px;
-    padding-left: 10px;
-}
-
-.left_float{
     display:flex;
-    margin-left:auto;
 }
 
-.left_float span {
+.left_float_GNB{
+
+    margin-left:auto;
+    width : 100%;
+}
+
+.left_float_GNB span {
     margin-left : 10px;
     margin-right : 10px;
     padding-left: 10px;
     cursor: pointer;
 }
-.logout {
+.logout_GNB {
     margin-left : 10px;
     margin-right : 20px;
     cursor: pointer;
@@ -129,4 +128,4 @@
     padding-right: 10px;
     color : white;   
     font-size: 15px;
-}
+} 
