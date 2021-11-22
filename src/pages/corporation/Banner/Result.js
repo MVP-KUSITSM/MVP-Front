@@ -112,7 +112,7 @@ function Result() {
       labels: ["IT/컴퓨터","마케팅","금융","게임","문화/예술","뷰티","스포츠/레저","식품","여행","의료","패션의류","환경","기타"],
       datasets: [
         {
-          label: '카테고리 별 득표수',
+          label: '관심분야 별 득표수',
           backgroundColor: '#0A347F',
           borderColor: '#0A347F',
           hoverBackgroundColor: 'rgba(231,232,85,1)',
