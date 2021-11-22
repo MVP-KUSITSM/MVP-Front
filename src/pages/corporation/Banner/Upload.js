@@ -7,46 +7,119 @@ import LNB from "../LNB/LNB";
 import firebase from "firebase/compat";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router";
+import { onValue } from "firebase/database";
 
 function Upload() {
+  const [user, loading, error] = useAuthState(auth);
+  const [name, setName] = useState("");
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
-  const [bannerlist,setbannerlist]=useState([]);
+  const [bannerList,setBannerList]=useState([]);
+  const [uid,setUid]=useState("");
+  const [count, setCount]=useState(0);
   
-    const [user, loading, error] = useAuthState(auth);
-    const [name, setName] = useState("");
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const fetchUserName = async () => {
     try {
     var snapshot = await get(ref(db, 'users/' + user.uid));
     var data = snapshot.val();
     setName(data.name);
+    setUid(data.uid);
     } catch (err) {
     console.error(err);
     alert("An error occured while fetching user data");
     }
 };
 
-useEffect(() => {
-    if (loading) return;
-    if (!user) return navigate('/', {replace: true});
-    fetchUserName();
-}, [user, loading]);
+  useEffect(() => {
+      if (loading) return;
+      if (!user) return navigate('/', {replace: true});
+      fetchUserName();
+  }, [user, loading]);
+
+
+  useEffect(() => {
+    console.log(bannerList);
+    update(ref(db, 'users/' + uid+'/ROLE_CORP'), {
+      banner: bannerList
+      }
+    ); //banner db에 저장
+  }, [count]);
+
+
+
+
+
+
 
   const upload = () => {
-      if (image == null)
-          return;
-            var uploadimageurl=category+'/'+image.name;
-          push(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
-            banner:[uploadimageurl]
-            }
-          )
-      storageRef.child(`/${category.valueOf()}/${image.name}`).put(image).on("state_changed", alert("success"), alert);
-
+    if (image == null)
+        return;
       
-  }
+    storageRef.child(`/${category.valueOf()}/${image.name}`).put(image).on("state_changed", alert("success"), alert);
+
+    var imgUrl = `${category}/${image.name}`;
+      
+    get(ref(db, 'users/'+user.uid+'/ROLE_CORP/count'))
+    .then((snapshot)=>{
+      if(snapshot.val() != 0){
+
+        var bannerRef = ref(db, 'users/' + uid + '/ROLE_CORP');
+        onValue(bannerRef, (snapshot) => {
+          var data = snapshot.val();
+          console.log(data.banner);
+          var url = data.banner;
+          url.push(imgUrl);
+          // console.log("asdf");
+          setBannerList(url);
+        });
+        
+        // console.log(bannerList);
+
+        // set(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
+        //   banner: bannerList
+        //   }
+        // ) //banner db에 저장
+
+        const updates={};
+        updates['users/' + user.uid+'/ROLE_CORP/count'] = snapshot.val()+1; 
+        update(ref(db),updates); 
+        //banner count +1
+        setCount(snapshot.val()+1);
+      }
+      else{
+
+          var url = [];
+          url.push(imgUrl);
+          setBannerList(url);
+          // var userIdRef = ref(db, 'users/' + user.uid);
+          // onValue(userIdRef, (snapshot) => {
+            
+          // });
+          
+          // set(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
+          //   banner: bannerList
+          //   }
+          // ) //banner db에 저장
+
+          const updates={};
+          updates['users/' + user.uid+'/ROLE_CORP/count']=1;
+          update(ref(db),updates);
+          setCount(1);
+          //banner count 1
+      }
+  })
+  
+}
+
+
+
+
+
+
+
 
   return (
     <>
