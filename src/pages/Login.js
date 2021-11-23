@@ -27,18 +27,16 @@ function Login() {
         if(snapshot.exists()){
             var auth=snapshot.val()
             console.log(auth);
-            
-            if(auth=="null")
-              {navigate('/role', {replace:true});
-              console.log("정보입력으로.")}
-            else if(auth=="ROLE_USER")
-              {navigate('/bb', {replace:true});
-              console.log("개인유저로.")}
+            if(auth=="ROLE_USER")
+            {navigate('/home', {replace:true});
+            console.log("개인유저로.")}
             else if(auth=="ROLE_CORP")
+              {navigate('/corporation/main', {replace:true});
+              console.log("기업유저로.")}
+            else 
+            {navigate('/role', {replace:true});
+            console.log("정보입력으로.")}
 
-            {navigate('/corporation/main', {replace:true});
-            console.log("기업유저로.")}
-           
         }
     })
 

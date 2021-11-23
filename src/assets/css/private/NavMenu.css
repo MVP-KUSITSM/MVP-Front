@@ -1,0 +1,64 @@
+.Nav_all {
+    display: flex;
+    /* width : 100%; */
+    /* background-color: palegoldenrod; */
+    height: 66px;
+    font-family: YES24;
+    font-weight: lighter;
+    padding-top:10px;
+    border-bottom: 1.73517px solid #E3E5E6;
+}
+
+#yellow{
+    color : yellow;
+}
+
+.Nav_right{
+    position :relative;
+    left : 24%;
+    /* background-color:palegreen; */
+    display: flex;
+    /* width : 100%; */
+    padding-left: 50px;
+    padding-top:5px;
+}
+
+.Nav_right img{
+    position :relative;
+    bottom:10px;
+    margin-right : 10px;
+    margin-top:0%;
+}
+
+.Nav_user{
+    font-size : 25px;
+}
+
+.Nav_title {
+    font-family: YES24;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30.701px;
+    line-height: 41px;
+    
+}
+.nav_button {
+    background: #0A347F;
+    border-radius: 15.3505px;
+    font-size:18px;
+    padding : 5px;
+    color : #FFFFFF;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left : 10px;
+    margin-right : 10px;
+    height: 33px;
+    text-align: center;
+}
+.Nav_Logo{
+    position: relative;
+    bottom: 5px;
+    margin-right:15px;
+    width: 77px;
+    height: 58px;
+}
