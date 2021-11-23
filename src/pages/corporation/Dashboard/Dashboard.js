@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from "react";
 
-import GNB from "../GNB/GNB";
 import LNB from "../LNB/LNB";
+import GNB from "../GNB/GNB";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router";
-import { auth, db, storage } from "../../../scripts/firebase";
+import { auth, db, storage,logout } from "../../../scripts/firebase";
 import { ref, get,refFromURL} from "firebase/database";
 import { Link } from "react-router-dom";
 import * as fbStorage from "firebase/storage";
 
+import Search from "../../../assets/css/search.svg";
+import Bell from "../../../assets/css/bell.svg";
+
 import "../../../assets/css/corporation/Dashboard.css";
+import "../../../assets/css/basic.css"
 function Dashboard() {
   //DB 가져오기
   const [user, loading, error] = useAuthState(auth);
   const [corpname, setCorpname] = useState("");
   const [bannercount,setBannercount] = useState(0);
+  
   let [분야,분야변경] = useState('분야');
+  let [참여인원,참여인원변경] = useState('N');
+
   var bannerImg;
 
   const navigate = useNavigate();
@@ -28,32 +35,50 @@ function Dashboard() {
       var data =snapshot.val();
       if (data != null){
         if (data.ROLE_CORP != null){
-          setCorpname(data.ROLE_CORP.info.name);
+          setCorpname(data.ROLE_CORP.Info.name);
           setBannercount(data.ROLE_CORP.count);
-          bannerImg = data.banner[0];
-          분야변경(data.ROLE_CORP.info.category);
+          if (data.ROLE_CORP.banner != null){
+            bannerImg = data.ROLE_CORP.banner[0];
+            vote_count(bannerImg);
+          }else{
+            bannerImg = "Haneul/1601126211274-1.jpg"; //기본 배너 이미지
+          }
+          
+          분야변경(data.ROLE_CORP.Info.category);
+
           FetchBanner();
         }else{
+          //기본 정보
           alert("잘못된 접근입니다.");
           setCorpname("테서터");
-          setBannercount("3");
         }
-
       }
     } catch(err){
       console.error(err);
-      alert("An error occured while fetching user data");
+      alert("An error occured while fetching user data. 콘솔창을 확인해주세요.");
     }
   };
 
-
+  const vote_count = async (bannerImg) => {
+    try{
+      var vote = bannerImg.split('/');
+      var vote_Ref = ref(db,'vote/'+vote[0]);
+      var vote_snapshot = await get(vote_Ref);
+      var vote_data = vote_snapshot.val();
+      console.log("testete"+vote_data);
+      // 참여인원변경(vote_data.vote[1]);
+      // console.log("dae"+참여인원);
+    }catch(err){
+      console.error(err);
+      alert("N명 오류");
+    }
+  };
 
   function FetchBanner(){
     fbStorage.getDownloadURL(fbStorage.ref(storage,bannerImg))
     .then((url) =>{
       var img = document.getElementById('take');
       img.setAttribute('src',url);
-      // alert(url);
     })
     .catch((err)=>{
       console.log(err);
@@ -68,14 +93,9 @@ function Dashboard() {
   }, [user,loading]);
 
   //대시보드 
-  let [기업명,기업명변경] = useState('기업명');
-  let [등록배너수,등록배너수변경] = useState(0);
   let [등록프로토수,등록프로토수변경] = useState(1);
-  
-  
-  //펀딩 진행 중인 배너
 
-  let [참여인원,참여인원변경] = useState('N');
+
 
   //프로토타입 리뷰
   let 평균별점 = 0.0
@@ -85,15 +105,14 @@ function Dashboard() {
       <LNB />
       <div className="Main_part">
           <div className="Dashboard_GNB">
-            <h3>Dash Board</h3>
+            {/* <h3>Dash Board</h3>
             <div className="left_float">
-              <span><img width ="30"src="https://cdn-icons.flaticon.com/png/512/3031/premium/3031293.png?token=exp=1637337442~hmac=fad5b59f481e4d82bfacf1b84f75109d"></img></span>
-              <span><img width="30"src="https://cdn-icons.flaticon.com/png/512/2529/premium/2529521.png?token=exp=1637337721~hmac=bb733b4c344fb0d18530064cc77f062d"></img></span>
-              <div className="logout">로그아웃</div>
-            </div>
-
+              <span><img width ="30"src={Search}></img></span>
+              <span><img width="30"src={Bell}></img></span>
+            <div className="logout" onClick={logout}>로그아웃</div>
+          </div>  */}
+          <GNB />
           </div>
-          <hr></hr>
           <div className="row">
             <div className="Dashboard">
                 <div className="Dashboard_corpname">

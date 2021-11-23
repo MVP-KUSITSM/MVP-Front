@@ -40,6 +40,7 @@ const signInWithGoogle = async () => {
         auth:"null",
         tm_info: { point: 0}
       });
+      window.location.replace("/");
     }
   } catch (err) {
     console.error(err);
