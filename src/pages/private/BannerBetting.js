@@ -26,8 +26,19 @@ export default function BannerBetting() {
     const [category, setCategory]=useState('');
     const [joboption,setjoboption]=useState('');
 
-    const [open, setOpen] = useState(false);
-    const closeModal = () => setOpen(false);
+    //모달창...
+import Modal from "../Modal";
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalText, setModalText] = useState("");
+
+    const openModal = () => {
+        setModalOpen(true);
+      }
+    
+      const closeModal = () => {
+        setModalOpen(false);
+      }
+    //...모달창
 
     const navigate = useNavigate();
 
@@ -311,13 +322,16 @@ export default function BannerBetting() {
                     + "베팅 성공률: " + parseInt(probability * 100) + "%\n"
                     + "배당 포인트: " + betMultiplier + "배\n"
                     + "\n====\n\n"
-
-                if(jackpot)
+                if(jackpot) {
                     alertText = 
                     alertText + "축하합니다. 베팅에 성공하셨습니다.\n"
                     + "획득 포인트: " + (betPoint * betMultiplier);
-                else
+                    setModalText(alertText);
+                }
+                else {
                     alertText = alertText + "베팅에 실패하셨습니다."
+                    setModalText(alertText);
+                }
 
                 var betdata = {};
                 betdata['/point'] = nPoint
@@ -332,11 +346,12 @@ export default function BannerBetting() {
                 update(child(userRef, "tm_info"), betdata).then(res => {
                     select.style.outline = '0px';
                     setSelect(null);
-                    alert(alertText);
+                    // 모달... alert(alertText); 
                     e.target.disabled = false;
                     setPoint(nPoint);
                     setBetPoint(0);
                     setImages(imageMap.path);
+                    openModal(); //모달창 열기
                 })
             }
         } catch (err){
@@ -492,6 +507,9 @@ export default function BannerBetting() {
                                 <p>
                                     <input className="tr" type="number" value={betPoint} onChange={e => setBetPoint(e.target.value)} />
                                     pt <Button onClick={onBetButtonClicked}>배팅</Button>
+                                    <Modal open={modalOpen} close={closeModal} header="배너배팅 결과">
+                                        {modalText}
+                                    </Modal>
                                 </p>                                 
                             </div>
                         </div>
