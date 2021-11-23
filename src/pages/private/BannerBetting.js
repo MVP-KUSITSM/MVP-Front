@@ -329,7 +329,8 @@ export default function BannerBetting() {
                     betPoint: Number(betPoint),
                     jackpot: jackpot,
                     addPoint: addPoint,
-                    date:new Date()
+                    profit: addPoint/Number(betPoint)*100+"%",
+                    date:new Date(+new Date() + 3240 * 10000).toISOString().replace("T", " ").replace(/\..*/, '')
                 } 
 
                 update(child(userRef, "tm_info"), betdata).then(res => {
