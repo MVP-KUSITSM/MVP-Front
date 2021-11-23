@@ -1,0 +1,189 @@
+.Banner-Upload {
+    display: flex;
+    width: 1440px;
+    height: 1024px;
+}
+
+.title {
+    left: 18.61%;
+    right: 70.53%;
+    top: 10.25%;
+    bottom: 85.86%;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+}
+
+.description {
+    position: absolute;
+    left: 18.61%;
+    right: 19.93%;
+    top: 13.87%;
+    bottom: 80.86%;
+
+    font-family: YES24;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+
+    color: #000000;
+}
+
+.upload-btn {
+    position: absolute;
+    width: 193px;
+    height: 52px;
+    left: 723px;
+    top: 940px;
+    background: #0A347F;
+    border-radius: 40px;
+
+    width: 261px;
+    height: 51px;
+    left: 689px;
+    top: 941px;
+    font-family: YES24;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    /* display: flex;
+    align-items: center;
+    text-align: center; */
+    color: #FFFFFF;
+}
+
+.file-category-text {
+    position: absolute;
+    left: 18.89%;
+    right: 74.31%;
+    top: 67.09%;
+    bottom: 29.3%;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    
+    color: #C4C4C4;
+}
+
+.file-category {
+    position: absolute;
+    width: 1103px;
+    height: 56px;
+    left: 272px;
+    top: 724px;
+    border-radius: 10px;
+}
+
+.banner-option-text {
+    position: absolute;
+    left: 18.61%;
+    right: 74.59%;
+    top: 59.08%;
+    bottom: 37.31%;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    
+    color: #000000;
+}
+
+.banner-option-description {
+    position: absolute;
+    left: 18.61%;
+    right: 23.89%;
+    top: 63.18%;
+    bottom: 31.54%;
+    
+    font-family: YES24;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    
+    color: #000000;
+    
+}
+
+.line {
+    position: absolute;
+    width: 1176.7px;
+    height: 0px;
+    left: 232px;
+    top: 586px;
+
+    border: 1.73517px solid #E3E5E6;
+}
+
+.file-select {
+    position: absolute;
+    left: 37.78%;
+    right: 24.58%;
+    top: 24.71%;
+    bottom: 46.29%;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+#file-box {
+    display: none;   
+}
+
+.input-file-button {
+    position: absolute;
+    width: 193px;
+    height: 52px;
+    left: 723px;
+    top: 322px;
+
+    background: #0A347F;
+    border-radius: 40px;
+    position: absolute;
+width: 261px;
+height: 51px;
+left: 689px;
+top: 323px;
+
+font-family: YES24;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 27px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+}
+
+.category-placeholder {
+    position: absolute;
+width: 140.92px;
+height: 38px;
+left: 290.97px;
+top: 741px;
+
+font-family: Noto Sans KR;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 22px;
+display: flex;
+align-items: center;
+
+color: #C4C4C4;
+}

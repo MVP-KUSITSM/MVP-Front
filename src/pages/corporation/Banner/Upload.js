@@ -10,9 +10,11 @@ import { useNavigate } from "react-router";
 function Upload() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
+  const [uid, setUid] = useState("");
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
   const [filename,setFilename] = useState('입력');
+
 
   const navigate = useNavigate();
 
@@ -21,6 +23,7 @@ function Upload() {
     var snapshot = await get(ref(db, 'users/' + user.uid));
     var data = snapshot.val();
     setName(data.name);
+    setUid(data.uid);
     } catch (err) {
     console.error(err);
     alert("An error occured while fetching user data");
@@ -42,7 +45,7 @@ function Upload() {
 
     var imgUrl = `${category}/${image.name}`;
       
-    get(ref(db, 'users/'+user.uid+'/ROLE_CORP'))
+    get(ref(db, 'users/'+uid+'/ROLE_CORP'))
     .then((snapshot)=>{
       if(snapshot.val().count != 0){
         console.log(snapshot.val().banner);
@@ -128,8 +131,6 @@ function Upload() {
               
           </div>
       </div>
-    
-    
     </div>
   );
 }
