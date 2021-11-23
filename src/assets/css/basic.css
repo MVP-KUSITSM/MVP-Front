@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'YES24';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/YES24.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.width_option{
+    width : 1440px;
+    margin : auto;
+}

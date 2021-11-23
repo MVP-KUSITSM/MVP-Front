@@ -1,4 +1,4 @@
-.Top-Menu {
+/* .Top-Menu {
     display: flex;
     justify-items: center;
     align-items: center;
@@ -97,4 +97,40 @@
     right: 25%;
     top: 9px;
     bottom: 37.5%;
+} */
+
+.GNB_Main_part {
+    width : 100%;
+    display:flex;
+    padding:10px;
+    padding-top : 20px;
+    padding-left: 10px;
+    border-bottom : 1px solid black;
 }
+
+.left_float_GNB{
+    position: relative;
+    margin-left:auto;
+    display: flex;
+    /* background-color: burlywood; */
+}
+
+.left_float_GNB span {
+    margin-left : 10px;
+    margin-right : 10px;
+    padding-left: 10px;
+    padding-top:5px;
+    cursor: pointer;
+}
+.logout_GNB {
+    margin-left : 10px;
+    margin-right : 20px;
+    cursor: pointer;
+    background: #0A347F;
+    border-radius: 15.3505px;
+    padding-top:9px;
+    padding-left: 10px;   
+    padding-right: 10px;
+    color : white;   
+    font-size: 15px;
+} 
