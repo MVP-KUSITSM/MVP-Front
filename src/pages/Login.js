@@ -4,13 +4,24 @@ import { auth, signInWithEmailAndPassword, signInWithGoogle,db } from "../script
 import { ref, get,set ,getDatabase,  child} from "firebase/database";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
-import "./private/Role"
+import "./private/Role";
+
+import Modal from "./Modal";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
-  const [isModalOpen, setisModalOpen]=useState(false);
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => {
+    setModalOpen(true);
+  }
+
+  const closeModal = () => {
+    setModalOpen(false);
+  }
+
   const navigate = useNavigate();
 
   
@@ -33,25 +44,17 @@ function Login() {
             else if(auth=="ROLE_CORP")
               {navigate('/corporation/main', {replace:true});
               console.log("기업유저로.")}
-            else 
-            {navigate('/role', {replace:true});
-            console.log("정보입력으로.")}
+            else {
+              // navigate('/role', {replace:true});
+              // console.log("정보입력으로.");
+              openModal();
+            }
 
         }
     })
 
       }
   }, [user, loading]);
-
-  const openModal =async()=>{
-      setisModalOpen(true)
-    
-    }
-
-    const closeModal =async()=>{
-      setisModalOpen(false)
-    
-    }
 
   return (
     
@@ -88,6 +91,14 @@ function Login() {
         >
           로그인
         </button>
+        <Modal open={modalOpen} close={closeModal} header="RoleCheck">
+          <Link to ="/userInform">
+          <button>일반 사용자</button>
+          </Link>
+          <Link to ="/corpInform">
+          <button>기업 사용자</button>
+          </Link>
+        </Modal>
         <button className="login__btn login__google" onClick={signInWithGoogle}>
           Login with Google
         </button>

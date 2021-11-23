@@ -66,3 +66,12 @@ ul li {
     line-height: 29px;
     color: #000000;
 }
+
+.Banner-Detail {
+    display: flex;
+    width : 100%;
+}
+
+.Detail_Main_part{
+    display: flex;
+}
