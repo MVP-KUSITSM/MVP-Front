@@ -1,6 +1,6 @@
 import React from "react";
 import { logout } from "../scripts/firebase";
-import {Navbar, Container, Nav, Button} from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Search from "../assets/css/search.svg";
 import Bell from "../assets/css/bell.svg";
 import "../assets/css/private/NavMenu.css";
@@ -27,7 +27,8 @@ export default function NavMenu({name, title}) {
         </Container>
     </Navbar> */}
     <div className="Nav_all">
-      <img src={Logo} className="Nav_Logo"/>
+      <Link to ="/home">
+      <img src={Logo} className="Nav_Logo"/></Link>
       <div className="Nav_title">
         {title}
       </div>

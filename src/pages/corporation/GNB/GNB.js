@@ -9,7 +9,7 @@ import { logout } from "../../../scripts/firebase";
 
 function GNB() {
   return (
-    <div className="Main_part_GNB">
+    <div className="GNB_Main_part">
         <h3>Dash Board</h3>
         <div className="left_float_GNB">
             <span><img width ="30"src={Search}></img></span>

@@ -59,8 +59,9 @@ function Detail() {
                 onValue(userIdRef, (snapshot) => {
                 var data = snapshot.val();
                 var num = data.ROLE_CORP.count;
-                
-                if(num != 0) {var url = data.ROLE_CORP.banner;
+                console.log(num);
+                if(num != 0) {
+                    var url = data.ROLE_CORP.banner;
                     url.forEach(element => {
                     getDownloadURL(refs(storage, element))
                     .then((url) => {
@@ -83,13 +84,13 @@ function Detail() {
     return (
         <>
         <div className="Banner-Detail">
-            <LNB />
-            <div clasName="Main_part">
-                <GNB />
+            <LNB/>
+            <div className="Detail_Main_part">
+                <GNB/>
                 <div className="Banner-Add">
                     <div className="banner-add-text">배너 업로드</div>
-                        <div className="banner-add" onClick={ MoveToBannerUpload }>
-                            <div className="banner-add-icon">
+                    <div className="banner-add" onClick={ MoveToBannerUpload }>
+                        <div className="banner-add-icon">
                             <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M50.5 21.0417V79.9584" stroke="#C4C4C4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M21.0416 50.5H79.9583" stroke="#C4C4C4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>

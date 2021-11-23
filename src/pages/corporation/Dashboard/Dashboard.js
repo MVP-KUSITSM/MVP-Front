@@ -105,15 +105,14 @@ function Dashboard() {
       <LNB />
       <div className="Main_part">
           <div className="Dashboard_GNB">
-            <h3>Dash Board</h3>
+            {/* <h3>Dash Board</h3>
             <div className="left_float">
               <span><img width ="30"src={Search}></img></span>
               <span><img width="30"src={Bell}></img></span>
             <div className="logout" onClick={logout}>로그아웃</div>
-          </div> 
-          
+          </div>  */}
+          <GNB />
           </div>
-          <hr></hr>
           <div className="row">
             <div className="Dashboard">
                 <div className="Dashboard_corpname">

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
 import {Container, Row, Col, Button} from "react-bootstrap";
 import { auth, db, logout } from "../../scripts/firebase";
 import { ref, get } from "firebase/database";
@@ -26,6 +25,16 @@ export default function Home() {
         }
     };
 
+    const MovetoBannerBetting = (e) => {
+        window.location.replace('/bb');
+    };
+    // const MovetoBannerdetail = (e) => {
+    //     window.location.replace('/corporation/banner/detail');
+    // };
+    // const MovetoBannerdetail = (e) => {
+    //     window.location.replace('/corporation/banner/detail');
+    // };
+
     useEffect(() => {
         if (loading) return;
         if (!user) return navigate('/', {replace: true});
@@ -45,10 +54,8 @@ export default function Home() {
                         <div className="menu_title">
                         Pick Your Best!
                         </div>
-                        <div className="menu_button">
-                            <Link to="/bb">
-                                <span>배너 펀딩</span>
-                            </Link>
+                        <div className="menu_button" onClick={MovetoBannerBetting}>
+                            <span>배너 펀딩</span>
                         </div>
                     </div>
                     <div className="menu_one">
@@ -56,20 +63,16 @@ export default function Home() {
                         Be The First!
                         </div>
                         <div className="menu_button">
-                            <Link to="/pt">
-                                <span>프로토타입 테스트</span>
-                            </Link>
-                        </div>
+                            <span>프로토타입 테스트</span>
+                    </div>
                     </div>
                     <div className="menu_one">
                         <div className="menu_title">
                         Express Yourself!
                         </div>
                         <div className="menu_button">
-                            <Link to="/survey">
-                                <span>설문조사 참여</span>
-                            </Link>
-                        </div>
+                            <span>설문조사 참여</span>
+                    </div>
                     </div>
                     <div className="menu_one">
                         <div className="menu_title">
