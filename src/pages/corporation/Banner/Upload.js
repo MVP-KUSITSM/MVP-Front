@@ -76,7 +76,6 @@ function Upload() {
   })
   
 }
-  
   return (
     <div className="Upload_All">
       <LNB />
