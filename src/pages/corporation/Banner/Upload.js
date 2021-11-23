@@ -79,13 +79,23 @@ function Upload() {
     <div class="Banner-Upload">
         <p class="title">배너 업로드</p>
         <p class="description">
-          배너 펀딩에 참여하여 사용자들의 선호도를 알아볼 배너 이미지 파일을 업로드 하세요.
-        <br/>
-        파일은 최대 n개까지 업로드할 수 있어요.</p>
+          배너 펀딩에 참여하여 사용자들의 선호도를 알아볼 배너 이미지 파일을 업로드 하세요.<br/>
+          파일은 최대 n개까지 업로드할 수 있어요.
+        </p>
         <div className="file-select">
             <center>
-                <text className="file-category-text">배너 분야</text>
-                <select className="file-category" placeholder="배너 분야 선택" name="fieldoption" value={category} onChange={(e) => setCategory(e.target.value)}>
+              <label className="input-file-button" for="file-box">
+                파일 선택
+              </label>
+              <input id="file-box" type="file" onChange={(e) => {setImage(e.target.files[0])}}/>
+            </center>
+        </div>
+        <div class="line"></div>
+        <div className="banner-option-text">배너 속성</div>
+        <div className="banner-option-description">배너 카테고리를 선택하세요. </div>
+        <text className="file-category-text">카테고리</text>
+                <select className="file-category" name="fieldoption" value={category} onChange={(e) => setCategory(e.target.value)}>
+                    <option className="category-placeholder" value="" disabled selected hidden>카테고리를 선택</option>
                     <optgroup label='분야를 선택하세요'>
                     <option value=' '></option>
                     <option value='it'>IT/컴퓨터</option>
@@ -101,17 +111,9 @@ function Upload() {
                     <option value='fashion'>패션의류</option>
                     <option value='environment'>환경</option>
                     <option value='etc'>기타</option>
-
-                    
                     </optgroup>
                 </select>
-                <input type="file" onChange={(e) => {setImage(e.target.files[0])}}/>
-                <button onClick={upload}>Upload</button>
-            </center>
-        </div>
-        <div class="line"></div>
-        <p class="banner-description-text">배너 설명</p>
-        <input class="banner-description" placeholder="배너에 대한 간단한 설명을 입력하세요."></input>
+        <button class="upload-btn" onClick={upload}>업로드하기</button>
     </div>
     </>
   );
