@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router";
@@ -330,6 +332,8 @@ export default function BannerBetting() {
                     betPoint: Number(betPoint),
                     jackpot: jackpot,
                     addPoint: addPoint,
+                    profit: addPoint/Number(betPoint)*100+"%",
+                    date:new Date(+new Date() + 3240 * 10000).toISOString().replace("T", " ").replace(/\..*/, '')
                 } 
 
                 update(child(userRef, "tm_info"), betdata).then(res => {
@@ -394,6 +398,8 @@ export default function BannerBetting() {
         <div className="width_option">
             <NavMenu name={name} onChangeName={name => {setName(name)}} title={title}/>
             <div className="Funding_main">
+
+              
                 <div className="Title">
                     <div className="Title_name">
                     <h2>배너 배팅</h2>
@@ -406,6 +412,7 @@ export default function BannerBetting() {
                         </p>
                         <button className="Title_ranking" onClick={() => { showRank(); }}>
                             순위표 보기
+
                         </button>
                     </div>
                 </div>

@@ -37,7 +37,6 @@ function Login() {
             {navigate('/role', {replace:true});
             console.log("정보입력으로.")}
 
-            
         }
     })
 
