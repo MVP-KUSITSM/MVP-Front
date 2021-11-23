@@ -10,6 +10,7 @@ import { useNavigate } from "react-router";
 function Upload() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
+  const [uid, setUid] = useState("");
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
   const [filename,setFilename] = useState('입력');
@@ -22,6 +23,7 @@ function Upload() {
     var snapshot = await get(ref(db, 'users/' + user.uid));
     var data = snapshot.val();
     setName(data.name);
+    setUid(data.uid);
     } catch (err) {
     console.error(err);
     alert("An error occured while fetching user data");
@@ -43,7 +45,7 @@ function Upload() {
 
     var imgUrl = `${category}/${image.name}`;
       
-    get(ref(db, 'users/'+user.uid+'/ROLE_CORP'))
+    get(ref(db, 'users/'+uid+'/ROLE_CORP'))
     .then((snapshot)=>{
       if(snapshot.val().count != 0){
         console.log(snapshot.val().banner);
@@ -74,41 +76,7 @@ function Upload() {
   })
   
 }
-
-
-    var imgUrl = `${category}/${image.name}`;
-      
-    get(ref(db, 'users/'+user.uid+'/ROLE_CORP'))
-    .then((snapshot)=>{
-      if(snapshot.val().count != 0){
-        console.log(snapshot.val().banner);
-        var url = snapshot.val().banner;
-        url.push(imgUrl);
-        console.log(url);
-        update(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
-                banner: url
-                }
-              ) //banner db에 저장
-          const updates={};
-          updates['users/' + user.uid+'/ROLE_CORP/count'] = snapshot.val().count+1; 
-          update(ref(db),updates); 
-      }
-      else{
-
-          var url = [];
-          url.push(imgUrl);
-          update(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
-            banner: url
-            }
-          ) //banner db에 저장
-          const updates={};
-          updates['users/' + user.uid+'/ROLE_CORP/count']=1;
-          update(ref(db),updates);
-          //banner count 1
-      }
-  })
   
-}
   return (
     <div className="Upload_All">
       <LNB />
