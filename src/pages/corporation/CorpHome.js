@@ -16,21 +16,8 @@ export default function CorpHome(){
 		const [corpname,setCorpname] = useState("");
 		const navigate = useNavigate();
 
-		const fetchCorpName = async () =>{
-			try{
-				var snapshot = await get(ref(db,'users/',+user.uid));
-				var data = snapshot.val();
-				if (data != null){
-					if (data.ROLE_CORP != null){
-						setCorpname(data.ROLE_CORP.info.name);
-					}
-				}
-			} catch(err){
-				console.error(err);
-				alert("An error occured while fetching user data");
-			}
-		};
-
+	
+        
         const MovetoDashboard = (e) => {
             window.location.replace('/corporation/dashboard');
         };
@@ -45,7 +32,7 @@ export default function CorpHome(){
 		useEffect(()=>{
 			if (loading ) return;
 			if (!user) return navigate('/', {replace: true});
-			fetchCorpName();
+			//fetchCorpName();
 		},[user,loading]);
 
 

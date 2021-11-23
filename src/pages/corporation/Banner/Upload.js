@@ -77,38 +77,9 @@ function Upload() {
 
 
     var imgUrl = `${category}/${image.name}`;
-      
-    get(ref(db, 'users/'+user.uid+'/ROLE_CORP'))
-    .then((snapshot)=>{
-      if(snapshot.val().count != 0){
-        console.log(snapshot.val().banner);
-        var url = snapshot.val().banner;
-        url.push(imgUrl);
-        console.log(url);
-        update(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
-                banner: url
-                }
-              ) //banner db에 저장
-          const updates={};
-          updates['users/' + user.uid+'/ROLE_CORP/count'] = snapshot.val().count+1; 
-          update(ref(db),updates); 
-      }
-      else{
 
-          var url = [];
-          url.push(imgUrl);
-          update(ref(db, 'users/' + user.uid+'/ROLE_CORP'), {
-            banner: url
-            }
-          ) //banner db에 저장
-          const updates={};
-          updates['users/' + user.uid+'/ROLE_CORP/count']=1;
-          update(ref(db),updates);
-          //banner count 1
-      }
-  })
   
-}
+
   return (
     <div className="Upload_All">
       <LNB />
