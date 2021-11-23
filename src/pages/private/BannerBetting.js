@@ -433,9 +433,9 @@ export default function BannerBetting() {
                             <optgroup label='직업을 선택하세요'>
                             <option value='기본'></option>
                             <option value='Haneul'>1</option>
-                            <option value='ImageBetting1'>2</option>
+                            <option value='Haneul'>2</option>
                             <option value='Pets'>3</option>
-                            <option value='ImageBetting2'>4</option>
+                            <option value='Pets'>4</option>
                             </optgroup>
                             </select>
 
