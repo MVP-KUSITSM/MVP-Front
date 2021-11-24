@@ -332,17 +332,17 @@ export default function BannerBetting() {
 
                 var alertText = 
                     "선택하신 이미지에 대한 대중의 선호도는 " + parseInt(portion * 100) + "% 입니다.\n"
-                    + "베팅 성공률: " + parseInt(probability * 100) + "%\n"
-                    + "배당 포인트: " + betMultiplier + "배\n"
-                    + "\n====\n\n"
+                    + "배팅 성공률: " + parseInt(probability * 100) + "%\n"
+                    + "배당 포인트: " + betMultiplier + "배"
+                    + "\n====\n"
                 if(jackpot) {
                     alertText = 
-                    alertText + "축하합니다. 베팅에 성공하셨습니다.\n"
+                    alertText + "축하합니다. 배팅에 성공하셨습니다.\n"
                     + "획득 포인트: " + (betPoint * betMultiplier);
                     setModalText(alertText);
                 }
                 else {
-                    alertText = alertText + "베팅에 실패하셨습니다."
+                    alertText = alertText + "배팅에 실패하셨습니다."
                     setModalText(alertText);
                 }
 
@@ -437,7 +437,7 @@ export default function BannerBetting() {
                         <button className="Title_ranking" onClick={() => { showRank(); }}>
                             순위표 보기
                         </button>
-                        <Modal open={modal2Open} close={closeModal2} header="순위표">
+                        <Modal open={modal2Open} close={closeModal2} header="순위표" footer="닫기">
                             {rankText}
                         </Modal>
                     </div>
@@ -555,7 +555,7 @@ export default function BannerBetting() {
                                 <p>
                                     <input className="tr" type="number" value={betPoint} onChange={e => setBetPoint(e.target.value)} />
                                     pt <Button onClick={onBetButtonClicked}>배팅</Button>
-                                    <Modal open={modalOpen} close={closeModal} header="배너배팅 결과">
+                                    <Modal open={modalOpen} close={closeModal} footer="확인">
                                         {modalText}
                                     </Modal>
                                 </p>                                 
