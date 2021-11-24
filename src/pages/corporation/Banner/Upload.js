@@ -13,14 +13,26 @@ function Upload() {
   const [uid, setUid] = useState("");
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
-  const [title,setTitle]= useState("Dashboard");   
+  const [title,setTitle]= useState("Banner Upload");   
 
 
   const navigate = useNavigate();
 
+  const fetchUserName = async () => {
+    try {
+    var snapshot = await get(ref(db, 'users/' + user.uid));
+    var data = snapshot.val();
+    setName(data.name);
+    setUid(data.uid);
+    } catch (err) {
+    console.error(err);
+    alert("An error occured while fetching user data");
+    }
+};
   useEffect(() => {
       if (loading) return;
       if (!user) return navigate('/', {replace: true});
+      fetchUserName();
   }, [user, loading]);
 
   const upload = () => {

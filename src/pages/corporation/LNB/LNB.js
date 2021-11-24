@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../../../assets/css/corporation/lnb.css"
+import "../../../assets/css/corporation/lnb.css";
+import "../../../assets/css/basic.css";
 
 import Proto from "../../../assets/prototype.png";
 import Banner from "../../../assets/banner.png";
