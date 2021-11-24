@@ -132,6 +132,8 @@
     padding : 10px;
     position: relative;
     display: inline-block;
+    width : 400px;
+    height: 200px;
 }
 .Banner_text{
     display : inline-block;

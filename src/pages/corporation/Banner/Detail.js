@@ -14,6 +14,7 @@ function Detail() {
     const [name, setName] = useState("");
     const [bannerUrl, setBannerUrl] = useState([]);
     const [isBanner, setIsBanner] = useState(false);
+    const [title,setTitle]= useState("Banner Detail");  
 
     function YesBanner(props) {
         if(props.isBanner) {
@@ -86,7 +87,7 @@ function Detail() {
         <div className="Banner-Detail">
             <LNB/>
             <div className="Detail_Main_part">
-                <GNB/>
+                <GNB title={title}/>
                 <div className="Banner-Add">
                     <div className="banner-add-text">배너 업로드</div>
                     <div className="banner-add" onClick={ MoveToBannerUpload }>

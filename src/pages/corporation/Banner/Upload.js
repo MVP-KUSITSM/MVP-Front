@@ -13,27 +13,14 @@ function Upload() {
   const [uid, setUid] = useState("");
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
-  const [filename,setFilename] = useState('입력');
+  const [title,setTitle]= useState("Dashboard");   
 
 
   const navigate = useNavigate();
 
-  const fetchUserName = async () => {
-    try {
-    var snapshot = await get(ref(db, 'users/' + user.uid));
-    var data = snapshot.val();
-    setName(data.name);
-    setUid(data.uid);
-    } catch (err) {
-    console.error(err);
-    alert("An error occured while fetching user data");
-    }
-};
-
   useEffect(() => {
       if (loading) return;
       if (!user) return navigate('/', {replace: true});
-      fetchUserName();
   }, [user, loading]);
 
   const upload = () => {
@@ -80,7 +67,7 @@ function Upload() {
     <div className="Upload_All">
       <LNB />
       <div className="Main_part_Upload">
-        <GNB />
+        <GNB title={title}/>
         <div class="Banner-Upload">
           <p class="Banner-Upload-title">배너 업로드</p>
           <p class="Banner-Upload-description">

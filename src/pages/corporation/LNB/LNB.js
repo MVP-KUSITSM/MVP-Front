@@ -15,6 +15,9 @@ function LNB() {
   const MovetoBannerdetail = (e) => {
     window.location.replace('/corporation/banner/detail');
   };
+  const MovetoPrototype = (e) => {
+    window.location.replace('/corporation/prototype/main');
+  };
 
   return (
     <div class="Left-Menu">
@@ -26,7 +29,7 @@ function LNB() {
       <div className="content-menu">
         <div class="menu1" onClick={MovetoDashboard}>  &nbsp; &nbsp;<img src={Board} width="30"></img>대시보드</div>
         <div class="menu2" onClick={MovetoBannerdetail}>&nbsp; &nbsp;<img src={Banner} width="30"/>배너 관리</div>
-        <div class="menu3" onClick={MovetoDashboard}>&nbsp; &nbsp;<img src={Proto} width="30"></img>프로토타입 관리</div>
+        <div class="menu3" onClick={MovetoPrototype}>&nbsp; &nbsp;<img src={Proto} width="30"></img>프로토타입 관리</div>
         <div class="menu4" onClick={MovetoDashboard}>&nbsp; &nbsp;<img src={Static} width="30"></img>타제품 통계 자료</div>
         <div class="menu5"onClick={MovetoDashboard}>&nbsp; &nbsp;<img src={User} width="30"></img>전문가 컨설팅</div>
       </div>
