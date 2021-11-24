@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'YES24';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/YES24.woff') format('woff');
+    src: url('./YES24.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

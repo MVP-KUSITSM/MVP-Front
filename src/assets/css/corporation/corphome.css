@@ -61,7 +61,7 @@
 	border-top-left-radius: 15.3505px;
 	border-top-right-radius: 15.3505px;
 	width : 100%;
-    padding-top : 10%;
+    padding-top : 14px;
 	color : white;
 	height: 70px;
 }
@@ -70,15 +70,20 @@
 	background-color: blueviolet;
 	width : 30%;
 	margin-right : 5%;
+	font-size: 27px;
+	padding:10px;
 }
 
 .menu_button {
 	/* background-color : blue; */
 	position : relative;
+	font-family: Noto Sans KR;
+	/* font-size : 36px; */
 	/* top : 30%; */
 	padding-top : 30%;
 	cursor: pointer;
 	height: 70%;
+
 }
 
 .button_etc{
