@@ -34,13 +34,15 @@ export default function NavMenu({name, title}) {
       </div>
       <div className="Nav_right">
         <div className="Nav_user">
-          <span id="yellow">다이어 등급</span> {name} 님 환영합니다.
+          <span id="yellow">다이아 등급</span> {name} 님 환영합니다.
         </div>
         <img src={Search} width="30px"/>
         <img src ={Bell} width="30px" />
+        <Link to="../mypage">
         <div className="nav_button">
           관리
         </div>
+        </Link>
         <div className="nav_button" onClick={logout}>
           로그아웃
         </div>
