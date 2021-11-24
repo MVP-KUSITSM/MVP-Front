@@ -134,7 +134,7 @@ function Dashboard() {
           <div><span className="title_style">펀딩 진행 중인 배너</span>
           <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/corporation/banner/detail"><span className="title_detail">상세 보기 &gt;</span></Link></div>
             <div className="Banner_detail">
-              <img src=""className="Banner_img" id="take"/>
+              <Link to="/corporation/banner/detail"><img src=""className="Banner_img" id="take"/></Link>
               <div className="Banner_text">
                 <p>{참여인원} 명 참여 중</p>
                 <p>배너 A : n% <br/>배너 B : m%</p>

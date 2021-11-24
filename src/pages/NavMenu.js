@@ -38,7 +38,7 @@ export default function NavMenu({name, title}) {
         </div>
         <img src={Search} width="30px"/>
         <img src ={Bell} width="30px" />
-        <Link to="../mypage">
+        <Link to="../mypage" style={{ color: 'inherit', textDecoration: 'inherit'}}>
         <div className="nav_button">
           관리
         </div>

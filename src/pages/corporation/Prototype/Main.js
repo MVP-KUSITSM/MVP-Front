@@ -2,16 +2,26 @@ import React, { useState } from "react";
 import GNB from "../GNB/GNB";
 import LNB from "../LNB/LNB";
 
+import "../../../assets/css/corporation/prototype/main.css";
+
+import Plus from "../../../assets/plus.svg";
 function Main() {
-  const [title,setTitle]= useState("Prototype");  
+  const [title,setTitle]= useState("Prototype Setting");  
   return (
     <>
     <div className="flex">
       <LNB/>
       <div className="Proto_Main_all">
         <GNB title={title}/>
-        <div className="Prototype_Example">
-            <div><span className="title_style">프로토타입 리뷰</span><span className="title_detail">상세 보기 &gt;</span></div>
+        <div className="Proto-inside">
+            <div><span className="title_style">프로토타입 업로드</span></div>
+        <div className="proto-add">
+                        <div className="proto-add-icon">
+                            <img src ={Plus}></img>
+                        </div>
+                    </div>
+        </div>
+        <div className="Proto-Example">
             
             <div className="Prototype_detail">
               <img src="https://s3-alpha-sig.figma.com/img/11af/7559/bb038da144aa5a197b90f7e58893c499?Expires=1638144000&Signature=LHnzVrksAuFEohF-wrzcDtpSphQMjqWrKEyU~AH0JRf33Msde964hfAZDL0FkyXvOGOPWZo~iLbTvr7qBwfvdtKtPcqz09iSfYspHrWm2kP1Pt8jCwTf4EF3we8RgEsYAsa48tAiMSzDLe9wXDkALSPSRWY2QWVu8~Vhy~ko80B1nfXHKILXO7cwSkEiaGY9nGgJio06CNp371ys~kIJ7tQTZHlbnst015KFnsQtzM2VvmtHUO4uarH69xG-~o6k2HPIr8UvTkqZWfToQC4pAchDRNIOjyk27I1vfax5TC7fvlVx3hUmza7Yy4qkotDcI~~IlGiAVxuUxUdUp97q5w__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" width="384"className="Prototype_img"/>
