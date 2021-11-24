@@ -437,7 +437,7 @@ export default function BannerBetting() {
                         <button className="Title_ranking" onClick={() => { showRank(); }}>
                             순위표 보기
                         </button>
-                        <Modal open={modal2Open} close={closeModal2} header="순위표" footer="닫기">
+                        <Modal open={modal2Open} close={closeModal2} header="포인트 순위" footer="닫기">
                             {rankText}
                         </Modal>
                     </div>
@@ -555,7 +555,7 @@ export default function BannerBetting() {
                                 <p>
                                     <input className="tr" type="number" value={betPoint} onChange={e => setBetPoint(e.target.value)} />
                                     pt <Button onClick={onBetButtonClicked}>배팅</Button>
-                                    <Modal open={modalOpen} close={closeModal} footer="확인">
+                                    <Modal open={modalOpen} close={closeModal} footer="확인" betting={true}>
                                         {modalText}
                                     </Modal>
                                 </p>                                 
