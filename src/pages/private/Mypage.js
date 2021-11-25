@@ -85,69 +85,58 @@ function Mypage(){
    
     return(
         <>
-            <div className="flex">
+            <div className="M_flex">
                 <UserLNB/>
                 <div className="Mypage_Main_part">
                     <NavMenu name={name} title={title}/>
                     <hr/>
                     <div classNam="point">
-
-
-            <NavMenu name={name}/>
-            <div className="mypagecon">
-            <LNB/>
-            <div>
-            <div classNam="point">
-
-                <span className="mypage_name">{name} 님의 포인트 내역</span>
-               
-                <div className="mypage_all">
-                    <div className="mypage_box">
-                        최고 Pt
-                        <h5>20,000</h5> 
+                        <span className="mypage_name">{name} 님의 포인트 내역</span>
+                        <div className="mypage_all">
+                            <div className="mypage_box">
+                                최고 Pt
+                                <h5>20,000</h5> 
+                            </div>
+                            <div className="mypage_box">
+                                잔여 pt
+                                <h5>{point.toLocaleString()} </h5>
+                            </div>
+                            <div className="mypage_box">
+                                전일  수익
+                                <h5>20,000</h5>
+                            </div>
+                        </div>
                     </div>
-                    <div className="mypage_box">
-                        잔여 pt
-                        <h5>{point.toLocaleString()} </h5>
-                    </div>
-                    <div className="mypage_box">
-                        전일  수익
-                        <h5>20,000</h5>
-                    </div>
+                    <div className="List">
+                        <div className="mypage_line2"></div>
+                        <div className="mypage_table">
+                            <Table bordered >
+                                <thead className="mypage_tabletitle">
+                                    <tr>
+                                    <th style={{width:250}}>배팅 날짜</th>
+                                    <th style={{width:350}}>배팅 포인트</th>
+                                    <th style={{width:350}}>획득 포인트</th>
+                                    <th style={{width:250}}>수익률</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        {
+                                        List.map(
+                                        betlog => 
+                                        <tr>
+                                        <td> {betlog.date} </td>
+                                        <td> {betlog.betPoint} </td>
+                                        <td> {betlog.addPoint}</td>
+                                        <td> {betlog.profit} </td>
+                                        </tr>
+                                        )
+                                        }
+                                </tbody>
+                            </Table>
+                        </div>
+                    </div>  
                 </div>
             </div>
-            
-            <div className="List">
-                <div className="mypage_line2"></div>
-                <div className="mypage_table">
-                <Table bordered >
-                    
-                    
-                    <thead className="mypage_tabletitle">
-                        <tr>
-                        <th style={{width:250}}>배팅 날짜</th>
-                        <th style={{width:350}}>배팅 포인트</th>
-                        <th style={{width:350}}>획득 포인트</th>
-                        <th style={{width:250}}>수익률</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                            {
-                            List.map(
-                            betlog => 
-                            <tr>
-                            <td> {betlog.date} </td>
-                            <td> {betlog.betPoint} </td>
-                            <td> {betlog.addPoint}</td>
-                            <td> {betlog.profit} </td>
-                            </tr>
-                            )
-                            }
-                    </tbody>
-                </Table>
-                </div>
-            </div>
-            </div></div>
         </>
     )
 }

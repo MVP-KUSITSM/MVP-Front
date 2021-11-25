@@ -11,9 +11,10 @@
 }
 
 .BannerBetting_main_part{
-    width : 100%;
+    /* width : 80%; */
     height: 100vh;
     overflow : scroll;
+    margin: auto;
 }
 
 .Funding_main{
@@ -35,7 +36,7 @@
 .Title_name{
     /* margin-right: 40px; */
     /* background-color: chocolate; */
-    margin-left : 5%;
+    /* margin-left : 5%; */
 }
 
 .Title_name h2 {
@@ -110,8 +111,8 @@ color: #0A347F;
     left : 120px;
     cursor: pointer;
     margin-left : 100px;
-    width : 100px;
-    margin-right: 500px;
+    width : 300px;
+    /* margin-right: 500px; */
 
 }
 
@@ -123,6 +124,8 @@ color: #0A347F;
 .Button_choice{
     display: flex;
     text-align: right;
+    width : 100%;
+    /* background-color: aqua; */
     
 }
 
@@ -155,7 +158,7 @@ color: #0A347F;
     border: 2.85237px solid #0A347F;
     box-sizing: border-box;
     border-radius: 57.0474px;
-    padding-left: 200px;
+    padding-left: 150px;
     padding-right: 16px;
     /* width : 346px; */
     font-size: 36.0111px;
@@ -166,8 +169,9 @@ color: #0A347F;
     box-sizing: border-box;
     border-radius: 57.0474px;
     padding-right: 6px;
-    font-size: 36.0111px;
-    width : 340px;
+    font-size: 34.0111px;
+    width : 250px;
+    margin-left: 30px;
 }
 
 .Button_pick{
