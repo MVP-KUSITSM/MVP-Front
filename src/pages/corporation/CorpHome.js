@@ -30,6 +30,8 @@ export default function CorpHome(){
 		useEffect(()=>{
 			if (loading ) return;
 			if (!user) return navigate('/', {replace: true});
+
+
 		},[user,loading]);
 
 

@@ -396,6 +396,12 @@ export default function BannerBetting() {
     }
 
     return (
+
+      
+     
+
+         
+         
         <div>
             <div className="flex">
                 <UserLNB/>
@@ -408,6 +414,7 @@ export default function BannerBetting() {
                             <div className="Title_name">
                             <h2>배너 배팅</h2>
                             <h5>Pick Your Best</h5>
+
                             </div>
                             <div className="Title_explain">
                                 <p>
@@ -436,10 +443,20 @@ export default function BannerBetting() {
                                     value={joboption}  onChange={(e) => {setimageBettingPath(e.target.value); setjoboption(e.target.value)}}>
                                     <optgroup label='직업을 선택하세요'>
                                     <option value='기본'></option>
-                                    <option value='Haneul'>1</option>
-                                    <option value='Haneul'>2</option>
-                                    <option value='Pets'>3</option>
-                                    <option value='Pets'>4</option>
+                                    <option value=' '></option>
+                                    <option value='it'>IT/컴퓨터</option>
+                                    <option value='marketing'>마케팅</option>
+                                    <option value='finance'>금융</option>
+                                    <option value='game'>게임</option>
+                                    <option value='culture'>문화/예술</option>
+                                    <option value='beauty'>뷰티</option>
+                                    <option value='sports'>스포츠/레저</option>
+                                    <option value='foods'>식품</option>
+                                    <option value='trip'>여행</option>
+                                    <option value='medical'>의료</option>
+                                    <option value='fashion'>패션의류</option>
+                                    <option value='environment'>환경</option>
+                                    <option value='etc'>기타</option>
                                     </optgroup>
                                     </select>
 

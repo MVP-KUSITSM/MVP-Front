@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'YES24';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/YES24.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.loginbutton{
+    display: flex;
+    float: right;
+    
+}
+.branding_img{
+    margin: 10px 0px 10px 0px;
+}
+
+.branding_GNB {
+    margin: 20px 20px 20px 0px;
+    cursor: pointer;
+    background: #E7E855;
+    border-radius: 15.3505px;
+    border: solid 0px;
+    padding:3px 15px 3px 15px;
+    color : black;   
+    font-size: 15px;
+    font-family: YES24;
+    float: right;
+} 

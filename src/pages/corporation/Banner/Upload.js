@@ -44,7 +44,9 @@ function Upload() {
 
     var imgUrl = `${category}/${image.name}`;
       
-    get(ref(db, 'users/'+uid+'/ROLE_CORP'))
+
+    get(ref(db, 'users/'+user.uid+'/ROLE_CORP'))
+
     .then((snapshot)=>{
       if(snapshot.val().count != 0){
         console.log(snapshot.val().banner);
@@ -75,6 +77,13 @@ function Upload() {
   })
   
 }
+
+
+    var imgUrl = `${category}/${image.name}`;
+
+
+  
+
   return (
     <div className="Upload_All">
       <LNB />
