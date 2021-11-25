@@ -6,6 +6,7 @@
     width: 100%;
     height: 100vh;
     overflow: scroll;
+    font-family: YES24;
 }
 
 .row {
@@ -67,7 +68,6 @@
 }
 
 .Dashboard > div {
-    background-color: rgba(10, 52, 127, 0.04);
     
     padding : 10px;
     /* margin:auto; */
@@ -92,11 +92,13 @@
 .Dashboard_banner{
     width : 30%;
     margin-right: 5%;
+    font-size: 20px;
 }
 
 .Dashboard_prototype{
     width : 30%;
     /* margin-right: 5%; */
+    font-size: 20px;
 }
 
 

@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import "../../../assets/css/corporation/lnb.css";
 import "../../../assets/css/basic.css";
 
-import Proto from "../../../assets/prototype.png";
-import Banner from "../../../assets/banner.png";
-import Static from "../../../assets/statistics.png";
-import User from "../../../assets/User.png";
-import Board from "../../../assets/Categorize.png";
+import Proto from "../../../assets/prototype.svg";
+import Banner from "../../../assets/banner.svg";
+import Static from "../../../assets/statistics.svg";
+import User from "../../../assets/User.svg";
+import Board from "../../../assets/Categorize.svg";
 
 function LNB() {
   const MovetoDashboard = (e) => {
@@ -28,11 +28,11 @@ function LNB() {
         </div>
       </Link>
       <div className="content-menu">
-        <div class="menu1" onClick={MovetoDashboard}>  &nbsp; &nbsp;<img src={Board} width="30"></img>대시보드</div>
-        <div class="menu2" onClick={MovetoBannerdetail}>&nbsp; &nbsp;<img src={Banner} width="30"/>배너 관리</div>
-        <div class="menu3" onClick={MovetoPrototype}>&nbsp; &nbsp;<img src={Proto} width="30"></img>프로토타입 관리</div>
-        <div class="menu4" onClick={MovetoDashboard}>&nbsp; &nbsp;<img src={Static} width="30"></img>타제품 통계 자료</div>
-        <div class="menu5"onClick={MovetoDashboard}>&nbsp; &nbsp;<img src={User} width="30"></img>전문가 컨설팅</div>
+        <div class="menu1" onClick={MovetoDashboard}>  &nbsp; &nbsp;<img className="content_img" src={Board} width="30"></img>대시보드</div>
+        <div class="menu2" onClick={MovetoBannerdetail}>&nbsp; &nbsp;<img className="content_img" src={Banner} width="30"/>배너 관리</div>
+        <div class="menu3" onClick={MovetoPrototype}>&nbsp; &nbsp;<img className="content_img" src={Proto} width="30"></img>프로토타입 관리</div>
+        <div class="menu4" onClick={MovetoDashboard}>&nbsp; &nbsp;<img className="content_img" src={Static} width="30"></img>타제품 통계 자료</div>
+        <div class="menu5"onClick={MovetoDashboard}>&nbsp; &nbsp;<img className="content_img" src={User} width="30"></img>전문가 컨설팅</div>
       </div>
     </div>
   );
