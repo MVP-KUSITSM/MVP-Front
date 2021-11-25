@@ -9,9 +9,14 @@ import { getDatabase,ref, get,set,update } from "firebase/database";
 import "../Login.css";
 import {map} from "react-bootstrap/ElementChildren";
 import { connectStorageEmulator } from 'firebase/storage';
-import "../../assets/css/private/Mypage.css"
+
+
 import "../corporation/LNB/LNB"
 import LNB from '../corporation/LNB/LNB';
+
+import UserLNB from './UserLNB';
+import "../../assets/css/private/Mypage.css";
+
 
 function Mypage(){
     const [user, loading, error] = useAuthState(auth);
@@ -22,6 +27,7 @@ function Mypage(){
     const [getlog,setGetlog]=useState([]);
     const [List, setList]=useState([]);
     const [viewing,setViewing]=useState(false);
+    const [title, setTitle] = useState("마이페이지");
     var list_all = new Array();
     const a="heejin"
 
@@ -79,6 +85,13 @@ function Mypage(){
    
     return(
         <>
+            <div className="flex">
+                <UserLNB/>
+                <div className="Mypage_Main_part">
+                    <NavMenu name={name} title={title}/>
+                    <hr/>
+                    <div classNam="point">
+
 
             <NavMenu name={name}/>
             <div className="mypagecon">

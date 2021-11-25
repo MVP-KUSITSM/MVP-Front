@@ -7,10 +7,10 @@ import Bell from "../../../assets/css/bell.svg";
 import { logout } from "../../../scripts/firebase";
 
 
-function GNB() {
+function GNB({title}) {
   return (
     <div className="GNB_Main_part">
-        <h3>Dash Board</h3>
+        <h3>{title}</h3>
         <div className="left_float_GNB">
             <span><img width ="30"src={Search}></img></span>
             <span><img width="30"src={Bell}></img></span>

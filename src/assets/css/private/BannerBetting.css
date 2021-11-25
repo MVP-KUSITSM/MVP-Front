@@ -2,10 +2,26 @@
     color : blue;
 }
 
+.flex{
+    display : flex;
+}
+
+#line{
+    border-bottom: 1.73517px solid #E3E5E6;
+}
+
+.BannerBetting_main_part{
+    width : 100%;
+    height: 100vh;
+    overflow : scroll;
+}
+
 .Funding_main{
     position : relative;
     
 }
+
+
 
 .Title{
     text-align: center;
@@ -85,12 +101,13 @@ color: #0A347F;
 
 .Category_menu{
     display: flex;
+
 }
 
 .Refresh{
     display: flex;
     position: relative;
-    left : 100px;
+    left : 120px;
     cursor: pointer;
     margin-left : 100px;
     width : 100px;
@@ -100,7 +117,7 @@ color: #0A347F;
 
 .Category_select{
     width : 50%;
-    padding-left : 30%;
+    padding-left : 40%;
 }
 
 .Button_choice{

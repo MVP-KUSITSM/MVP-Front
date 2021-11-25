@@ -1,18 +1,23 @@
 /* .Left-Menu:after{ clear: both; display: block; content: '' } */
 .logo img{
     position :static;
-    margin-left : 20%;
+    margin-top:20px;
+    margin-left : 25%;
     cursor: pointer;
 }
 
 
 .Left-Menu {
-    position :static;
-    width: 257px;
+    position :sticky;
+    width: 246px;
     left: 0%;
+    height: 100vh;
     bottom: 0%;
     background: #FFFFFF;
-    border-right: 0.2px solid gray;
+    border-right: 1.73517px solid #E3E5E5;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
 }
 
 .content-menu{
@@ -28,14 +33,24 @@
     position: static;
     padding-top: 20px;
     padding-left : 1000px;
-    margin-bottom: 10px;
+    margin-left : 10px;
+    margin-bottom: 15px;
     padding: 10px;
     cursor: pointer;
     border-radius: 58.4521px;
 }
+
+.content_img {
+    margin-right: 5px;
+}
 .content-menu > div:hover{
     background-color: #0A347F;
     color : white;
+}
+
+.User-Span{
+    padding-left:45px;
+    width : 50px;
 }
 
 /* .menu1 {

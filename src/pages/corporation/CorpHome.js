@@ -16,8 +16,6 @@ export default function CorpHome(){
 		const [corpname,setCorpname] = useState("");
 		const navigate = useNavigate();
 
-	
-        
         const MovetoDashboard = (e) => {
             window.location.replace('/corporation/dashboard');
         };
@@ -32,7 +30,8 @@ export default function CorpHome(){
 		useEffect(()=>{
 			if (loading ) return;
 			if (!user) return navigate('/', {replace: true});
-			//fetchCorpName();
+
+
 		},[user,loading]);
 
 
