@@ -9,6 +9,9 @@ import { getDatabase,ref, get,set,update } from "firebase/database";
 import "../Login.css";
 import {map} from "react-bootstrap/ElementChildren";
 import { connectStorageEmulator } from 'firebase/storage';
+import "../../assets/css/private/Mypage.css"
+import "../corporation/LNB/LNB"
+import LNB from '../corporation/LNB/LNB';
 
 function Mypage(){
     const [user, loading, error] = useAuthState(auth);
@@ -78,37 +81,41 @@ function Mypage(){
         <>
 
             <NavMenu name={name}/>
+            <div className="mypagecon">
+            <LNB/>
+            <div>
             <div classNam="point">
 
-                <span>{name} 님의 포인트 내역</span>
-                <div className="row">
-                    <div className="col-md-4">
+                <span className="mypage_name">{name} 님의 포인트 내역</span>
+               
+                <div className="mypage_all">
+                    <div className="mypage_box">
                         최고 Pt
                         <h5>20,000</h5> 
                     </div>
-                    <div className="col-md-4">
+                    <div className="mypage_box">
                         잔여 pt
-                        <h5>{point}</h5>
+                        <h5>{point.toLocaleString()} </h5>
                     </div>
-                    <div className="col-md-4">
+                    <div className="mypage_box">
                         전일  수익
                         <h5>20,000</h5>
                     </div>
                 </div>
             </div>
+            
             <div className="List">
-                <div>
-                    카테코리 필터 2021.07.12.2021
-                </div>
-                <Table striped bordered hover size="sm">
+                <div className="mypage_line2"></div>
+                <div className="mypage_table">
+                <Table bordered >
                     
                     
-                    <thead className="tablest">
+                    <thead className="mypage_tabletitle">
                         <tr>
-                        <th>배팅 날짜</th>
-                        <th>배팅 포인트</th>
-                        <th>획득 포인트</th>
-                        <th>수익률</th>
+                        <th style={{width:250}}>배팅 날짜</th>
+                        <th style={{width:350}}>배팅 포인트</th>
+                        <th style={{width:350}}>획득 포인트</th>
+                        <th style={{width:250}}>수익률</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -124,13 +131,10 @@ function Mypage(){
                             )
                             }
                     </tbody>
-
-                    <li>
-
-                    </li>
                 </Table>
+                </div>
             </div>
-
+            </div></div>
         </>
     )
 }
