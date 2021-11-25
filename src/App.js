@@ -36,8 +36,8 @@ export default function App() {
         <div className="app">
             <Router>
                 <Routes>
-                <Route path="/branding" element={<Branding/>} />   
-                    <Route path="/" element={<Login/>} />
+                    <Route path="/" element={<Branding/>} />   
+                    <Route path="/login" element={<Login/>} />
                     <Route path="/register" element={<Register/>} />
                     <Route path="/reset" element={<Reset/>} />
                     <Route path="/home" element={<Home/>} />
