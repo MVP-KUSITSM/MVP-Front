@@ -27,8 +27,8 @@ export default function NavMenu({name, title}) {
         </Container>
     </Navbar> */}
     <div className="Nav_all">
-      <Link to ="/home">
-      <img src={Logo} className="Nav_Logo"/></Link>
+      {/* <Link to ="/home">
+      <img src={Logo} className="Nav_Logo"/></Link> */}
       <div className="Nav_title">
         {title}
       </div>
@@ -38,7 +38,7 @@ export default function NavMenu({name, title}) {
         </div>
         <img src={Search} width="30px"/>
         <img src ={Bell} width="30px" />
-        <Link to="../mypage">
+        <Link to="../mypage" style={{ color: 'inherit', textDecoration: 'inherit'}}>
         <div className="nav_button">
           관리
         </div>

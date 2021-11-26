@@ -15,6 +15,7 @@ import Refresh from "../../assets/css/rotate-cw.svg";
 
 
 import NavMenu from '../NavMenu';
+import UserLNB from "./UserLNB";
 
 export default function BannerBetting() {
     const [user, loading, error] = useAuthState(auth);
@@ -94,7 +95,7 @@ export default function BannerBetting() {
     const [imageBettingPath,setimageBettingPath] = useState("Pets");
     
     
-    const imageNumber = 32;
+    const imageNumber = 4;
 
     useEffect(() => {
         setImages(imageBettingPath);
@@ -419,133 +420,164 @@ export default function BannerBetting() {
     }
 
     return (
-        <div className="width_option">
-            <NavMenu name={name} onChangeName={name => {setName(name)}} title={title}/>
-            <div className="Funding_main">
+        <div>
+            <div className="flex">
+                <UserLNB/>
+                <div className="BannerBetting_main_part">
+                    <div className="Funding_main">
+                    <NavMenu name={name} onChangeName={name => {setName(name)}} title={title}/>
+                    <hr id="line"/>
+                    
+                        <div className="Title">
+                            <div className="Title_name">
+                            <h2>배너 배팅</h2>
+                            <h5>Pick Your Best</h5>
 
-              
-                <div className="Title">
-                    <div className="Title_name">
-                    <h2>배너 배팅</h2>
-                    <h5>Pick Your Best</h5>
-                    </div>
-                    <div className="Title_explain">
-                        <p>
-                           제일 트렌디한 배너에 포인트를 배팅하세요.<br/>
-                        선호도가 높을 수록 배팅 성공률이 올라갑니다!  
-                        </p>
-                        <button className="Title_ranking" onClick={() => { showRank(); }}>
-                            순위표 보기
-                        </button>
-                        <Modal open={modal2Open} close={closeModal2} header="포인트 순위" footer="닫기">
-                            {rankText}
-                        </Modal>
-                    </div>
-                </div>
-                <hr></hr>
+                            </div>
+                            <div className="Title_explain">
+                                <p>
+                                제일 트렌디한 배너에 포인트를 배팅하세요.<br/>
+                                선호도가 높을 수록 배팅 성공률이 올라갑니다!  
+                                </p>
+                                <button className="Title_ranking" onClick={() => { showRank(); }}>
+                                    순위표 보기
 
-                <div className="Category_menu">
-                    <div className="Refresh" onClick={() => { 
-                        setImages(imageBettingPath); 
-                        //imageoptioncheck();
-                    }}>
-                        새로고침
-                        <img src={Refresh}></img>
-                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <hr></hr>
 
-                    <div className="Category_select">
-                    <select placeholder="직업 선택" name="joboption" 
-                            value={joboption}  onChange={(e) => {setimageBettingPath(e.target.value); setjoboption(e.target.value)}}>
-                            <optgroup label='직업을 선택하세요'>
-                            <option value='기본'></option>
-                            <option value='Haneul'>1</option>
-                            <option value='Haneul'>2</option>
-                            <option value='Pets'>3</option>
-                            <option value='Pets'>4</option>
-                            </optgroup>
-                            </select>
+                        <div className="Category_menu">
+                            <div className="Refresh" onClick={() => { 
+                                setImages(imageBettingPath); 
+                                //imageoptioncheck();
+                            }}>
+                                새로고침
+                                <img src={Refresh}></img>
+                            </div>
 
-                        {/* <Popup open={open} closeOnDocumentClick onClose={closeModal}>
-                            {close => (
-                            <div className="o_modal">
-                                <div className="header"> Modal Title </div>
-                                <div className="content">
-                                {' '}
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, a nostrum.
-                                Dolorem, repellat quidem ut, minima sint vel eveniet quibusdam voluptates
-                                delectus doloremque, explicabo tempore dicta adipisci fugit amet dignissimos?
-                                <br />
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur sit
-                                commodi beatae optio voluptatum sed eius cumque, delectus saepe repudiandae
-                                explicabo nemo nam libero ad, doloribus, voluptas rem alias. Vitae?
-                                </div>
-                                <div className="actions">
-                                <Popup
-                                    trigger={<button className="button"> Trigger </button>}
-                                    position="top center"
-                                    nested
-                                >
-                                    <span>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-                                    magni omnis delectus nemo, maxime molestiae dolorem numquam
-                                    mollitia, voluptate ea, accusamus excepturi deleniti ratione
-                                    sapiente! Laudantium, aperiam doloribus. Odit, aut.
-                                    </span>
+                            <div className="Category_select">
+                            <select placeholder="직업 선택" name="joboption" 
+                                    value={joboption}  onChange={(e) => {setimageBettingPath(e.target.value); setjoboption(e.target.value)}}>
+                                    <optgroup label='직업을 선택하세요'>
+                                    <option value='기본'></option>
+                                    <option value=' '></option>
+                                    <option value='it'>IT/컴퓨터</option>
+                                    <option value='marketing'>마케팅</option>
+                                    <option value='finance'>금융</option>
+                                    <option value='game'>게임</option>
+                                    <option value='culture'>문화/예술</option>
+                                    <option value='beauty'>뷰티</option>
+                                    <option value='sports'>스포츠/레저</option>
+                                    <option value='foods'>식품</option>
+                                    <option value='trip'>여행</option>
+                                    <option value='medical'>의료</option>
+                                    <option value='fashion'>패션의류</option>
+                                    <option value='environment'>환경</option>
+                                    <option value='etc'>기타</option>
+                                    </optgroup>
+                                    </select>
+
+                                <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+                                    {close => (
+                                    <div className="o_modal">
+                                        <div className="header"> Modal Title </div>
+                                        <div className="content">
+                                        {' '}
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, a nostrum.
+                                        Dolorem, repellat quidem ut, minima sint vel eveniet quibusdam voluptates
+                                        delectus doloremque, explicabo tempore dicta adipisci fugit amet dignissimos?
+                                        <br />
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur sit
+                                        commodi beatae optio voluptatum sed eius cumque, delectus saepe repudiandae
+                                        explicabo nemo nam libero ad, doloribus, voluptas rem alias. Vitae?
+                                        </div>
+                                        <div className="actions">
+                                        <Popup
+                                            trigger={<button className="button"> Trigger </button>}
+                                            position="top center"
+                                            nested
+                                        >
+                                            <span>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
+                                            magni omnis delectus nemo, maxime molestiae dolorem numquam
+                                            mollitia, voluptate ea, accusamus excepturi deleniti ratione
+                                            sapiente! Laudantium, aperiam doloribus. Odit, aut.
+                                            </span>
+                                        </Popup>
+                                        <button
+                                            className="button"
+                                            onClick={() => {
+                                            console.log('modal closed ');
+                                            close();
+                                            }}
+                                        >
+                                            close modal
+                                        </button>
+                                        </div>
+                                    </div>
+                                    )}
                                 </Popup>
-                                <button
-                                    className="button"
-                                    onClick={() => {
-                                    console.log('modal closed ');
-                                    close();
-                                    }}
-                                >
-                                    close modal
-                                </button>
-                                </div>
-                            </div>
-                            )}
-                        </Popup> */}
-                    </div>
-                </div>
-                
-                <div className="container-fluid">
-                    <div className="o_contents">
-                        <div className="row">
-                            <div className="col-md-6">
-                                <button className="banner_pick" id="content_A" onClick={onContentClicked}>
-                                    <img className="o_content" id="image_A" src="" alt="A"/>
-                                </button>
-                            </div>
-                            <div className="col-md-6">
-                                <button className="banner_pick"  id="content_B" onClick={onContentClicked}>
-                                    <img className="o_content" id="image_B" src="" alt="B"/>
-                                </button>
                             </div>
                         </div>
-                        <div className="row pt-2">
-                            <div className="col-md-6">
-                                <button className="banner_pick"  id="content_C" onClick={onContentClicked}>
-                                    <img className="o_content" id="image_C" src="" alt="C"/>
-                                </button>
-                            </div>
-                            <div className="col-md-6">
-                                <button className="banner_pick"  id="content_D" onClick={onContentClicked}>
-                                    <img className="o_content" id="image_D" src="" alt="D"/>
-                                </button>
-                            </div>
-                        </div>
-                        {/* <div className="row pt-2">
-                            <div className="col-md-5"><p>1000pt <Button onClick={onGetButtonClicked}>획득</Button></p></div>
-                            <div className="col-md-5">
+                        
+                        <div className="container-fluid">
+                            <div className="o_contents">
                                 <div className="row">
-                                    <p>
-                                        <input className="tr" type="number" value={betPoint} onChange={e => setBetPoint(e.target.value)} />
-                                        pt <Button onClick={onBetButtonClicked}>배팅</Button>
-                                    </p>                                 
+                                    <div className="col-md-6">
+                                        <button className="banner_pick" id="content_A" onClick={onContentClicked}>
+                                            <img className="o_content" id="image_A" src="" alt="A"/>
+                                        </button>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <button className="banner_pick"  id="content_B" onClick={onContentClicked}>
+                                            <img className="o_content" id="image_B" src="" alt="B"/>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div className="row pt-2">
+                                    <div className="col-md-6">
+                                        <button className="banner_pick"  id="content_C" onClick={onContentClicked}>
+                                            <img className="o_content" id="image_C" src="" alt="C"/>
+                                        </button>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <button className="banner_pick"  id="content_D" onClick={onContentClicked}>
+                                            <img className="o_content" id="image_D" src="" alt="D"/>
+                                        </button>
+                                    </div>
+                                </div>
+                                {/* <div className="row pt-2">
+                                    <div className="col-md-5"><p>1000pt <Button onClick={onGetButtonClicked}>획득</Button></p></div>
+                                    <div className="col-md-5">
+                                        <div className="row">
+                                            <p>
+                                                <input className="tr" type="number" value={betPoint} onChange={e => setBetPoint(e.target.value)} />
+                                                pt <Button onClick={onBetButtonClicked}>배팅</Button>
+                                            </p>                                 
+                                        </div>
+
+                                    </div>
+                                </div> */}
+                                
+                                <div className="Button_choice">
+                                    <div className ="Button_get">
+                                        <p><span id="getpoint">1000pt</span> <span className="Button_pick" onClick={onGetButtonClicked}>획득</span></p>
+                                    </div>
+                                    <div className="Button_bet">
+                                        <p>
+                                            <input className="tr" id="betpoint" type="number" value={betPoint} onChange={e => setBetPoint(e.target.value)} />
+                                            pt <span className="Button_pick" onClick={onBetButtonClicked}>배팅</span>
+                                        </p>       
+                                    </div>
+                                </div>
+                                <div className="point">
+                                    <p>나의 잔여 포인트 <span id="blue">{point} pt</span></p>
                                 </div>
 
+
                             </div>
-                        </div> */}
+                        </div> 
                         
                         <div className="Button_choice">
                             <div className ="Button_get">
@@ -559,12 +591,11 @@ export default function BannerBetting() {
                                         {modalText}
                                     </Modal>
                                 </p>                                 
+
                             </div>
                         </div>
-                        <div className="point">
-                            <p>나의 잔여 포인트 <span id="blue">{point} pt</span></p>
-                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

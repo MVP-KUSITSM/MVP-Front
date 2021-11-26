@@ -8,6 +8,7 @@ import Reset from "./pages/Reset";
 
 //메인페이지
 import Home from "./pages/private/Home";
+import Branding from "./pages/Branding";
 
 //개인페이지
 import BannerBetting from "./pages/private/BannerBetting";
@@ -35,7 +36,8 @@ export default function App() {
         <div className="app">
             <Router>
                 <Routes>
-                    <Route path="/" element={<Login/>} />
+                    <Route path="/" element={<Branding/>} />   
+                    <Route path="/login" element={<Login/>} />
                     <Route path="/register" element={<Register/>} />
                     <Route path="/reset" element={<Reset/>} />
                     <Route path="/home" element={<Home/>} />

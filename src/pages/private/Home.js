@@ -43,7 +43,7 @@ export default function Home() {
 
     return (
         <div className="width_option">
-            <NavMenu name={name} title={title}/>
+            {/* <NavMenu name={name} title={title}/> */}
             
             <div className="Home_title">
                 <h5>개인 회원 MVP</h5>

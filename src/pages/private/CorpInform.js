@@ -68,7 +68,7 @@ export default function CorpInform() {
             <img style={{width:101, height:75.75}} src="logo.png"/></div>
       
         <text>기업 회원가입</text>
-        <text>기업 정보</text>
+        <text className="corptext">기업 정보</text>
         <div className="login__Box">
             <text className="login__Text">기업명</text>
             <input
@@ -80,7 +80,7 @@ export default function CorpInform() {
             />
         </div>
 
-        <text>기업주 정보</text>
+        <text className="corptext">기업주 정보</text>
 
         <div className="login__Box">
             <text className="login__Text">이름</text>
@@ -114,7 +114,7 @@ export default function CorpInform() {
               placeholder="대표 연락처 입력"
             />
         </div>
-        <text>기업 규모</text>
+        <text className="corptext">기업 규모</text>
         <div className="login__Box">
             <text className="login__Text">기업 인원수</text>
             <input
@@ -163,7 +163,7 @@ export default function CorpInform() {
             </div>
 
         
-        <button onClick={(e)=>postcorp()}>
+        <button className="login__btn login__google" onClick={(e)=>postcorp()}>
           클릭
         </button>
     

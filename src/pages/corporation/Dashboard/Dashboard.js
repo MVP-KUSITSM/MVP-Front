@@ -19,7 +19,7 @@ function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
   const [corpname, setCorpname] = useState("");
   const [bannercount,setBannercount] = useState(0);
-  
+  const [title,setTitle]= useState("Dashboard");  
   let [분야,분야변경] = useState('분야');
   let [참여인원,참여인원변경] = useState('N');
 
@@ -111,7 +111,7 @@ function Dashboard() {
               <span><img width="30"src={Bell}></img></span>
             <div className="logout" onClick={logout}>로그아웃</div>
           </div>  */}
-          <GNB />
+          <GNB title={title} />
           </div>
           <div className="row">
             <div className="Dashboard">
@@ -132,9 +132,11 @@ function Dashboard() {
           </div>
           <div className="Banner">
           <div><span className="title_style">펀딩 진행 중인 배너</span>
-          <Link to="/corporation/banner/detail"><span className="title_detail">상세 보기 &gt;</span></Link></div>
+          <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/corporation/banner/detail"><span className="title_detail">상세 보기 &gt;</span></Link></div>
             <div className="Banner_detail">
-              <img src="" className="Banner_img" id="take"/>
+
+              <Link to="/corporation/banner/detail"><img src=""className="Banner_img" id="take"/></Link>
+
               <div className="Banner_text">
                 <p>{참여인원} 명 참여 중</p>
                 <p>배너 A : n% <br/>배너 B : m%</p>

@@ -10,6 +10,14 @@ import "../Login.css";
 import {map} from "react-bootstrap/ElementChildren";
 import { connectStorageEmulator } from 'firebase/storage';
 
+
+import "../corporation/LNB/LNB"
+import LNB from '../corporation/LNB/LNB';
+
+import UserLNB from './UserLNB';
+import "../../assets/css/private/Mypage.css";
+
+
 function Mypage(){
     const [user, loading, error] = useAuthState(auth);
     const [name, setName] = useState("");
@@ -19,6 +27,7 @@ function Mypage(){
     const [getlog,setGetlog]=useState([]);
     const [List, setList]=useState([]);
     const [viewing,setViewing]=useState(false);
+    const [title, setTitle] = useState("마이페이지");
     var list_all = new Array();
     const a="heejin"
 
@@ -75,40 +84,54 @@ function Mypage(){
 
    
     return(
-        <>
 
-            <NavMenu name={name}/>
-            <div classNam="point">
 
-                <span>{name} 님의 포인트 내역</span>
-                <div className="row">
-                    <div className="col-md-4">
+    
+
+
+       
+            <div className="M_flex">
+
+                <UserLNB/>
+                <div className="mypage_mainpage">
+                    <NavMenu name={name} title={title}/>
+                    <hr/>
+                    <div classNam="point">
+
+
+
+            
+
+                <span className="mypage_name">{name} 님의 포인트 내역</span>
+               
+                <div className="mypage_all">
+                    <div className="mypage_box">
                         최고 Pt
                         <h5>20,000</h5> 
                     </div>
-                    <div className="col-md-4">
+                    <div className="mypage_box">
                         잔여 pt
-                        <h5>{point}</h5>
+                        <h5>{point.toLocaleString()} </h5>
                     </div>
-                    <div className="col-md-4">
+                    <div className="mypage_box">
                         전일  수익
                         <h5>20,000</h5>
                     </div>
                 </div>
             </div>
+            
             <div className="List">
-                <div>
-                    카테코리 필터 2021.07.12.2021
-                </div>
-                <Table striped bordered hover size="sm">
+                <div className="mypage_line2"></div>
+                <div className="mypage_table">
+                <Table bordered >
                     
                     
-                    <thead className="tablest">
+                    <thead className="mypage_tabletitle">
                         <tr>
-                        <th>배팅 날짜</th>
-                        <th>배팅 포인트</th>
-                        <th>획득 포인트</th>
-                        <th>수익률</th>
+                        <th style={{width:50}}>배팅 날짜</th>
+                        <th style={{width:50}}>배팅 포인트</th>
+                        <th style={{width:50}}>획득 포인트</th>
+                        <th style={{width:50}}>수익률</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -124,14 +147,14 @@ function Mypage(){
                             )
                             }
                     </tbody>
-
-                    <li>
-
-                    </li>
                 </Table>
+                </div>
             </div>
+            </div></div>
 
-        </>
+
+           
+                           
     )
 }
 

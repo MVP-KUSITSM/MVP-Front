@@ -169,7 +169,7 @@ export default function UserInform() {
               </select>
             </div>
 
-        <button onClick={(e)=>postuser()}>
+        <button className="login__btn login__google" onClick={(e)=>postuser()}>
           클릭
         </button>
         </div>
