@@ -12,12 +12,14 @@ import LNB from "../LNB/LNB";
 import { PieChart } from 'react-minimal-pie-chart';
 import {Bar} from 'react-chartjs-2';
 
+import Chart from 'chart.js/auto';
+
 
 
 
 function Result() {
     var category1;
- 
+    console.log(Bar);
     const [women, setwomen]=useState(0);
     const [men, setmen]=useState(0)
     const [it, setit]=useState(0)
