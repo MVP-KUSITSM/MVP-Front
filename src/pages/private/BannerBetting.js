@@ -73,7 +73,7 @@ export default function BannerBetting() {
         fetchUserInfo();
     }, [user, loading]);
 
-    const [imageBettingPath,setimageBettingPath] = useState("Pets");
+    const [imageBettingPath,setimageBettingPath] = useState("it");
     
     
     const imageNumber = 4;

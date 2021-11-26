@@ -125,12 +125,12 @@ function Result() {
                         <div class="detail">
                         <div class="block">
                           <p style={{marginRight:10 ,borderStyle:"solid",borderColor: '#0A347F', borderWidth:8, width:15, height:10}}></p>
-                          <p class="text2">여자 : {women/(women+men)*100} % ({women}/{(women+men)}(표))</p>   
+                          <p class="text2">여자 : {parseInt(women/(women+men)*100)} % ({women}/{(women+men)}(표))</p>   
                             </div>
                           <div class="block">
                           <p style={{marginRight:10 ,borderStyle:"solid",borderColor: '#E7E855', borderWidth:8, width:15, height:10}}></p>
                             
-                          <p class="text2">남자 : {men/(women+men)*100} % ({men}/{(women+men)}(표))</p> 
+                          <p class="text2">남자 : {parseInt(men/(women+men)*100)} % ({men}/{(women+men)}(표))</p> 
                           </div>
                         </div>
                 </div>  
