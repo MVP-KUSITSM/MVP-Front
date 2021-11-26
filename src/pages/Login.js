@@ -6,7 +6,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
 import "./private/Role";
 
-import Modal from "./Modal";
+import Modal from "./Modal2";
+import Button from "@restart/ui/esm/Button";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -92,12 +93,46 @@ function Login() {
           로그인
         </button>
         <Modal open={modalOpen} close={closeModal} header="RoleCheck">
-          <Link to ="/userInform">
-          <button>일반 사용자</button>
-          </Link>
+        
+          <div className="modal_container">
+          <div className="main1">
+            <div className="modal_textcontainer">
+              <p className="modal_text">개인 </p>
+              <p className="modal_text">회원가입</p>
+            </div>
+            <Link to ="/corpInform">
+              <button className="modal_button"> 다음</button>
+            </Link>
+          </div>
+
+          <div className="main2">
+          <div className="modal_textcontainer">
+              <p className="modal_text">기업 </p>
+              <p className="modal_text">회원가입</p>
+            </div>
+            <Link to ="/corpInform">
+              <button className="modal_button">다음</button>
+            </Link>
+          </div>
+          </div>
+
+          {/* <section>
+            <main className="main1">
+            개인 회원가입
+            </main>
+            <footer className="footer1">
+            <Link to ="/userInform">
+              <button className="btn1">다음</button>
+            </Link>
+            </footer>
+          </section>
+          {/* <div className="main1">
+          </div> */}
+          {/* <div className="main1">기업 회원가입
           <Link to ="/corpInform">
-          <button>기업 사용자</button>
+            <button className="btn1">다음</button>
           </Link>
+          </div> */} 
         </Modal>
         <button className="login__btn login__google" onClick={signInWithGoogle}>
           Login with Google
