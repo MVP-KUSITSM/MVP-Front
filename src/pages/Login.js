@@ -4,13 +4,25 @@ import { auth, signInWithEmailAndPassword, signInWithGoogle,db } from "../script
 import { ref, get,set ,getDatabase,  child} from "firebase/database";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
-import "./private/Role"
+import "./private/Role";
+
+import Modal from "./Modal2";
+import Button from "@restart/ui/esm/Button";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
-  const [isModalOpen, setisModalOpen]=useState(false);
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => {
+    setModalOpen(true);
+  }
+
+  const closeModal = () => {
+    setModalOpen(false);
+  }
+
   const navigate = useNavigate();
 
   
@@ -33,25 +45,17 @@ function Login() {
             else if(auth=="ROLE_CORP")
               {navigate('/corporation/main', {replace:true});
               console.log("기업유저로.")}
-            else 
-            {navigate('/role', {replace:true});
-            console.log("정보입력으로.")}
+            else {
+              // navigate('/role', {replace:true});
+              // console.log("정보입력으로.");
+              openModal();
+            }
 
         }
     })
 
       }
   }, [user, loading]);
-
-  const openModal =async()=>{
-      setisModalOpen(true)
-    
-    }
-
-    const closeModal =async()=>{
-      setisModalOpen(false)
-    
-    }
 
   return (
     
@@ -88,6 +92,48 @@ function Login() {
         >
           로그인
         </button>
+        <Modal open={modalOpen} close={closeModal} header="RoleCheck">
+        
+          <div className="modal_container">
+          <div className="main1">
+            <div className="modal_textcontainer">
+              <p className="modal_text">개인 </p>
+              <p className="modal_text">회원가입</p>
+            </div>
+            <Link to ="/corpInform">
+              <button className="modal_button"> 다음</button>
+            </Link>
+          </div>
+
+          <div className="main2">
+          <div className="modal_textcontainer">
+              <p className="modal_text">기업 </p>
+              <p className="modal_text">회원가입</p>
+            </div>
+            <Link to ="/corpInform">
+              <button className="modal_button">다음</button>
+            </Link>
+          </div>
+          </div>
+
+          {/* <section>
+            <main className="main1">
+            개인 회원가입
+            </main>
+            <footer className="footer1">
+            <Link to ="/userInform">
+              <button className="btn1">다음</button>
+            </Link>
+            </footer>
+          </section>
+          {/* <div className="main1">
+          </div> */}
+          {/* <div className="main1">기업 회원가입
+          <Link to ="/corpInform">
+            <button className="btn1">다음</button>
+          </Link>
+          </div> */} 
+        </Modal>
         <button className="login__btn login__google" onClick={signInWithGoogle}>
           Login with Google
         </button>
