@@ -28,13 +28,14 @@ function Mypage(){
     const [List, setList]=useState([]);
     const [viewing,setViewing]=useState(false);
     const [title, setTitle] = useState("마이페이지");
-    const [profit, setProfit]=useState(0);
+    const [profit, setProfit]=useState(13.48);
     var list_all = new Array();
     const a="heejin"
-    // const [addsum,setaddsum]=useState(0);
-    // const [betsum,setbetsum]=useState(0);
-    var addsum=0;
-    var betsum=0;
+    const [addsum,setaddsum]=useState(0);
+    const [betsum,setbetsum]=useState(0);
+    const [show,setShow]=useState(false);
+     var add=0;
+     var bet=0;
 
 
     const fetchUserName = async () => {
@@ -61,21 +62,42 @@ function Mypage(){
                     let today = new Date();
                     setList(Object.values(snapshot.val()));
                     
-                    setViewing(true);
+                    setViewing(true); 
+                     
+                    List.map( point =>{ 
+                        setaddsum(addsum+point.addPoint)
+                        setbetsum(betsum+point.betPoint)
+                    add=add+point.addPoint
+                    bet=bet+point.betPoint ; 
+                         
+                    })  
+                    
+                    setaddsum(add) ; 
+                    setbetsum(bet) ; 
+                    console.log(add)
+                    console.log(bet);
+                    console.log("hee")
+                    setProfit(addsum/betsum*100)
+                    setShow(true);
                 }
+               
+                   
             }) 
 
-            List.map( point =>{ addsum=addsum+point.addPoint ; 
-                betsum=betsum+point.betPoint ;                
-                })
+            // List.map( point =>{ addsum=addsum+point.addPoint ; 
+            //     betsum=betsum+point.betPoint ;                
+            //     })
                 
-                setProfit(addsum/betsum*100)
+            //     setProfit(addsum/betsum*100)
+            //     console.log(profit)
 
                 
         
 
-    }, [user, loading]);
+    }, [user, loading,profit]);
 
+
+   
    
     return(
         <div className="M_flex">
@@ -97,7 +119,8 @@ function Mypage(){
                     </div>
                     <div className="mypage_box">
                         총 수익률
-                        <h5>{parseFloat(profit).toFixed(2)} %</h5>
+                        <h5>{profit}%</h5>
+                        {/* <h5>{parseFloat(profit).toFixed(2)} %</h5> */}
                     </div>
                 </div>
             
