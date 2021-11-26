@@ -14,7 +14,7 @@ function UserLNB() {
 
   return (
     <div class="Left-Menu">
-      <Link to="/main">
+      <Link to="/home">
         <div class="logo">
           <img src="https://s3-alpha-sig.figma.com/img/a4b7/2304/22ff2e085a67c44934bdf03cb04b9fe6?Expires=1638144000&Signature=MPjMGXUlptXWlQTI08Rt2F1E2gNdZfkzaxlThqMAP5Vogyv0MM8-j7BcYciOoSPX8l6tVsaU4jaYJ1FenH~Cwz~AVqGvMRNEwrELfknFEf9JYp~L6iTiNCF1bvXzGC8GY2XR0P5XSqyKYYpZCEdyzvkfBmV4qAGtptd-GhJqmkX47hIWndLivstMpLCTbzjamTxSNS~qWavkGLnTsOPtZ2M1SA1PUe1TCB1b1gmxlV0iVY7Vl6CmGtvl6rOu65VxULoHhrj0ehlcXnUMDCHfDHY34CZQrEBMJfcoLMjyWCb8dR3bPbIzhilMz1VI6taaJ5Gg08YY3vFv-0A44dZIiQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" width="100"></img>
         </div>

@@ -85,13 +85,19 @@ function Mypage(){
    
     return(
 
-        <div className="mypage_out">
-            <div className="flex">
+
+    
+
+
+       
+            <div className="M_flex">
+
                 <UserLNB/>
                 <div className="mypage_mainpage">
                     <NavMenu name={name} title={title}/>
                     <hr/>
                     <div classNam="point">
+
 
 
             
@@ -145,7 +151,10 @@ function Mypage(){
                 </div>
             </div>
             </div></div>
-        </div>
+
+
+           
+                           
     )
 }
 
