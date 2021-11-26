@@ -103,8 +103,8 @@ function Result() {
     <div class="cont">
     <LNB />
     <div class="cont2">
-    <GNB title={title}/>
-        
+      <GNB title={title}/>
+          <div className="cont3">
           <p class="banner-statistic-text">참여자 통계</p>
            
             <div class="sex_age_area">
@@ -224,6 +224,8 @@ function Result() {
                   <Bar
                     data={data}
                   />
+              </div>
+
               </div>
             </div>
     </div>

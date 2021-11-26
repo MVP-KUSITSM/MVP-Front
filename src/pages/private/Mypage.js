@@ -78,16 +78,15 @@ function Mypage(){
 
    
     return(
-            <div className="M_flex">
-
-                <UserLNB/>
-                <div className="mypage_mainpage">
+        <div className="M_flex">
+            <UserLNB/>   
+            <div className="mypage_mainpage">
                     <NavMenu name={name} title={title}/>
                     <hr/>
                     <div classNam="point">
-                <span className="mypage_name">{name} 님의 포인트 내역</span>
+                        <span className="mypage_name">{name} 님의 포인트 내역</span>
                
-                <div className="mypage_all">
+                        <div className="mypage_all">
                     <div className="mypage_box">
                         최고 Pt
                         <h5>128,000</h5> 
@@ -101,7 +100,7 @@ function Mypage(){
                         <h5>{parseFloat(profit).toFixed(2)} %</h5>
                     </div>
                 </div>
-            </div>
+            
             
             <div className="List">
                 <div className="mypage_line2"></div>
@@ -132,7 +131,7 @@ function Mypage(){
                     </tbody>
                 </Table>
                 </div>
-            </div>
+            </div></div>
             </div></div>
 
 

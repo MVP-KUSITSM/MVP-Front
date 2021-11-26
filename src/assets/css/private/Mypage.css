@@ -9,11 +9,12 @@
 
 .M_flex{
     display :flex;
-    width : 100vw;
+    width: 100%;
+  
 }
 
-.Mypage_Main_part{
-    overflow: scroll;
+.mypage_mainpage{
+    width: 100%;
 }
 .mypagecon{
     display: flex;

@@ -6,7 +6,7 @@ import { Button} from "react-bootstrap";
 import { auth, db, storage } from "../../scripts/firebase";
 import { ref, get, set, update, onValue, child } from "firebase/database";
 import * as fbStorage from "firebase/storage";
-
+import LNB from "../corporation/LNB/LNB";
 import Popup from 'reactjs-popup';
 
 import "../../assets/css/private/BannerBetting.css";
@@ -427,50 +427,46 @@ export default function BannerBetting() {
     }
 
     return (
-        <div>
-            <div className="flex">
-                <UserLNB/>
-                <div className="BannerBetting_main_part">
-                    <div className="Funding_main">
-                    <NavMenu name={name} onChangeName={name => {setName(name)}} title={title}/>
+        
+            <div className="bbcontainer">
+            <UserLNB/>
+            <div className="BannerBetting_main_part">
+                <NavMenu name={name} onChangeName={name => {setName(name)}} title={title}/>
                     <hr id="line"/>
-                    
-                        <div className="Title">
-                            <div className="Title_name">
+                    <div className="Title">
+                        <div className="Title_name">
                             <h2>배너 배팅</h2>
                             <h5>Pick Your Best</h5>
-
-                            </div>
-                            <div className="Title_explain">
-                                <p>
-                                제일 트렌디한 배너에 포인트를 배팅하세요.<br/>
-                                선호도가 높을 수록 배팅 성공률이 올라갑니다!  
-                                </p>
-                                <button className="Title_ranking" onClick={ showRank}>
-                                    순위표 보기
-                                </button>
-                                    <Modal open={modal2Open} close={closeModal2} header="포인트 순위" footer="닫기">
-                                        {rankText}
-                                    </Modal>
-                                
-                            </div>
                         </div>
-                        <hr></hr>
+                            
+                        <div className="Title_explain">
+                            <p>
+                            제일 트렌디한 배너에 포인트를 배팅하세요.<br/>
+                            선호도가 높을 수록 배팅 성공률이 올라갑니다!  
+                            </p>
+                            
+                            <button className="Title_ranking" onClick={showRank}>
+                                순위표 보기
+                            </button>
+                                <Modal open={modal2Open} close={closeModal2} header="포인트 순위" footer="닫기">
+                                    {rankText}
+                                </Modal>
+                        </div>        
+                    </div>
+                    
+                    <hr></hr>
 
                         <div className="Category_menu">
                             <div className="Refresh" onClick={() => { 
-                                setImages(imageBettingPath); 
-                                //imageoptioncheck();
-                            }}>
+                                setImages(imageBettingPath);  }}>
                                 새로고침
-                                <img src={Refresh}></img>
+                            <img src={Refresh}></img>
                             </div>
 
                             <div className="Category_select">
                             <select placeholder="직업 선택" name="joboption" 
                                     value={joboption}  onChange={(e) => {setimageBettingPath(e.target.value); setjoboption(e.target.value)}}>
                                     <optgroup label='직업을 선택하세요'>
-                                    <option value='기본'></option>
                                     <option value=' '></option>
                                     <option value='it'>IT/컴퓨터</option>
                                     <option value='marketing'>마케팅</option>
@@ -486,48 +482,7 @@ export default function BannerBetting() {
                                     <option value='environment'>환경</option>
                                     <option value='etc'>기타</option>
                                     </optgroup>
-                                    </select>
-
-                                {/* <Popup open={open} closeOnDocumentClick onClose={closeModal}>
-                                    {close => (
-                                    <div className="o_modal">
-                                        <div className="header"> Modal Title </div>
-                                        <div className="content">
-                                        {' '}
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, a nostrum.
-                                        Dolorem, repellat quidem ut, minima sint vel eveniet quibusdam voluptates
-                                        delectus doloremque, explicabo tempore dicta adipisci fugit amet dignissimos?
-                                        <br />
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur sit
-                                        commodi beatae optio voluptatum sed eius cumque, delectus saepe repudiandae
-                                        explicabo nemo nam libero ad, doloribus, voluptas rem alias. Vitae?
-                                        </div>
-                                        <div className="actions">
-                                        <Popup
-                                            trigger={<button className="button"> Trigger </button>}
-                                            position="top center"
-                                            nested
-                                        >
-                                            <span>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-                                            magni omnis delectus nemo, maxime molestiae dolorem numquam
-                                            mollitia, voluptate ea, accusamus excepturi deleniti ratione
-                                            sapiente! Laudantium, aperiam doloribus. Odit, aut.
-                                            </span>
-                                        </Popup> */}
-                                        {/* <button
-                                            className="button"
-                                            onClick={() => {
-                                            console.log('modal closed ');
-                                            close();
-                                            }}
-                                        >
-                                            close modal
-                                        </button>
-                                        </div>
-                                    </div>
-                                    )}
-                                </Popup> */}
+                            </select>         
                             </div>
                         </div>
                         
@@ -571,17 +526,24 @@ export default function BannerBetting() {
                                 </div> */}
                                 
                                 <div className="Button_choice">
+
+
                                     <div className ="Button_get">
-                                        <p><span id="getpoint">1000pt</span> <span className="Button_pick" onClick={onGetButtonClicked}>획득</span></p>
+                                    
+                                            <div id="getpoint">1000pt</div> 
+                                            <div className="Button_pick" onClick={onGetButtonClicked}>획득</div>
+                                      
                                     </div>
+
                                     <div className="Button_bet">
-                                        <p>
+                                            
                                             <input className="tr" id="betpoint" type="number" value={betPoint} onChange={e => setBetPoint(e.target.value)} />
-                                            pt <span className="Button_pick" onClick={onBetButtonClicked}>배팅</span>
+                                            <div className="pt_text">pt</div>
+                                            <div className="Button_pick" onClick={onBetButtonClicked}>배팅</div>
                                             <Modal open={modalOpen} close={closeModal} footer="확인" betting={true}>
-                                        {modalText}
-                                    </Modal>
-                                        </p>       
+                                                {modalText}
+                                                </Modal>
+                                                 
                                     </div>
                                 </div>
                                 <div className="point">
@@ -610,7 +572,7 @@ export default function BannerBetting() {
                     </div>
                     
                 </div>
-            </div>
-        </div>
+            
+     
     )
 }

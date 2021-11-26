@@ -1,6 +1,6 @@
 import { React } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import "./App.css"
+import "./App.css"
 
 //로그인, 회원가입 컴포넌트
 import Login from "./pages/Login";
@@ -34,6 +34,7 @@ import CP_Home from "./pages/corporation/CorpHome";
 
 export default function App() {
     return (
+        <div className="app_container">
         <div className="app">
             <Router>
                 <Routes>
@@ -64,6 +65,8 @@ export default function App() {
                     
                 </Routes>
             </Router>
+        </div>
+
         </div>
     )
 }
