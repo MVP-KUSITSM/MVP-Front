@@ -100,7 +100,7 @@ function Login() {
               <p className="modal_text">개인 </p>
               <p className="modal_text">회원가입</p>
             </div>
-            <Link to ="/corpInform">
+            <Link to ="/userInform">
               <button className="modal_button"> 다음</button>
             </Link>
           </div>

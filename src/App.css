@@ -1,7 +1,15 @@
 .App {
   text-align: center;
+  
 }
 
+/* .app {
+  width: 1440px;
+  -ms-overflow-style: none;
+}
+.app::-webkit-scrollbar{
+  display: none;
+} */
 .App-logo {
   height: 40vmin;
   pointer-events: none;

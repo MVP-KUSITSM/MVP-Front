@@ -24,12 +24,14 @@ export default function BannerBetting() {
     const [select, setSelect] = useState(null);
     const [betPoint, setBetPoint] = useState(0);
     const [imageMap, setImageMap] = useState(null);
-    const [title,setTitle] = useState("BannerBetting");
+    const [title,setTitle] = useState("배너배팅");
 
     const [sex, setSex]=useState(''); 
     const [job, setJob]=useState(''); 
     const [category, setCategory]=useState('');
     const [joboption,setjoboption]=useState('');
+    const [imageBettingPath,setimageBettingPath] = useState("");
+    
 
     const [modalOpen, setModalOpen] = useState(false);
     const [modal2Open, setModal2Open] = useState(false);
@@ -66,6 +68,8 @@ export default function BannerBetting() {
                 setSex(data.ROLE_USER.sex);
                 setCategory(data.ROLE_USER.category);
                 setJob(data.ROLE_USER.job);
+                setimageBettingPath(data.ROLE_USER.category);
+                
                 //console.log(job+sex+category);
                 if(data.tm_info != null){
                     setPoint(data.tm_info.point);
@@ -82,7 +86,7 @@ export default function BannerBetting() {
             }
         } catch (err) {
             console.error(err);
-            alert("An error occured while fetching user data");
+            // alert("An error occured while fetching user data");
         }
     };
 
@@ -90,12 +94,13 @@ export default function BannerBetting() {
         if (loading) return;
         if (!user) return navigate('/', {replace: true});
         fetchUserInfo();
+        // console.log(imageBettingPath);
     }, [user, loading]);
 
-    const [imageBettingPath,setimageBettingPath] = useState("Pets");
+   // const [imageBettingPath,setimageBettingPath] = useState("Pets");
     
     
-    const imageNumber = 4;
+    const imageNumber = 10;
 
     useEffect(() => {
         setImages(imageBettingPath);
@@ -439,10 +444,13 @@ export default function BannerBetting() {
                                 제일 트렌디한 배너에 포인트를 배팅하세요.<br/>
                                 선호도가 높을 수록 배팅 성공률이 올라갑니다!  
                                 </p>
-                                <button className="Title_ranking" onClick={() => { showRank(); }}>
+                                <button className="Title_ranking" onClick={ showRank}>
                                     순위표 보기
-
                                 </button>
+                                    <Modal open={modal2Open} close={closeModal2} header="포인트 순위" footer="닫기">
+                                        {rankText}
+                                    </Modal>
+                                
                             </div>
                         </div>
                         <hr></hr>
@@ -478,7 +486,7 @@ export default function BannerBetting() {
                                     </optgroup>
                                     </select>
 
-                                <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+                                {/* <Popup open={open} closeOnDocumentClick onClose={closeModal}>
                                     {close => (
                                     <div className="o_modal">
                                         <div className="header"> Modal Title </div>
@@ -504,8 +512,8 @@ export default function BannerBetting() {
                                             mollitia, voluptate ea, accusamus excepturi deleniti ratione
                                             sapiente! Laudantium, aperiam doloribus. Odit, aut.
                                             </span>
-                                        </Popup>
-                                        <button
+                                        </Popup> */}
+                                        {/* <button
                                             className="button"
                                             onClick={() => {
                                             console.log('modal closed ');
@@ -517,7 +525,7 @@ export default function BannerBetting() {
                                         </div>
                                     </div>
                                     )}
-                                </Popup>
+                                </Popup> */}
                             </div>
                         </div>
                         
@@ -568,6 +576,9 @@ export default function BannerBetting() {
                                         <p>
                                             <input className="tr" id="betpoint" type="number" value={betPoint} onChange={e => setBetPoint(e.target.value)} />
                                             pt <span className="Button_pick" onClick={onBetButtonClicked}>배팅</span>
+                                            <Modal open={modalOpen} close={closeModal} footer="확인" betting={true}>
+                                        {modalText}
+                                    </Modal>
                                         </p>       
                                     </div>
                                 </div>
@@ -579,7 +590,7 @@ export default function BannerBetting() {
                             </div>
                         </div> 
                         
-                        <div className="Button_choice">
+                        {/* <div className="Button_choice">
                             <div className ="Button_get">
                                 <p><span id="getpoint">1000pt</span> <span className="Button_pick" onClick={onGetButtonClicked}>획득</span></p>
                             </div>
@@ -593,7 +604,7 @@ export default function BannerBetting() {
                                 </p>                                 
 
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     
                 </div>
