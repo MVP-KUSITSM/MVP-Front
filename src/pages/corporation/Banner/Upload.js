@@ -13,6 +13,7 @@ function Upload() {
   const [uid, setUid] = useState("");
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
+  const [size, setSize] = useState('');
   const [title,setTitle]= useState("Banner Upload");   
 
 
@@ -94,7 +95,7 @@ function Upload() {
           <p class="Banner-Upload-description">
             배너 펀딩에 참여하여 사용자들의 선호도를 알아볼 배너 이미지 파일을 업로드 하세요.
           <br/>
-          파일은 최대 n개까지 업로드할 수 있어요.</p>
+         </p>
           <div className="file-select">
               <center>
                 <div>
@@ -130,7 +131,19 @@ function Upload() {
                       </optgroup>
                   </select>
               <div className="gray">배너 사이즈</div>
-              <input class="banner-description" placeholder="배너 사이즈 선택"></input>
+              <select className="file-category" placeholder="배너 분야 선택" name="fieldoption" value={size} >
+                      <optgroup label='분야를 선택하세요'>
+                      <option value=' '></option>
+                      <option value='it'>1920 x 1080</option>
+                      <option value='marketing'>1680 x 1050</option>
+                      <option value='finance'>1600 x 900</option>
+                      <option value='game'>1280 x 1024</option>
+                      <option value='culture'>1280 x 720</option>
+                      <option value='beauty'>1024 x 768</option>
+                      <option value='sports'>800 x 600</option>              
+                      </optgroup>
+                  </select>
+              
             </div>
             
         

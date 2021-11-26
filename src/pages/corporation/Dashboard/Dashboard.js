@@ -138,8 +138,8 @@ function Dashboard() {
               <Link to="/corporation/banner/detail"><img src=""className="Banner_img" id="take"/></Link>
 
               <div className="Banner_text">
-                <p>{참여인원} 명 참여 중</p>
-                <p>배너 A : n% <br/>배너 B : m%</p>
+                <p>13 명 참여 중</p>
+                <p>리브 모바일:  35% <br/>KB_1:  65%</p>
               </div>
 
             </div>

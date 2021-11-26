@@ -7,17 +7,17 @@ import { ref, onValue } from "firebase/database";
 import * as fbStorage from "firebase/storage";
 import "../../../assets/css/corporation/banner/result.css";
 import LNB from "../LNB/LNB";
+import GNB from "../GNB/GNB";
 //import { FirebaseStorage } from "@firebase/storage-types";
 
 import { PieChart } from 'react-minimal-pie-chart';
 import {Bar} from 'react-chartjs-2';
-
-
+import Chart from 'chart.js/auto';
 
 
 function Result() {
     var category1;
- 
+    const [title,setTitle]= useState("Banner Result");   
     const [women, setwomen]=useState(0);
     const [men, setmen]=useState(0)
     const [it, setit]=useState(0)
@@ -103,8 +103,8 @@ function Result() {
     <div class="cont">
     <LNB />
     <div class="cont2">
-        <p class="banner-statistic-text">펀딩결과</p>
-         <div class="line3"></div>
+    <GNB title={title}/>
+        
           <p class="banner-statistic-text">참여자 통계</p>
            
             <div class="sex_age_area">
