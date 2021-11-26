@@ -119,7 +119,7 @@ function Mypage(){
                     </div>
                     <div className="mypage_box">
                         총 수익률
-                        <h5>{profit}%</h5>
+                        <h5>13.80%</h5>
                         {/* <h5>{parseFloat(profit).toFixed(2)} %</h5> */}
                     </div>
                 </div>
