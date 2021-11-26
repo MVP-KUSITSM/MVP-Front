@@ -238,7 +238,13 @@ color: #0A347F;
 
 .banner_pick {
     position: relative;
-    width: 100%; /* The size you want */
+     width: 100%; /*The size you want */
+    /* width: 300px;
+    height: 300px; */
+    /* max-width: 100%;
+    width: auto !important;
+    height: auto !important; */
+    /* object-fit: contain */
 }
 
 .banner_pick:after {
@@ -255,7 +261,7 @@ color: #0A347F;
     right: 0; /* Make the picture taking the size of it's parent */
     width: 100%; /* This if for the object-fit */
     height: 100%; /* This if for the object-fit */
-    object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
+    object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
     object-position: center;
     pointer-events: none;
 }

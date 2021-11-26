@@ -1,0 +1,217 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.header {
+    position: absolute;
+    width: 847px;
+    height: 118px;
+    left: 296px;
+    top: 70px;
+    z-index: 1;
+
+    background: #FFFFFF;
+    border: 1.39986px solid #0A347F;
+    box-sizing: border-box;
+    box-shadow: 1.86648px 1.86648px 6.99928px 0.933238px rgba(0, 0, 0, 0.25);
+    border-radius: 9.33238px;
+}
+
+.modal > main {
+    position: absolute;
+    padding: 1%;
+    width: 836.93px;
+    height: 542.21px;
+    left: 301.04px;
+    top: 80px;
+
+    background: #FFFFFF;
+    border: 1.39986px solid #000000;
+    box-sizing: border-box;
+    border-radius: 9.33238px;
+}
+.modal_logo{
+    width:260px;
+    padding-top: 20px;
+    height:auto;
+     z-index:100;
+}
+.modal_container{
+    width:100vw;
+    display: flex;
+    padding-Top:200px;
+    padding-left: 42px;
+    align-items: center;
+    
+}
+.main1 {
+/*
+    align-items: center;
+    text-align: center; */
+  
+    /* float: left;
+    padding: 10%;
+    width: 348px;
+    height: 272px;
+    left: 371px;
+    top: 900px; */
+    margin-right:20px; 
+    width: 348px; 
+     background: white;
+    border-radius: 20px;
+    border: 2px solid #0A347F;
+    /* box-sizing: border-box; */
+
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+   font-size: 36px;
+     /* line-height: 52px;  */
+    align-items: center;
+    text-align: center;
+
+    color: #000000; 
+}
+
+.main2 {
+    /*
+        align-items: center;
+        text-align: center; */
+      
+        /* float: left;
+        padding: 10%;
+        width: 348px;
+        height: 272px;
+        left: 371px;
+        top: 900px; */
+        
+        width: 348px; 
+         background: white;
+        border-radius: 20px;
+        border: 2px solid #0A347F;
+        /* box-sizing: border-box; */
+    
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: 500;
+       font-size: 36px;
+         /* line-height: 20px;  */
+        align-items: center;
+        text-align: center;
+    
+        color: #000000; 
+    }
+
+.modal_button{
+    font-family: YES24;
+    padding: 20px 0px 20px 0px;
+    font-size: 20px;
+    background-color: #0A347F;
+    border: 2px solid red;
+    color:white;
+    width: 347px; 
+    border-radius: 0px 0px 20px 20px;
+    margin-left: -1px;
+    margin-bottom: -1px;
+}
+
+.modal_text{
+    padding-top: 10px;
+    margin-bottom:0px; 
+    font-size:25px;
+    font-weight: 600;
+}
+.modal_textcontainer{
+    padding: 40px 0px 40px 0px;
+}
+
+/* .main1 > footer {
+    text-align: center;
+}
+.main1 > footer button {
+    width:100%;
+    height: 73.16px;
+    left: 201px;
+    top: 1000px;
+
+    background: #0A347F;
+    border-radius: 4.87765px;
+
+    font-family: YES24;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+} */
+
+
+.modal.openModal {
+    display: flex;
+    align-items: center;
+    animation: modal-bg-show .3s;
+    overflow: hidden;
+}
+
+
+
+/* .btn1 { 
+    width: 598px;
+    height: 73.16px;
+    left: 201px;
+    top: 800px;
+
+    background: #0A347F;
+    border-radius: 4.87765px;
+
+    font-family: YES24;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+} */
+
+@keyframes modal-show {
+    from {
+        opacity: 0;
+        margin-top: -50px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+@keyframes modal-bg-show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* .modal > section {
+    
+    margin:0 auto;
+    border-radius: .3rem;
+    background-color: #fff;
+    animation: modal-show .3s;
+    overflow: hidden;
+} */
