@@ -76,7 +76,7 @@ export default function BannerBetting() {
     const [imageBettingPath,setimageBettingPath] = useState("Pets");
     
     
-    const imageNumber = 32;
+    const imageNumber = 4;
 
     useEffect(() => {
         setImages(imageBettingPath);
@@ -397,11 +397,6 @@ export default function BannerBetting() {
 
     return (
 
-      
-     
-
-         
-         
         <div>
             <div className="flex">
                 <UserLNB/>

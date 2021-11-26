@@ -84,20 +84,17 @@ function Mypage(){
 
    
     return(
-        <>
+
+        <div className="mypage_out">
             <div className="flex">
                 <UserLNB/>
-                <div className="Mypage_Main_part">
+                <div className="mypage_mainpage">
                     <NavMenu name={name} title={title}/>
                     <hr/>
                     <div classNam="point">
 
 
-            <NavMenu name={name}/>
-            <div className="mypagecon">
-            <LNB/>
-            <div>
-            <div classNam="point">
+            
 
                 <span className="mypage_name">{name} 님의 포인트 내역</span>
                
@@ -125,10 +122,10 @@ function Mypage(){
                     
                     <thead className="mypage_tabletitle">
                         <tr>
-                        <th style={{width:250}}>배팅 날짜</th>
-                        <th style={{width:350}}>배팅 포인트</th>
-                        <th style={{width:350}}>획득 포인트</th>
-                        <th style={{width:250}}>수익률</th>
+                        <th style={{width:50}}>배팅 날짜</th>
+                        <th style={{width:50}}>배팅 포인트</th>
+                        <th style={{width:50}}>획득 포인트</th>
+                        <th style={{width:50}}>수익률</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -148,7 +145,7 @@ function Mypage(){
                 </div>
             </div>
             </div></div>
-        </>
+        </div>
     )
 }
 

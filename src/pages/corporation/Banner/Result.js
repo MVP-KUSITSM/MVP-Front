@@ -37,6 +37,11 @@ function Result() {
     const [teenager, setteenager]=useState(0)
     const [worker, setworker]=useState(0)
 
+    const [age10,setage10]=useState(0)
+    const [age20,setage20]=useState(0)
+    const [age30,setage30]=useState(0)
+    const [age40,setage40]=useState(0)
+
     
 /*    let it,marketing,finance,game,culture,beauty,sports,foods,trip,medical,fashion,environment,etc,student,doctor,teenager,worker;
     let men1;
@@ -75,36 +80,6 @@ function Result() {
       setteenager(data.job.teenager);
       setworker(data.job.worker);
 
-
-      //-----------------
-      /*it=data.category.it;
-      marketing=data.category.marketing;
-      finance=data.category.finance;
-      game=data.category.game;
-      culture=data.category.culture;
-      beauty=data.category.beauty;
-      sports=data.category.sports;
-      foods=data.category.foods;
-      trip=data.category.trip;
-      medical=data.category.medical;
-      fashion=data.category.fashion;
-      environment=data.category.environment;
-      etc=data.category.etc;
-      //------------------
-      student=data.job.student;
-      doctor=data.job.doctor;
-      teenager=data.job.teenager;
-      worker=data.job.worker;
-
-      //console.log("heejin");
-      /*category1=data.category;
-      sex1=data.sex
-      job1=data.job
-      console.log(sex1.women);
-      /*console.log(job1);
-      console.log(sex1);
-      console.log(category1);*/
-
     })
     }, []); 
 
@@ -126,7 +101,6 @@ function Result() {
   
     <div class="cont">
     <LNB />
-    {/* <div class="Banner-Result"> */}
     <div class="cont2">
         <p class="banner-statistic-text">펀딩결과</p>
          <div class="line3"></div>
@@ -139,12 +113,13 @@ function Result() {
                         <PieChart style={{width:200, height:200}} class="basic-chart"
                             data={[
                               { title: 'One', value: women, color: '#0A347F' },
-                              { title: 'Two', value: men, color: '#E7E855'}                              
+                              { title: 'Two', value: men, color: '#E7E855'}
+                                                             
                             ]}
                             rounded={true}
                             lineWidth={20}
                             
-                            label={({dataEntry})=>(dataEntry.value)/(men+women)*100+"%"}
+                            label={({dataEntry})=>parseInt((dataEntry.value)/(men+women)*100)+"%"}
                             labelStyle={{fontSize:"10px"}}
                             labelPosition={70} />
                         <div class="detail">
@@ -165,25 +140,35 @@ function Result() {
               <div class="graph">
                         <PieChart style={{width:200, height:200}} class="basic-chart"
                             data={[
-                              { title: 'One', value: women, color: '#0A347F' },
-                              { title: 'Two', value: men, color: '#E7E855'}                              
+                              { title: 'one', value: 12, color: '#0A347F' },
+                              { title: 'Two', value: 13, color: '#E7E855' },
+                              { title: 'Three', value: 4, color: '#FFFFB6' },
+                              { title: 'Three', value: 6, color: '#C13C37' },                               
                             ]}
                             rounded={true}
                             lineWidth={20}
                             
-                            label={({dataEntry})=>(dataEntry.value)/(men+women)*100+"%"}
-                            labelStyle={{fontSize:"10px"}}
+                            label={({dataEntry})=>parseInt((dataEntry.value)/(12+13+4+6)*100)+"%"}
+                            labelStyle={{fontSize:"7px"}}
                             labelPosition={70} />
                         <div class="detail">
                         <div class="block">
                           <p style={{marginRight:10 ,borderStyle:"solid",borderColor: '#0A347F', borderWidth:8, width:15, height:10}}></p>
-                          <p class="text2">여자 : {women/(women+men)*100} % ({women}/{(women+men)}(표))</p>   
-                            </div>
-                          <div class="block">
-                          <p style={{marginRight:10 ,borderStyle:"solid",borderColor: '#E7E855', borderWidth:8, width:15, height:10}}></p>
-                            
-                          <p class="text2">남자 : {men/(women+men)*100} % ({men}/{(women+men)}(표))</p> 
-                          </div>
+                          <p class="text2">10대 : {parseInt(12/(12+13+4+6)*100)} % ({12}/{(12+13+4+6)}(표))</p>   
+                        </div>
+                        <div class="block">
+                          <p style={{marginRight:10 ,borderStyle:"solid",borderColor: '#E7E855', borderWidth:8, width:15, height:10}}></p> 
+                          <p class="text2">20대 : {parseInt(13/(12+13+4+6)*100)} % ({13}/{(12+13+4+6)}(표))</p> 
+                        </div>
+                        <div class="block">
+                          <p style={{marginRight:10 ,borderStyle:"solid",borderColor: '#FFFFB6', borderWidth:8, width:15, height:10}}></p>
+                          <p class="text2">30대 : {parseInt(4/(12+13+4+6)*100)} % ({4}/{(12+13+4+6)}(표))</p>   
+                        </div>
+                        <div class="block">
+                          <p style={{marginRight:10 ,borderStyle:"solid",borderColor: '#C13C37', borderWidth:8, width:15, height:10}}></p> 
+                          <p class="text2">40대 이상 : {parseInt(6/(12+13+4+6)*100)} % ({6}/{(12+13+4+6)}(표))</p> 
+                        </div>
+                       
                         </div>
                 </div> 
               </div>
@@ -230,71 +215,16 @@ function Result() {
                             <p class="text2">연구원 : {parseInt(doctor/(student+teenager+worker+doctor)*100)} % ({doctor}/{(student+teenager+worker+doctor)}(표))</p> 
                          </div>
                        
-                </div>  
-              
-              
-              
+                </div> 
               </div>
-        
-    </div>
-    <div class="field_area2">
-    <p class="text">관심분야 별 통계</p>
-        <Bar
-          data={data}
-        />
-        
-        </div>
-    <div class="field_area">
-                <p class="text">분야 통계</p>
-                <div class="graph">
-                <PieChart style={{width:200, height:200}} class="basic-chart"
-                    data={[
-
-                      { title: 'it', value: it, color: '#C13C37' },
-                      { title: 'marketing', value: marketing, color: '#6A2135' },
-                      { title: 'finance', value: finance, color: '#C13C37' },
-                      { title: 'game', value: game, color: '#6A2135' },
-                      { title: 'culture', value: culture, color: '#C13C37' },
-                      { title: 'beauty', value: beauty, color: '#6A2135' },
-                      { title: 'sports', value: sports, color: '#C13C37' },
-                      { title: 'foods', value: foods, color: '#6A2135' },
-                      { title: 'trip', value: trip, color: '#C13C37' },
-                      { title: 'medical', value: medical, color: '#6A2135' },
-                      { title: 'fashion', value: fashion, color: '#C13C37' },
-                      { title: 'environment', value: environment, color: '#6A2135' },
-                      { title: 'etc', value: etc, color: '#FFFFFF' },
-                    ]}
-                    rounded={true}
-                    
-                    lineWidth={20}
-                    label={({dataEntry})=>parseInt((dataEntry.value)/(it+marketing+finance+game+culture+beauty+sports+foods+trip+medical+fashion+environment+etc)*100)+"%"}
-                    labelStyle={{fontSize:"5px"}}
-                    labelPosition={72}
-
+          </div>
+              <div class="field_area2">
+                  <p class="text">관심분야 별 통계</p>
+                  <Bar
+                    data={data}
                   />
-                        <div class="detail">
-                          <p>20%는 여자고</p>   
-                          <p>80%는 남자고</p> 
-                          <p>80%는 남자고</p>
-                          <p>80%는 남자고</p>
-                        </div>
-                        <div class="detail">
-                          <p>20%는 여자고</p>   
-                          <p>80%는 남자고</p> 
-                          <p>80%는 남자고</p>
-                          <p>80%는 남자고</p>
-                        </div>
-                        <div class="detail">
-                          <p>20%는 여자고</p>   
-                          <p>80%는 남자고</p> 
-                          <p>80%는 남자고</p>
-                          <p>80%는 남자고</p>
-                        </div>
-                </div>
-             
-              
-               </div>
               </div>
+            </div>
     </div>
   );
 }
