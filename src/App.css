@@ -1,7 +1,21 @@
-.App {
-  text-align: center;
+/* .App {
+  display: flex;
+  
+} */
+.app_container{
+  display: flex;
+  justify-content: center;
 }
-
+.app {
+  width: 1440px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  -ms-overflow-style: none;
+}
+.app::-webkit-scrollbar{
+  display: none;
+} 
 .App-logo {
   height: 40vmin;
   pointer-events: none;

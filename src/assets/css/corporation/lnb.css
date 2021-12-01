@@ -1,86 +1,54 @@
+/* .Left-Menu:after{ clear: both; display: block; content: '' } */
+.logo img{
+    position :static;
+    margin-top:20px;
+    margin-left : 25%;
+    cursor: pointer;
+}
+
+
 .Left-Menu {
-    display: flex;
-    width: 257px;
-    height: 1324px;
-    left: 0px;
-    top: 96px;
-
-    
+    position :sticky;
+    width: 20vw;
     left: 0%;
-    right: 79.92%;
-    top: 6.76%;
+    height: 100vh;
     bottom: 0%;
-
     background: #FFFFFF;
-    border: 1px solid #000000;
+    border-right: 1.73517px solid #E3E5E5;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
 }
 
-.menu1 {
-    position: absolute;
-    left: 2.89%;
-    right: 90.16%;
-    top: 23%;
-    bottom: 87.82%;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    color: #000000;
+.content-menu{
+    position :relative;
+    margin-top : 30px;
+    font-weight: bolder;
+    color : black;
+    text-decoration-line: none;
+    left : -24px;
 }
 
-.menu2 {
-    position: absolute;
-    left: 3.12%;
-    right: 89.45%;
-    top: 27.15%;
-    bottom: 83.66%;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    color: #000000;
+.content-menu > div{
+    position: static;
+    padding-top: 20px;
+    padding-left : 1000px;
+    margin-left : 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 58.4521px;
 }
 
-.menu3 {
-    position: absolute;
-    left: 2.89%;
-    right: 84.53%;
-    top: 31.3%;
-    bottom: 79.51%; 
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    color: #000000;
+.content_img {
+    margin-right: 5px;
+}
+.content-menu > div:hover{
+    background-color: #0A347F;
+    color : white;
 }
 
-.menu4 {
-    position: absolute;
-    left: 2.89%;
-    right: 84.06%;
-    top: 35.45%;
-    bottom: 75.35%;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    color: #000000;
-}
-
-.menu5 {
-    position: absolute;
-    left: 2.89%;
-    right: 86.25%;
-    top: 39.6%;
-    bottom: 71.2%;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    color: #000000;
+.User-Span{
+    padding-left:45px;
+    width : 50px;
 }

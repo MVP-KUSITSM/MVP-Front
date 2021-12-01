@@ -2,8 +2,12 @@
 
 # dependencies
 /node_modules
+/package-lock.json
+/node_modules
 /.pnp
 .pnp.js
+
+tmi-front
 
 # testing
 /coverage

@@ -1,77 +1,78 @@
-.Banner-Result {
-    position: flex;
-    width: 1280px;
-    height: 1494px;
-    background: #FFFFFF;
-}
-
-.title {
-    position: absolute;
-    left: 20%;
-    right: 68.36%;
-    top: 1%;
-    bottom: 88.42%;
-    font-family: Roboto;
-    font-style: normal;
+@font-face {
+    font-family: 'YES24';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/YES24.woff') format('woff');
     font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    color: #000000;
-}
-
-.banner-favor-text {
-    position: absolute;
-    left: 24.22%;
-    right: 67.42%;
-    top: 30%;
-    bottom: 83.33%;
-    font-family: Roboto;
     font-style: normal;
-    font-weight: normal;
-    font-size: 22px;
-    line-height: 26px;
-    color: #000000;
 }
 
-.banner-img {
-    position: absolute;
-    width: 421px;
-    height: 169px;
-    left: 312px;
-    top: 270px;
+.cont{
+    display: flex;
+    width: 100%;
+}
+.cont2{
+    width: 100%;
+}
+
+.sex_age_area{
+    display: flex; 
   
-    left: 24.38%;
-    right: 42.73%;
-    top: 37%;
-    bottom: 70.62%;
-    background: #C4C4C4;
 }
 
-.favor-scale {
-    position: absolute;
-    width: 910px;
-    height: 58px;
-    left: 314px;
-    top: 471px;
-    left: 24.53%;
-    right: 4.38%;
-    top: 66%;
-    bottom: 64.59%;
-    background: #C4C4C4;
+.sex_area{
+    flex:1;
+    background-color: rgb(10, 52, 127,0.05);
+    margin: 0% 1.5% 3% 3%;
+    padding: 2%;
+}
+.age_area{
+    flex:1;
+    background-color: rgb(10, 52, 127,0.05);
+    margin: 0% 3% 3% 1.5%;
+    padding: 2%;
+}
+.job_area{    
+    background-color: rgb(10, 52, 127,0.08);
+    margin: 0% 3% 3% 3%;
+    padding: 2%;
+}
+.field_area{    
+    background-color: rgb(154, 185, 185);
+}
+.field_area2{    
+    background-color: rgb(10, 52, 127,0.08);
+    margin: 0% 3% 3% 3%;
+    padding: 5%;
+}
+.text{
+    font-family: YES24;
+    font-size: 18px;
+    margin-bottom: 20px;
+} 
+.text2{
+    font-size: 15px;
+    margin-bottom: 20px;
+    
+} 
+.graph{
+    display: flex;
+}
+.detail{
+    margin-left: 10%;
+    /* border: aliceblue 5px solid; */
+}
+.block{
+    display: flex;
 }
 
 .banner-statistic-text {
-    position: absolute;
-    left: 24.22%;
-    right: 67.42%;
-    top: 85%;
-    bottom: 57.3%;
-    font-family: Roboto;
+    margin-top: 2%;
+    margin-left: 5%;
+    font-family: YES24;
     font-style: normal;
     font-weight: normal;
     font-size: 22px;
     line-height: 26px;
-    color: #000000;
+    
 }
 
 .basic-chart {
@@ -79,72 +80,23 @@
     flex-direction: row;
 }
 
-.gender-chart {
-    position: absolute;
-    width: 329px;
-    height: 199px;
-    left: 312px;
-    top: 661px;
-    left: 24.38%;
-    right: 49.92%;
-    top: 97%;
-    bottom: 42.44%;
-    background: #C4C4C4;
-}
-
-.age-chart {
-    position: absolute;
-    width: 532px;
-    height: 196.83px;
-    left: 694px;
-    top: 662.09px;
-    left: 50%;
-    right: 4.22%;
-    top: 97%;
-    bottom: 42.51%;
-    background: #C4C4C4;
-}
-
-.job-chart {
-    position: absolute;
-    width: 912px;
-    height: 247px;
-    left: 312px;
-    top: 896px;
-    left: 24.38%;
-    right: 4.38%;
-    top: 130%;
-    bottom: 23.49%;
-    background: #C4C4C4;
-}
-
-.field-chart {
-    position: absolute;
-    width: 912px;
-    height: 247px;
-    left: 312px;
-    top: 1186px;
-    left: 24.38%;
-    right: 4.38%;
-    top: 170%;
-    bottom: 4.08%;
-    background: #C4C4C4;
-}
 
 .line2 {
-    position: absolute;
+    /* position: absolute;
     left: 24.38%;
     right: 4.22%;
     top: 27%;
-    bottom: 87.01%;
+    bottom: 87.01%; */
     border: 1px solid #C4C4C4;
 }
 
 .line3 {
-    position: absolute;
+    /* position: absolute;
     left: 24.38%;
     right: 4.22%;
     top: 80%;
-    bottom: 61.85%;
+    bottom: 61.85%; */
     border: 1px solid #C4C4C4;
+    margin:0% 3% 1.5% 3%
 }
+
