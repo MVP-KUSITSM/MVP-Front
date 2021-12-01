@@ -73,6 +73,8 @@ function Mypage(){
                     
                     setViewing(true);
                 }
+               
+                   
             }) 
             console.log(point);
             pointCal();

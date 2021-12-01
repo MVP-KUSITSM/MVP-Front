@@ -7,6 +7,7 @@ import { ref, onValue } from "firebase/database";
 import * as fbStorage from "firebase/storage";
 import "../../../assets/css/corporation/banner/result.css";
 import LNB from "../LNB/LNB";
+import GNB from "../GNB/GNB";
 //import { FirebaseStorage } from "@firebase/storage-types";
 
 import { PieChart } from 'react-minimal-pie-chart';
@@ -19,7 +20,7 @@ import Chart from 'chart.js/auto';
 
 function Result() {
     var category1;
-    console.log(Bar);
+    const [title,setTitle]= useState("Banner Result");   
     const [women, setwomen]=useState(0);
     const [men, setmen]=useState(0)
     const [it, setit]=useState(0)
@@ -105,8 +106,8 @@ function Result() {
     <div class="cont">
     <LNB />
     <div class="cont2">
-        <p class="banner-statistic-text">펀딩결과</p>
-         <div class="line3"></div>
+      <GNB title={title}/>
+          <div className="cont3">
           <p class="banner-statistic-text">참여자 통계</p>
            
             <div class="sex_age_area">
@@ -128,12 +129,12 @@ function Result() {
                         <div class="detail">
                         <div class="block">
                           <p style={{marginRight:10 ,borderStyle:"solid",borderColor: '#0A347F', borderWidth:8, width:15, height:10}}></p>
-                          <p class="text2">여자 : {women/(women+men)*100} % ({women}/{(women+men)}(표))</p>   
+                          <p class="text2">여자 : {parseInt(women/(women+men)*100)} % ({women}/{(women+men)}(표))</p>   
                             </div>
                           <div class="block">
                           <p style={{marginRight:10 ,borderStyle:"solid",borderColor: '#E7E855', borderWidth:8, width:15, height:10}}></p>
                             
-                          <p class="text2">남자 : {men/(women+men)*100} % ({men}/{(women+men)}(표))</p> 
+                          <p class="text2">남자 : {parseInt(men/(women+men)*100)} % ({men}/{(women+men)}(표))</p> 
                           </div>
                         </div>
                 </div>  
@@ -226,6 +227,8 @@ function Result() {
                   <Bar
                     data={data}
                   />
+              </div>
+
               </div>
             </div>
     </div>

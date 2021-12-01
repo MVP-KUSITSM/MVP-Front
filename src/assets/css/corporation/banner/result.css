@@ -7,7 +7,7 @@
 
 .cont{
     display: flex;
-    
+    width: 100%;
 }
 .cont2{
     width: 100%;
@@ -15,16 +15,17 @@
 
 .sex_age_area{
     display: flex; 
+  
 }
 
 .sex_area{
-    flex: 2;
+    flex:1;
     background-color: rgb(10, 52, 127,0.05);
     margin: 0% 1.5% 3% 3%;
     padding: 2%;
 }
 .age_area{
-    flex: 2;
+    flex:1;
     background-color: rgb(10, 52, 127,0.05);
     margin: 0% 3% 3% 1.5%;
     padding: 2%;
